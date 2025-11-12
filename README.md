@@ -1,30 +1,79 @@
-# Yoga studio portfolio
+# Ginkgo Yoga Studio
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+A beautiful, multilingual yoga studio website built with Next.js, React, and Tailwind CSS.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/ganeshdipdumbares-projects/v0-yoga-studio-portfolio)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/XtdoXTRuphW)
+## Features
 
-## Overview
+- 🌍 **Multilingual Support**: English, German, and Italian
+- 📱 **Responsive Design**: Optimized for all devices
+- 🎨 **Modern UI**: Beautiful, elegant design with smooth animations
+- 📅 **Schedule Integration**: Embedded calendar for class bookings
+- 👥 **Team Profiles**: Detailed instructor information
+- 💰 **Pricing Plans**: Multiple membership options
+- 📧 **Contact Forms**: Easy communication with the studio
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+## Tech Stack
+
+- **Framework**: Next.js 14
+- **UI Library**: React 19
+- **Styling**: Tailwind CSS
+- **Components**: Radix UI (via shadcn/ui)
+- **Icons**: Lucide React
+- **Deployment**: Vercel
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+ 
+- pnpm (or npm/yarn)
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <your-repo-url>
+cd ginkgo-yoga-studio
+```
+
+2. Install dependencies:
+```bash
+pnpm install
+```
+
+3. Run the development server:
+```bash
+pnpm dev
+```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ## Deployment
 
-Your project is live at:
+This project is configured for easy deployment on Vercel:
 
-**[https://vercel.com/ganeshdipdumbares-projects/v0-yoga-studio-portfolio](https://vercel.com/ganeshdipdumbares-projects/v0-yoga-studio-portfolio)**
+1. Push your code to GitHub
+2. Import your repository in Vercel
+3. Vercel will automatically detect Next.js and configure the build settings
+4. Deploy!
 
-## Build your app
+The project will be live at your Vercel URL.
 
-Continue building your app on:
+## Project Structure
 
-**[https://v0.app/chat/XtdoXTRuphW](https://v0.app/chat/XtdoXTRuphW)**
+```
+├── app/              # Next.js app directory
+│   ├── layout.tsx    # Root layout with metadata
+│   ├── page.tsx      # Main page component
+│   └── globals.css   # Global styles
+├── components/       # React components
+│   ├── ui/          # shadcn/ui components
+│   └── theme-provider.tsx
+├── public/          # Static assets
+│   └── images/     # Image files
+└── lib/            # Utility functions
+```
 
-## How It Works
+## License
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+© 2025 Ginkgo Yoga. All rights reserved.
