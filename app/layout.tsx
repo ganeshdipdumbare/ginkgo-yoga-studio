@@ -26,7 +26,6 @@ export const metadata: Metadata = {
     follow: true,
   },
   viewport: "width=device-width, initial-scale=1",
-    generator: 'v0.app'
 }
 
 export default function RootLayout({
