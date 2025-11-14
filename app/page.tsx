@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { createContext, useContext, useState, useEffect, useRef, useCallback } from "react"
+import { createContext, useContext, useState, useEffect, useRef, useCallback, useMemo } from "react"
 interface TeamMemberTranslation {
   name: {
     en: string;
@@ -802,6 +802,110 @@ function GinkgoLeafPattern() {
   )
 }
 
+function FallingLeaves() {
+  // Two different leaf images for variety
+  const leafImages = [
+    '/images/ginkgo-leaf-1.png', // Green leaf
+    '/images/ginkgo-leaf-2.png', // Golden yellow leaf
+  ]
+
+  // Create multiple leaves with varying properties for natural movement
+  // Using useMemo to ensure stable values across renders
+  const leaves = useMemo(() => {
+    return Array.from({ length: 25 }, (_, i) => {
+      const drift = (Math.random() - 0.5) * 120
+      const initialRotation = Math.random() * 360
+      const duration = 12 + Math.random() * 18
+      const opacity = 0.35 + Math.random() * 0.25
+      const leafType = Math.random() > 0.5 ? 0 : 1 // Randomly choose between two leaf types
+      
+      return {
+        id: i,
+        left: Math.random() * 100,
+        delay: Math.random() * 15,
+        duration,
+        size: 30 + Math.random() * 20, // 30-50px
+        initialRotation,
+        opacity,
+        drift,
+        leafImage: leafImages[leafType], // Randomly select leaf image
+        // Pre-calculate transform values for keyframes
+        endTransform: `translateY(calc(100vh + 150px)) translateX(${drift}px) rotate(${initialRotation + 360}deg)`,
+      }
+    })
+  }, [])
+
+  // Inject styles directly into document head for reliability
+  useEffect(() => {
+    const styleId = 'ginkgo-falling-leaves-styles'
+    if (document.getElementById(styleId)) {
+      return // Styles already injected
+    }
+
+    const style = document.createElement('style')
+    style.id = styleId
+    style.textContent = leaves.map(
+      (leaf) => `
+        @keyframes ginkgo-fall-${leaf.id} {
+          0% {
+            transform: translateY(-100px) translateX(0) rotate(${leaf.initialRotation}deg);
+            opacity: 0;
+          }
+          3% {
+            opacity: ${leaf.opacity};
+          }
+          97% {
+            opacity: ${leaf.opacity};
+          }
+          100% {
+            transform: ${leaf.endTransform};
+            opacity: 0;
+          }
+        }
+      `
+    ).join('')
+    
+    document.head.appendChild(style)
+
+    return () => {
+      const existingStyle = document.getElementById(styleId)
+      if (existingStyle) {
+        existingStyle.remove()
+      }
+    }
+  }, [leaves])
+
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 5 }}>
+      {leaves.map((leaf) => (
+        <div
+          key={leaf.id}
+          className="absolute"
+          style={{
+            left: `${leaf.left}%`,
+            top: '-100px',
+            animation: `ginkgo-fall-${leaf.id} ${leaf.duration}s ease-in-out infinite`,
+            animationDelay: `${leaf.delay}s`,
+            willChange: 'transform, opacity',
+          }}
+        >
+          <img
+            src={leaf.leafImage}
+            alt="Falling ginkgo leaf"
+            style={{
+              width: `${leaf.size}px`,
+              height: 'auto',
+              opacity: leaf.opacity,
+              filter: 'drop-shadow(0 2px 4px rgba(182, 151, 36, 0.2))',
+              objectFit: 'contain',
+            }}
+          />
+        </div>
+      ))}
+    </div>
+  )
+}
+
 function Header({ onScheduleClick }: { onScheduleClick: () => void }) {
   const { language, setLanguage, t } = useLanguage()
   const [isScrolled, setIsScrolled] = useState(false)
@@ -939,6 +1043,7 @@ function HeroSection({ onScheduleClick }: { onScheduleClick: () => void }) {
     >
       <div className="absolute inset-0 bg-gradient-to-b from-stone-50 to-yellow-50/20" />
       <GinkgoLeafPattern />
+      <FallingLeaves />
 
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
         <div className="mb-16">
@@ -997,6 +1102,7 @@ function AboutSection() {
     <section id="about" className="min-h-[90vh] flex items-center justify-center relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-stone-50 to-yellow-50/20" />
       <GinkgoLeafPattern />
+      <FallingLeaves />
       <MorphingShapes />
 
       <div ref={ref} className="relative z-10 text-center px-6 max-w-5xl mx-auto">
@@ -1161,6 +1267,7 @@ function PricingSection() {
     <section id="pricing" className="min-h-[90vh] flex items-center justify-center relative overflow-hidden py-20">
       <div className="absolute inset-0 bg-gradient-to-b from-amber-50/30 via-stone-50 to-orange-50/30" />
       <GinkgoLeafPattern />
+      <FallingLeaves />
       <MorphingShapes />
 
       <div ref={ref} className="relative z-10 w-full px-4 sm:px-6">
@@ -1271,6 +1378,7 @@ function InstructorsSection() {
     <section id="team" className="min-h-[90vh] flex items-center justify-center relative overflow-hidden py-20">
       <div className="absolute inset-0 bg-gradient-to-b from-amber-50/30 via-orange-50/20 to-stone-50" />
       <GinkgoLeafPattern />
+      <FallingLeaves />
       <MorphingShapes />
 
       <div ref={ref} className="relative z-10 w-full px-4 sm:px-6">
@@ -1960,6 +2068,23 @@ function YogaStudioPortfolio() {
           @keyframes spin-slow {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
+          }
+          
+          @keyframes ginkgo-fall {
+            0% {
+              transform: translateY(0) translateX(0) rotate(var(--leaf-rotation, 0deg));
+              opacity: 0;
+            }
+            5% {
+              opacity: var(--leaf-opacity, 0.4);
+            }
+            95% {
+              opacity: var(--leaf-opacity, 0.4);
+            }
+            100% {
+              transform: translateY(calc(100vh + 150px)) translateX(var(--leaf-drift, 0px)) rotate(calc(var(--leaf-rotation, 0deg) + 360deg));
+              opacity: 0;
+            }
           }
           
           @keyframes morph-1 {
