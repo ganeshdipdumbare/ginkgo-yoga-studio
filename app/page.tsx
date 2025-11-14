@@ -126,14 +126,46 @@ const teamMembers: TeamMember[] = [
         it: "Hatha Yoga",
       },
       bio: {
-        en: "Yoga has played an important role in my life for more than 15 years and is one of the most important resources for me to navigate the waves of life and being.\n\nSince 2018, as part of Citizen2be, I have been able to experience new perspectives of this teaching and practice again and again by offering trauma-sensitive classes for women on a voluntary basis.\n\nAs a resource-oriented therapist, it is very close to my heart to accompany people in turning to themselves with openness, so that with this open attitude they can meet life and our fellow human beings with benevolence.\n\nIn my yoga classes, I repeatedly experience how much healing can arise in the moment when we mindfully connect with ourselves and come into our strength and confidence. So yoga is for me a beautiful way to connect body, mind and soul and to recognize in others what we find deep within ourselves.",
-        de: "Yoga spielt schon seit mehr als 15 Jahren eine große Rolle in meinem Leben und ist für mich eine der wichtigsten Ressourcen, um in den Wellen des Lebens und des Seins zu navigieren.\n\nSeit 2018 darf ich als Teil von Citizen2be immer wieder neue Perspektiven dieser Lehre und Praxis erleben, indem ich ehrenamtlich trauma-sensible Klassen für Frauen anbiete.\n\nAls ressourcenorientierte Therapeutin liegt es mir sehr am Herzen Menschen darin zu begleiten sich selbst mit Offenheit zuzuwenden, um mit dieser offenen Haltung dem Leben und unseren Mitmenschen mit Wohlwollen zu begegnen.\n\nIn meinen Yogaklassen darf ich immer wieder erfahren, wie viel Heilung in dem Moment entstehen kann, in dem wir uns achtsam mit uns selbst verbinden und in unsere Kraft und Zuversicht kommen. So ist Yoga für mich ein wunderschöner Weg Körper, Geist und Seele zu verbinden und das was wir tief in uns finden, auch in anderen wieder zu erkennen.",
-        it: "Lo yoga svolge un ruolo importante nella mia vita da più di 15 anni ed è una delle risorse più importanti per me per navigare le onde della vita e dell'essere.\n\nDal 2018, come parte di Citizen2be, ho potuto sperimentare continuamente nuove prospettive di questo insegnamento e pratica offrendo classi sensibili al trauma per donne su base volontaria.\n\nCome terapeuta orientata alle risorse, mi sta molto a cuore accompagnare le persone nel rivolgersi a se stesse con apertura, così che con questo atteggiamento aperto possano incontrare la vita e i nostri simili con benevolenza.\n\nNelle mie classi di yoga, sperimento ripetutamente quanta guarigione può sorgere nel momento in cui ci connettiamo con consapevolezza a noi stessi e entriamo nella nostra forza e fiducia. Quindi lo yoga è per me un modo bellissimo di connettere corpo, mente e anima e di riconoscere negli altri ciò che troviamo in profondità dentro di noi.",
+        en: "Yoga to me is like an anchor. The practice and spiritual teaching of Yoga have played an important role in my life for more than 15 years. It simply helps me to navigate the waves of life and being.\n\nIn 2017, I decided to go to Kerala, India to do a Hatha Yoga teacher training to dive deeper into the practice that had already taught me so much. Since 2018, as part of Citizen2be, I have been able to experience new perspectives of teaching and practicing Yoga again and again by offering trauma-sensitive classes for women on a voluntary basis.\n\nAs a resource-oriented therapist, it is very close to my heart to accompany people in turning to themselves with openness, so that with this open attitude they can also meet life and others with benevolence.\n\nBy practicing yoga we do not only unite body, mind and soul, we also have the chance to connect with others and our community authentically and whole-heartedly. This way we learn to return to the anchor within ourselves — no matter how heavy the storms of our mind or life might be.",
+        de: "Yoga ist für mich wie ein Anker. Die Praxis und spirituelle Lehre des Yoga spielen seit mehr als 15 Jahren eine wichtige Rolle in meinem Leben. Es hilft mir einfach, die Wellen des Lebens und des Seins zu navigieren.\n\n2017 entschied ich mich, nach Kerala, Indien zu gehen, um eine Hatha Yoga Lehrerausbildung zu absolvieren und tiefer in die Praxis einzutauchen, die mich bereits so viel gelehrt hatte. Seit 2018 darf ich als Teil von Citizen2be immer wieder neue Perspektiven des Lehrens und Praktizierens von Yoga erleben, indem ich ehrenamtlich trauma-sensible Klassen für Frauen anbiete.\n\nAls ressourcenorientierte Therapeutin liegt es mir sehr am Herzen, Menschen darin zu begleiten, sich selbst mit Offenheit zuzuwenden, damit sie mit dieser offenen Haltung auch dem Leben und anderen mit Wohlwollen begegnen können.\n\nDurch die Praxis von Yoga vereinen wir nicht nur Körper, Geist und Seele, wir haben auch die Chance, uns authentisch und von ganzem Herzen mit anderen und unserer Gemeinschaft zu verbinden. Auf diese Weise lernen wir, zum Anker in uns selbst zurückzukehren — egal wie schwer die Stürme unseres Geistes oder Lebens auch sein mögen.",
+        it: "Lo yoga per me è come un'ancora. La pratica e l'insegnamento spirituale dello yoga hanno svolto un ruolo importante nella mia vita per più di 15 anni. Semplicemente mi aiuta a navigare le onde della vita e dell'essere.\n\nNel 2017, ho deciso di andare in Kerala, India, per fare una formazione per insegnanti di Hatha Yoga per immergermi più profondamente nella pratica che mi aveva già insegnato così tanto. Dal 2018, come parte di Citizen2be, ho potuto sperimentare continuamente nuove prospettive di insegnamento e pratica dello yoga offrendo classi sensibili al trauma per donne su base volontaria.\n\nCome terapeuta orientata alle risorse, mi sta molto a cuore accompagnare le persone nel rivolgersi a se stesse con apertura, così che con questo atteggiamento aperto possano anche incontrare la vita e gli altri con benevolenza.\n\nPraticando lo yoga non solo uniamo corpo, mente e anima, ma abbiamo anche la possibilità di connetterci con gli altri e la nostra comunità in modo autentico e di tutto cuore. In questo modo impariamo a tornare all'ancora dentro di noi — non importa quanto pesanti possano essere le tempeste della nostra mente o della nostra vita.",
       },
       philosophy: {
-        en: "Yoga is a beautiful way to connect body, mind and soul. In the moment when we mindfully connect with ourselves, we can come into our strength and confidence, and recognize in others what we find deep within ourselves.",
-        de: "Yoga ist für mich ein wunderschöner Weg Körper, Geist und Seele zu verbinden. In dem Moment, in dem wir uns achtsam mit uns selbst verbinden, können wir in unsere Kraft und Zuversicht kommen und das, was wir tief in uns finden, auch in anderen wieder erkennen.",
-        it: "Lo yoga è per me un modo bellissimo di connettere corpo, mente e anima. Nel momento in cui ci connettiamo con consapevolezza a noi stessi, possiamo entrare nella nostra forza e fiducia e riconoscere negli altri ciò che troviamo in profondità dentro di noi.",
+        en: "Simply put, in practicing Yoga, we unite body, mind and soul. The moment we mindfully connect with ourselves, we come home. We learn to return to our strength and confidence, as well as to our softness and vulnerability. We meet ourselves where we are and return to our inner truth and light on the mat — and beyond.",
+        de: "Einfach gesagt, in der Praxis des Yoga vereinen wir Körper, Geist und Seele. In dem Moment, in dem wir uns achtsam mit uns selbst verbinden, kommen wir nach Hause. Wir lernen, zu unserer Kraft und Zuversicht zurückzukehren, sowie zu unserer Weichheit und Verletzlichkeit. Wir begegnen uns dort, wo wir sind, und kehren zu unserer inneren Wahrheit und unserem Licht auf der Matte zurück — und darüber hinaus.",
+        it: "In poche parole, praticando lo yoga, uniamo corpo, mente e anima. Nel momento in cui ci connettiamo con consapevolezza a noi stessi, torniamo a casa. Impariamo a tornare alla nostra forza e fiducia, così come alla nostra dolcezza e vulnerabilità. Ci incontriamo dove siamo e torniamo alla nostra verità interiore e luce sul tappetino — e oltre.",
+      },
+    },
+  },
+  {
+    id: "isa",
+    experience: "7",
+    image: "/images/isa.png",
+    gradient: "from-[#B69724] to-[#D4B95C]",
+    aura: "amber",
+    expertise: ["Jivamukti Yoga (300h)", "Talia Sutra Influenced", "Dylan Werner Influenced", "Isha Yoga Influenced", "Hand-on-Assistenz"],
+    email: "ginkgoyogaberlin@gmail.com",
+    languages: ["German", "English"],
+    translations: {
+      name: {
+        en: "ISa",
+        de: "ISa",
+        it: "ISa",
+      },
+      specialty: {
+        en: "Jivamukti Yoga",
+        de: "Jivamukti Yoga",
+        it: "Jivamukti Yoga",
+      },
+      bio: {
+        en: "I am fascinated by the currents between the inner and the outer. Both consciously and unconsciously, we store every experience—LIFE, which flows through us like waves. We have the opportunity to become aware of this, to bring connections to light, and to create inner maps. This leads to unity—Yoga.\n\nMy yogic practices are meant to meet you where you are and guide you step by step, courageously into the depths. I want to explore the self in the outer with you and practice letting go, so that we can also live the vulnerable in us openly in the outer. This can be an adventurous journey where we reach sacred places that require our full attention. Only playfully, listening, breathing deeply, and with continuity do we reach these points.\n\nWe affirm all our problems, fears, and insecurities, for they are the adventures we learn to face gently, patiently, and consistently. They make us seekers and enable us to explore life deeply.\n\nJivamukti Classes\n\nI myself have so many questions about life, and there are several milestones that led me to practice Yoga as a \"space holder\" as well. One of these milestones is that I stumbled into a Jivamukti studio in 2012. This method opened important doors for me toward a self-determined, active, and healthy life—not only for me, but also for my environment. That's why I completed the 300h Jivamukti Yoga training in India with Sharon Gannon and Moritz Ulrich five years later.\n\nMy Jivamukti classes are dynamic and holistic. They consist of rhythmic, flowing, powerful, and stretching asana sequences. We will breathe and meditate while simultaneously engaging with the origins of yoga. The goal of the class is to enable intensive body experiences that lead us inward and invite us to connect with questions and insights about ourselves and life. During the class, I experience myself as part of the practicing group.\n\nAlternative Class Formats\n\nMy yoga is also shaped by Talia Sutra, Dylan Werner, and especially Isha Yoga. In my other classes, I deviate a bit from the Jivamukti method to bring a certain aspect more into focus. These classes are like mini-workshops or small routines.\n\nDuring the class, I offer considerate and supportive hand-on-assistance.",
+        de: "Ich bin fasziniert von den Strömungen zwischen dem Inneren und dem Äußeren. Sowohl bewusst als auch unbewusst speichern wir jede Erfahrung – LEBEN, das wie Wellen durch uns fließt. Wir haben die Möglichkeit, uns dessen bewusst zu werden, Verbindungen zum Leuchten zu bringen und innere Landkarten zu erschaffen. Dies führt zur Einheit – Yoga.\n\nMeine yogischen Praktiken sollen dich dort abholen, wo du stehst, und dich Schritt für Schritt mutig in die Tiefe führen. Ich möchte mit euch das Selbst im Außen kennenlernen und Loslassen üben, um auch das Verletzliche in uns offen im Außen zu leben. Dies kann ein abenteuerlicher Ritt sein, bei dem wir zu heiligen Orten gelangen, die unsere volle Aufmerksamkeit erfordern. Nur spielerisch, lauschend, tief atmend und mit Kontinuität erreichen wir diese Punkte.\n\nAlle unsere Probleme, Ängste und Unsicherheiten bejahen wir, denn sie sind die Abenteuer, denen wir uns sanft, geduldig und beständig stellen lernen. Sie machen uns zu Suchenden und ermöglichen es uns, das Leben tief zu ergründen.\n\nJivamukti-Klassen\n\nIch selbst habe so viele Fragen ans Leben und es gibt einige Meilensteine, die mich dorthin führten, Yoga nun auch als \"Raumhaltende\" zu praktizieren. Einer dieser Meilensteine ist, dass ich 2012 in ein Jivamukti-Studio stolperte. Diese Methode öffnete mir wichtige Türen hin zu ein selbstbestimmten, aktiven und gesunden Leben - nicht nur für mich, sondern auch für mein Umfeld. Deshalb machte ich 5 Jahre später die 300h Jivamukti Yoga Ausbildung in Indien bei Sharon Gannon und Moritz Ulrich.\n\nMeine Jivamukti-Klassen sind dynamisch und ganzheitlich. Sie bestehen aus rhythmischen, fließenden, kraftvollen und dehnenden Asana-Sequenzen. Wir werden atmen und meditieren, während wir uns gleichzeitig mit den Ursprüngen des Yoga auseinandersetzen. Ziel der Klasse ist es, intensive Körpererfahrungen zu ermöglichen, die uns nach innen führen und dazu einladen, uns mit Fragen und Erkenntnissen über uns selbst und das Leben zu verbinden. Während der Klasse empfinde ich mich als Teil der praktizierenden Gruppe.\n\nAbweichende Klassenformate\n\nMein Yoga ist außerdem geprägt von Talia Sutra, Dylan Werner und ganz besonders von Isha Yoga. In meinen anderen Klassen weiche ich ein wenig von der Jivamukti-Methode ab, um einen bestimmten Aspekt stärker in den Fokus zu rücken. Diese Klassen sind wie Mini-Workshops oder kleine Routinen.\n\nWährend der Klasse biete ich rücksichtsvolle und unterstützende Hand-on-Assistenz an.",
+        it: "Sono affascinata dalle correnti tra l'interno e l'esterno. Sia consapevolmente che inconsapevolmente, immagazziniamo ogni esperienza - la VITA, che fluisce attraverso di noi come onde. Abbiamo l'opportunità di diventarne consapevoli, di portare le connessioni alla luce e di creare mappe interiori. Questo porta all'unità - lo Yoga.\n\nLe mie pratiche yogiche sono pensate per incontrarti dove sei e guidarti passo dopo passo, coraggiosamente nelle profondità. Voglio esplorare il sé nell'esterno con te e praticare il lasciar andare, così che possiamo anche vivere il vulnerabile in noi apertamente nell'esterno. Questo può essere un viaggio avventuroso dove raggiungiamo luoghi sacri che richiedono la nostra piena attenzione. Solo giocosamente, ascoltando, respirando profondamente e con continuità raggiungiamo questi punti.\n\nAffermiamo tutti i nostri problemi, paure e insicurezze, perché sono le avventure che impariamo ad affrontare con dolcezza, pazienza e costanza. Ci rendono cercatori e ci permettono di esplorare la vita in profondità.\n\nClassi Jivamukti\n\nIo stessa ho così tante domande sulla vita, e ci sono diversi traguardi che mi hanno portato a praticare lo Yoga come \"detentore di spazio\" anche io. Uno di questi traguardi è che sono incappata in uno studio Jivamukti nel 2012. Questo metodo mi ha aperto porte importanti verso una vita autodeterminata, attiva e sana - non solo per me, ma anche per il mio ambiente. Ecco perché ho completato la formazione di 300h di Jivamukti Yoga in India con Sharon Gannon e Moritz Ulrich cinque anni dopo.\n\nLe mie classi Jivamukti sono dinamiche e olistiche. Consistono di sequenze di asana ritmiche, fluenti, potenti e allunganti. Respireremo e mediteremo mentre ci impegniamo simultaneamente con le origini dello yoga. L'obiettivo della classe è consentire esperienze corporee intensive che ci portano verso l'interno e ci invitano a connetterci con domande e intuizioni su noi stessi e la vita. Durante la classe, mi sento parte del gruppo praticante.\n\nFormati di Classe Alternativi\n\nIl mio yoga è anche plasmato da Talia Sutra, Dylan Werner e soprattutto Isha Yoga. Nelle mie altre classi, devio un po' dal metodo Jivamukti per portare un certo aspetto più in primo piano. Queste classi sono come mini-workshop o piccole routine.\n\nDurante la classe, offro assistenza manuale premurosa e di supporto.",
+      },
+      philosophy: {
+        en: "I am fascinated by the currents between the inner and the outer. We have the opportunity to become aware of this, to bring connections to light, and to create inner maps. This leads to unity—Yoga. We affirm all our problems, fears, and insecurities, for they are the adventures we learn to face gently, patiently, and consistently.",
+        de: "Ich bin fasziniert von den Strömungen zwischen dem Inneren und dem Äußeren. Wir haben die Möglichkeit, uns dessen bewusst zu werden, Verbindungen zum Leuchten zu bringen und innere Landkarten zu erschaffen. Dies führt zur Einheit – Yoga. Alle unsere Probleme, Ängste und Unsicherheiten bejahen wir, denn sie sind die Abenteuer, denen wir uns sanft, geduldig und beständig stellen lernen.",
+        it: "Sono affascinata dalle correnti tra l'interno e l'esterno. Abbiamo l'opportunità di diventarne consapevoli, di portare le connessioni alla luce e di creare mappe interiori. Questo porta all'unità - lo Yoga. Affermiamo tutti i nostri problemi, paure e insicurezze, perché sono le avventure che impariamo ad affrontare con dolcezza, pazienza e costanza.",
       },
     },
   },
@@ -991,40 +1023,51 @@ function ScheduleModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
 
   if (!isOpen) return null
 
-  return (
-    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center px-2 py-2 sm:p-4">
-      <div className="bg-stone-50/95 backdrop-blur-xl rounded-3xl w-full max-w-6xl max-h-[95vh] overflow-hidden border border-yellow-800/20 shadow-2xl">
-        <div className="p-4 sm:p-6 max-h-[95vh] flex flex-col overflow-y-auto">
-          {/* Header */}
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-3xl font-light tracking-wide" style={{ color: "#B69724" }}>
-              {t("schedule")}
-            </h2>
-            <button
-              onClick={onClose}
-              className="text-stone-500 hover:text-stone-700 transition-colors p-2 rounded-full hover:bg-stone-200/50"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
+  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      onClose()
+    }
+  }
 
-          {/* Calendar */}
-          <div className="w-full bg-white/80 backdrop-blur-xl rounded-2xl shadow-xl overflow-x-auto overflow-y-hidden border border-stone-200/50 flex-1">
-            <div className="h-full flex items-center" style={{ minWidth: "720px" }}>
-              <div className="lg:scale-100 scale-[0.8] origin-left" style={{ width: "900px", height: "700px" }}>
-                <iframe
-                  title="embedded-calendar"
-                  src="https://admin.gymly.io/embed/calendar/36196fbb-fb36-48de-891d-36c88f4b1ce8"
-                  className="w-full h-full"
-                  style={{ 
-                    width: "900px",
-                    height: "800px",
-                    border: 0
-                  }}
-                />
-              </div>
+  return (
+    <div 
+      className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-1 sm:p-2"
+      onClick={handleBackdropClick}
+    >
+      <div 
+        className="bg-stone-50/95 backdrop-blur-xl rounded-2xl sm:rounded-3xl w-full h-full sm:h-auto sm:max-w-[98vw] sm:max-h-[98vh] overflow-hidden border border-yellow-800/20 shadow-2xl flex flex-col"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="flex justify-between items-center p-3 sm:p-4 flex-shrink-0 border-b border-stone-200/50">
+          <h2 className="text-2xl sm:text-3xl font-light tracking-wide" style={{ color: "#B69724" }}>
+            {t("schedule")}
+          </h2>
+          <button
+            onClick={onClose}
+            className="text-stone-500 hover:text-stone-700 transition-colors p-2 rounded-full hover:bg-stone-200/50 flex-shrink-0"
+          >
+            <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Calendar */}
+        <div className="flex-1 w-full bg-white/80 backdrop-blur-xl overflow-auto border border-stone-200/50">
+          <div className="w-full h-full min-h-[600px] sm:min-h-[700px] flex items-center justify-start p-1">
+            <div className="w-full h-full min-w-[900px] max-w-[900px] mx-auto">
+              <iframe
+                title="embedded-calendar"
+                src="https://admin.gymly.io/embed/calendar/36196fbb-fb36-48de-891d-36c88f4b1ce8?responsive=true"
+                className="w-full h-full min-h-[600px] sm:min-h-[700px]"
+                style={{ 
+                  border: 0,
+                  minWidth: '900px'
+                }}
+                allow="fullscreen"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>
@@ -1967,6 +2010,30 @@ function YogaStudioPortfolio() {
           ::-webkit-scrollbar-track  { background:linear-gradient(to bottom,#fdf4e3,#fef7e7); }
           ::-webkit-scrollbar-thumb  { background:linear-gradient(to bottom,#B8860B,#DAA520); border-radius:4px; }
           ::-webkit-scrollbar-thumb:hover { background:linear-gradient(to bottom,#8b6508,#c08f36); }
+
+          /* Responsive modal fixes for embedded calendar modals */
+          @media (max-width: 640px) {
+            /* Target any modals that might appear from iframes */
+            body > div[role="dialog"],
+            body > div[class*="modal"],
+            body > div[class*="Modal"],
+            body > div[class*="dialog"],
+            body > div[class*="Dialog"] {
+              max-width: 95vw !important;
+              max-height: 95vh !important;
+              margin: 2.5vh auto !important;
+              padding: 1rem !important;
+              overflow-y: auto !important;
+            }
+            
+            /* Ensure modal content is scrollable on mobile */
+            body > div[role="dialog"] > div,
+            body > div[class*="modal"] > div,
+            body > div[class*="Modal"] > div {
+              max-height: calc(95vh - 2rem) !important;
+              overflow-y: auto !important;
+            }
+          }
         `}</style>
 
         {/* --- site sections --- */}
