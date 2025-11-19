@@ -170,6 +170,38 @@ const teamMembers: TeamMember[] = [
     },
   },
   {
+    id: "silvia",
+    experience: "15",
+    image: "/images/silvia.png",
+    gradient: "from-[#B69724] to-[#D4B95C]",
+    aura: "amber",
+    expertise: ["Hatha Yoga", "Iyengar Yoga", "Anusara Yoga", "Jivamukti Yoga", "Ashtanga Yoga", "Life Science Researcher"],
+    email: "ginkgoyogaberlin@gmail.com",
+    languages: ["English", "Portuguese", "German"],
+    translations: {
+      name: {
+        en: "Sílvia",
+        de: "Sílvia",
+        it: "Sílvia",
+      },
+      specialty: {
+        en: "Hatha & Flow Yoga",
+        de: "Hatha & Flow Yoga",
+        it: "Hatha & Flow Yoga",
+      },
+      bio: {
+        en: "I began my yoga journey fifteen years ago, practicing traditional Hatha yoga. Over the years, I explored various yoga traditions, Iyengar and Anusara for their precision and alignment, and Jivamukti and Ashtanga for their dynamic flow and devoted structure. Through mindful practice, I discovered how yoga softens the fluctuation of the mind and awakens awareness and compassion toward oneself and the others. Alongside my yoga practice, my path as a life science researcher has shaped a holistic perspective of the human body and mind, combining scientific insight with principles of the yoga tradition. In my classes, I combine dynamic flows with breath awareness and moments of stillness in asanas, inviting others to cultivate both mindful strength and inner calm.",
+        de: "Ich begann meine Yoga-Reise vor fünfzehn Jahren mit traditionellem Hatha Yoga. Im Laufe der Jahre erkundete ich verschiedene Yoga-Traditionen: Iyengar und Anusara für ihre Präzision und Ausrichtung, sowie Jivamukti und Ashtanga für ihren dynamischen Flow und ihre hingebungsvolle Struktur. Durch achtsame Praxis entdeckte ich, wie Yoga die Schwankungen des Geistes mildert und Bewusstsein sowie Mitgefühl für sich selbst und andere erweckt. Neben meiner Yoga-Praxis hat mein Weg als Lebenswissenschaftlerin eine ganzheitliche Perspektive auf Körper und Geist geprägt, die wissenschaftliche Erkenntnisse mit Prinzipien der Yoga-Tradition verbindet. In meinen Klassen kombiniere ich dynamische Flows mit Atembewusstsein und Momenten der Stille in Asanas und lade andere ein, sowohl achtsame Stärke als auch innere Ruhe zu kultivieren.",
+        it: "Ho iniziato il mio viaggio nello yoga quindici anni fa, praticando lo yoga Hatha tradizionale. Nel corso degli anni, ho esplorato varie tradizioni yoga: Iyengar e Anusara per la loro precisione e allineamento, e Jivamukti e Ashtanga per il loro flusso dinamico e la struttura devota. Attraverso la pratica consapevole, ho scoperto come lo yoga ammorbidisce le fluttuazioni della mente e risveglia la consapevolezza e la compassione verso se stessi e gli altri. Accanto alla mia pratica yoga, il mio percorso come ricercatrice nelle scienze della vita ha plasmato una prospettiva olistica del corpo e della mente umani, combinando intuizioni scientifiche con i principi della tradizione yoga. Nelle mie lezioni, combino flussi dinamici con la consapevolezza del respiro e momenti di quiete nelle asana, invitando gli altri a coltivare sia la forza consapevole che la calma interiore.",
+      },
+      philosophy: {
+        en: "Through mindful practice, yoga softens the fluctuation of the mind and awakens awareness and compassion toward oneself and others. I combine dynamic flows with breath awareness and moments of stillness, inviting others to cultivate both mindful strength and inner calm.",
+        de: "Durch achtsame Praxis mildert Yoga die Schwankungen des Geistes und erweckt Bewusstsein sowie Mitgefühl für sich selbst und andere. Ich kombiniere dynamische Flows mit Atembewusstsein und Momenten der Stille und lade andere ein, sowohl achtsame Stärke als auch innere Ruhe zu kultivieren.",
+        it: "Attraverso la pratica consapevole, lo yoga ammorbidisce le fluttuazioni della mente e risveglia la consapevolezza e la compassione verso se stessi e gli altri. Combino flussi dinamici con la consapevolezza del respiro e momenti di quiete, invitando gli altri a coltivare sia la forza consapevole che la calma interiore.",
+      },
+    },
+  },
+  {
     id: "join-us-1",
     experience: "0",
     image: "/placeholder-user.jpg",
