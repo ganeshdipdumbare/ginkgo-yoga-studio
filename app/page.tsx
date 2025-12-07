@@ -143,7 +143,7 @@ const teamMembers: TeamMember[] = [
     image: "/images/isa.png",
     gradient: "from-[#B69724] to-[#D4B95C]",
     aura: "amber",
-    expertise: ["Jivamukti Yoga (300h)", "Talia Sutra Influenced", "Dylan Werner Influenced", "Isha Yoga Influenced", "Hand-on-Assistenz"],
+    expertise: ["15+ Years Practice", "Jivamukti Yoga (300h)", "Talia Sutra Influenced", "Dylan Werner Influenced", "Isha Yoga Influenced", "Hand-on-Assistenz"],
     email: "ginkgoyogaberlin@gmail.com",
     languages: ["German", "English"],
     translations: {
@@ -198,6 +198,38 @@ const teamMembers: TeamMember[] = [
         en: "Through mindful practice, yoga softens the fluctuation of the mind and awakens awareness and compassion toward oneself and others. I combine dynamic flows with breath awareness and moments of stillness, inviting others to cultivate both mindful strength and inner calm.",
         de: "Durch achtsame Praxis mildert Yoga die Schwankungen des Geistes und erweckt Bewusstsein sowie Mitgefühl für sich selbst und andere. Ich kombiniere dynamische Flows mit Atembewusstsein und Momenten der Stille und lade andere ein, sowohl achtsame Stärke als auch innere Ruhe zu kultivieren.",
         it: "Attraverso la pratica consapevole, lo yoga ammorbidisce le fluttuazioni della mente e risveglia la consapevolezza e la compassione verso se stessi e gli altri. Combino flussi dinamici con la consapevolezza del respiro e momenti di quiete, invitando gli altri a coltivare sia la forza consapevole che la calma interiore.",
+      },
+    },
+  },
+  {
+    id: "prince",
+    experience: "0",
+    image: "/images/prince.png",
+    gradient: "from-[#B69724] to-[#D4B95C]",
+    aura: "amber",
+    expertise: ["Vinyasa & Strong Flow", "Yin Yoga", "Mindful Strength & Mobility", "Breathwork & Meditation", "Yoga-As-Movement-Spirituality Approach", "Multidisciplinary Movement Background (Calisthenics, Martial Arts, Balance Work)"],
+    email: "ginkgoyogaberlin@gmail.com",
+    languages: ["German", "English", "Urdu"],
+    translations: {
+      name: {
+        en: "Prince",
+        de: "Prince",
+        it: "Prince",
+      },
+      specialty: {
+        en: "Vinyasa & Strong Flow",
+        de: "Vinyasa & Strong Flow",
+        it: "Vinyasa & Strong Flow",
+      },
+      bio: {
+        en: "For me, yoga is movement with intention. The way to connect body, breath, and devotion. Every practice is a chance to return to presence, to challenge ourselves with humility, and to remember the strength that comes from surrendering to something greater.\n\nMy journey began through physical discipline and spiritual reflection. Whether in martial arts, strength training, or in moments of gratitude, I discovered that movement can be a form of prayer. The way to realign with purpose and honor the gift of the body. Yoga became the bridge between physical power and inner quiet, between effort and surrender.\n\nIn my classes, I guide you through focused, strong, and mindful sequences that awaken both energy and awareness. We work with breath as the anchor ... steady, grounding, and refining each posture from the inside out. Strength becomes softness, and softness becomes strength.\n\nYou'll find a space where challenge and reflection meet: moments to push your edges, moments to slow down and listen. We explore discipline not as force, but as devotion. And always with the reminder:\n\nDankbarkeit in jeder Bewegung.\n\nWhen I'm not teaching, you'll find me outdoors, exploring Berlin, training, or diving into practices that bring clarity, gratitude, and presence.",
+        de: "Für mich ist Yoga Bewegung mit Absicht. Der Weg, Körper, Atem und Hingabe zu verbinden. Jede Praxis ist eine Chance, zur Präsenz zurückzukehren, uns mit Demut herauszufordern und uns an die Stärke zu erinnern, die daraus entsteht, sich etwas Größerem hinzugeben.\n\nMeine Reise begann durch körperliche Disziplin und spirituelle Reflexion. Ob in Kampfkünsten, Krafttraining oder in Momenten der Dankbarkeit, ich entdeckte, dass Bewegung eine Form des Gebets sein kann. Der Weg, sich neu mit dem Zweck auszurichten und das Geschenk des Körpers zu ehren. Yoga wurde zur Brücke zwischen körperlicher Kraft und innerer Stille, zwischen Anstrengung und Hingabe.\n\nIn meinen Klassen führe ich dich durch fokussierte, starke und achtsame Sequenzen, die sowohl Energie als auch Bewusstsein wecken. Wir arbeiten mit dem Atem als Anker ... stabil, erdend und jede Haltung von innen nach außen verfeinernd. Stärke wird zu Weichheit, und Weichheit wird zu Stärke.\n\nDu findest einen Raum, in dem Herausforderung und Reflexion aufeinandertreffen: Momente, um deine Grenzen zu erweitern, Momente, um langsamer zu werden und zuzuhören. Wir erkunden Disziplin nicht als Kraft, sondern als Hingabe. Und immer mit der Erinnerung:\n\nDankbarkeit in jeder Bewegung.\n\nWenn ich nicht unterrichte, findest du mich draußen, erkunde Berlin, trainiere oder tauche in Praktiken ein, die Klarheit, Dankbarkeit und Präsenz bringen.",
+        it: "Per me, lo yoga è movimento con intenzione. Il modo per connettere corpo, respiro e devozione. Ogni pratica è un'opportunità per tornare alla presenza, per sfidare noi stessi con umiltà e per ricordare la forza che deriva dal consegnarsi a qualcosa di più grande.\n\nIl mio viaggio è iniziato attraverso la disciplina fisica e la riflessione spirituale. Che si tratti di arti marziali, allenamento della forza o momenti di gratitudine, ho scoperto che il movimento può essere una forma di preghiera. Il modo per riallinearsi con lo scopo e onorare il dono del corpo. Lo yoga è diventato il ponte tra il potere fisico e la quiete interiore, tra lo sforzo e il lasciar andare.\n\nNelle mie lezioni, ti guido attraverso sequenze focalizzate, forti e consapevoli che risvegliano sia l'energia che la consapevolezza. Lavoriamo con il respiro come ancora ... stabile, radicante e raffinando ogni postura dall'interno verso l'esterno. La forza diventa morbidezza, e la morbidezza diventa forza.\n\nTroverai uno spazio dove sfida e riflessione si incontrano: momenti per spingere i tuoi limiti, momenti per rallentare e ascoltare. Esploriamo la disciplina non come forza, ma come devozione. E sempre con il promemoria:\n\nDankbarkeit in jeder Bewegung.\n\nQuando non insegno, mi troverai all'aperto, esplorando Berlino, allenandomi o immergendomi in pratiche che portano chiarezza, gratitudine e presenza.",
+      },
+      philosophy: {
+        en: "Movement is prayer. In every practice, we meet strength with humility and presence with gratitude ... discovering both our power and our peace.",
+        de: "Bewegung ist Gebet. In jeder Praxis begegnen wir Stärke mit Demut und Präsenz mit Dankbarkeit ... und entdecken sowohl unsere Kraft als auch unseren Frieden.",
+        it: "Il movimento è preghiera. In ogni pratica, incontriamo la forza con umiltà e la presenza con gratitudine ... scoprendo sia il nostro potere che la nostra pace.",
       },
     },
   },
