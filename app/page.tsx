@@ -143,7 +143,7 @@ const teamMembers: TeamMember[] = [
     image: "/images/isa.png",
     gradient: "from-[#B69724] to-[#D4B95C]",
     aura: "amber",
-    expertise: ["15+ Years Practice", "Jivamukti Yoga (300h)", "Talia Sutra Influenced", "Dylan Werner Influenced", "Isha Yoga Influenced", "Hand-on-Assistenz"],
+    expertise: ["Jivamukti Yoga (300h)", "Talia Sutra Influenced", "Dylan Werner Influenced", "Isha Yoga Influenced", "Hand-on-Assistenz"],
     email: "ginkgoyogaberlin@gmail.com",
     languages: ["German", "English"],
     translations: {
@@ -171,11 +171,11 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: "silvia",
-    experience: "15",
+    experience: "1+",
     image: "/images/silvia.png",
     gradient: "from-[#B69724] to-[#D4B95C]",
     aura: "amber",
-    expertise: ["Hatha Yoga", "Iyengar Yoga", "Anusara Yoga", "Jivamukti Yoga", "Ashtanga Yoga", "Life Science Researcher"],
+    expertise: ["15+ Years Practice", "Hatha Yoga", "Iyengar Yoga", "Anusara Yoga", "Jivamukti Yoga", "Ashtanga Yoga", "Life Science Researcher"],
     email: "ginkgoyogaberlin@gmail.com",
     languages: ["English", "Portuguese", "German"],
     translations: {
