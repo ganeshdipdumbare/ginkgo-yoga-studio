@@ -1,5 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
+import { SolsticePopup } from "@/components/solstice-popup"
 
 export const metadata: Metadata = {
   title: "Ginkgo Yoga",
@@ -39,7 +40,10 @@ export default function RootLayout({
         <link rel="icon" href="/images/ginkgo-logo.jpg" />
         <link rel="apple-touch-icon" href="/images/ginkgo-logo.jpg" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <SolsticePopup />
+      </body>
     </html>
   )
 }
