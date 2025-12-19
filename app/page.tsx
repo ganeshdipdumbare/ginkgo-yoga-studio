@@ -234,6 +234,38 @@ const teamMembers: TeamMember[] = [
     },
   },
   {
+    id: "yulia",
+    experience: "14",
+    image: "/images/yulia.png",
+    gradient: "from-[#B69724] to-[#D4B95C]",
+    aura: "amber",
+    expertise: ["Hatha Vinyasa Yoga", "Vinyasa Flow", "Yin Yoga", "Hands-on Assists", "Pranayama", "14+ Years Experience"],
+    email: "ginkgoyogaberlin@gmail.com",
+    languages: ["German", "English", "Russian", "Dutch", "French"],
+    translations: {
+      name: {
+        en: "Yulia",
+        de: "Yulia",
+        it: "Yulia",
+      },
+      specialty: {
+        en: "Hatha Vinyasa, Yin Yoga & Pranayama",
+        de: "Hatha Vinyasa, Yin Yoga & Pranayama",
+        it: "Hatha Vinyasa, Yin Yoga & Pranayama",
+      },
+      bio: {
+        en: "My very first acquaintance with yoga took place when I was a 7-year-old girl discovering yellowish, hand-written notebooks of a distant relative with descriptions and drawings of yoga asanas. I vividly remember being fascinated by them and playfully trying them out.\n\nI reconnected with yoga at the age of 21 and since then have discovered a variety of teachings and styles, including Vinyasa, Hatha, Ashtanga and Yin Yoga. I have completed teacher trainings (300h) in Vinyasa and Yin Yoga.\n\nIn my own dynamic asana practice and in my teaching it aligns most with me to combine dynamic sequences with longer holds of asanas to give the body and the mind the necessary time to find and learn a good alignment.\n\nIn Yin practice I place a focus on deep relaxation, letting go and a re-calibration of the nervous system towards a calmer state.\n\nThroughout the past years, yoga has helped me not only to strengthen my physical health, but to achieve more mental balance, clarity and to establish a better connection with my inner self. Next to physical asana practice, pranayama and meditation are essential to me.",
+        de: "Meine allererste Bekanntschaft mit Yoga fand statt, als ich ein 7-jähriges Mädchen war und gelbliche, handgeschriebene Notizbücher einer entfernten Verwandten mit Beschreibungen und Zeichnungen von Yoga-Asanas entdeckte. Ich erinnere mich lebhaft daran, wie fasziniert ich davon war und sie spielerisch ausprobierte.\n\nIch habe mich im Alter von 21 Jahren wieder mit Yoga verbunden und seitdem eine Vielzahl von Lehren und Stilen entdeckt, darunter Vinyasa, Hatha, Ashtanga und Yin Yoga. Ich habe Lehrerausbildungen (300h) in Vinyasa und Yin Yoga abgeschlossen.\n\nIn meiner eigenen dynamischen Asana-Praxis und in meinem Unterricht liegt es mir am meisten, dynamische Sequenzen mit längeren Haltezeiten von Asanas zu kombinieren, um Körper und Geist die notwendige Zeit zu geben, eine gute Ausrichtung zu finden und zu lernen.\n\nIn der Yin-Praxis lege ich den Fokus auf tiefe Entspannung, Loslassen und eine Neuausrichtung des Nervensystems hin zu einem ruhigeren Zustand.\n\nIn den vergangenen Jahren hat mir Yoga nicht nur geholfen, meine körperliche Gesundheit zu stärken, sondern auch mehr mentales Gleichgewicht und Klarheit zu erreichen und eine bessere Verbindung zu meinem inneren Selbst herzustellen. Neben der körperlichen Asana-Praxis sind Pranayama und Meditation für mich wesentlich.",
+        it: "Il mio primo incontro con lo yoga è avvenuto quando ero una bambina di 7 anni e ho scoperto dei quaderni giallastri scritti a mano di una parente lontana con descrizioni e disegni di asana yoga. Ricordo vividamente di essere rimasta affascinata e di averle provate giocosamente.\n\nMi sono riconnessa con lo yoga all'età di 21 anni e da allora ho scoperto una varietà di insegnamenti e stili, tra cui Vinyasa, Hatha, Ashtanga e Yin Yoga. Ho completato formazioni per insegnanti (300h) in Vinyasa e Yin Yoga.\n\nNella mia pratica dinamica di asana e nel mio insegnamento, mi allinea meglio combinare sequenze dinamiche con mantenimenti più lunghi delle asana per dare al corpo e alla mente il tempo necessario per trovare e imparare un buon allineamento.\n\nNella pratica Yin pongo l'attenzione sul rilassamento profondo, sul lasciar andare e su una ri-calibrazione del sistema nervoso verso uno stato più calmo.\n\nNel corso degli anni passati, lo yoga mi ha aiutato non solo a rafforzare la mia salute fisica, ma anche a raggiungere più equilibrio mentale, chiarezza e a stabilire una migliore connessione con il mio sé interiore. Accanto alla pratica fisica delle asana, pranayama e meditazione sono essenziali per me.",
+      },
+      philosophy: {
+        en: "I believe in the importance of giving students a solid foundation in their practice in terms of alignment, breath, bandhas and understanding of yoga in order to enable them to build their own healthy and sustainable yoga practice and path over time. I teach with clarity, mindfulness and attention to individual needs and am passionate about seeing people grow and learn.",
+        de: "Ich glaube an die Bedeutung, den Schülern eine solide Grundlage in ihrer Praxis in Bezug auf Ausrichtung, Atem, Bandhas und Verständnis von Yoga zu geben, damit sie im Laufe der Zeit ihre eigene gesunde und nachhaltige Yoga-Praxis und ihren eigenen Weg aufbauen können. Ich unterrichte mit Klarheit, Achtsamkeit und Aufmerksamkeit für individuelle Bedürfnisse und bin leidenschaftlich daran interessiert, Menschen wachsen und lernen zu sehen.",
+        it: "Credo nell'importanza di dare agli studenti una solida base nella loro pratica in termini di allineamento, respiro, bandha e comprensione dello yoga per consentire loro di costruire la propria pratica e il proprio percorso yoga sano e sostenibile nel tempo. Insegno con chiarezza, consapevolezza e attenzione alle esigenze individuali e sono appassionata nel vedere le persone crescere e imparare.",
+      },
+    },
+  },
+  {
     id: "join-us-1",
     experience: "0",
     image: "/placeholder-user.jpg",
