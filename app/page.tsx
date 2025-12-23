@@ -235,11 +235,11 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: "yulia",
-    experience: "14",
+    experience: "5",
     image: "/images/yulia.png",
     gradient: "from-[#B69724] to-[#D4B95C]",
     aura: "amber",
-    expertise: ["Hatha Vinyasa Yoga", "Vinyasa Flow", "Yin Yoga", "Hands-on Assists", "Pranayama", "14+ Years Experience"],
+    expertise: ["Hatha Vinyasa Yoga", "Vinyasa Flow", "Yin Yoga", "Hands-on Assists", "Pranayama", "14+ Years Yoga Experience"],
     email: "ginkgoyogaberlin@gmail.com",
     languages: ["German", "English", "Russian", "Dutch", "French"],
     translations: {
