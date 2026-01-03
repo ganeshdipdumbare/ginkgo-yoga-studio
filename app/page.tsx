@@ -234,6 +234,38 @@ const teamMembers: TeamMember[] = [
     },
   },
   {
+    id: "kira",
+    experience: "0.5",
+    image: "/images/kira.png",
+    gradient: "from-[#B69724] to-[#D4B95C]",
+    aura: "amber",
+    expertise: ["Hatha", "Vinyasa", "Kundalini", "Kaula Tantra"],
+    email: "ginkgoyogaberlin@gmail.com",
+    languages: ["German", "English", "Spanish"],
+    translations: {
+      name: {
+        en: "Kira",
+        de: "Kira",
+        it: "Kira",
+      },
+      specialty: {
+        en: "Hatha, Vinyasa & Kaula Tantra Yoga",
+        de: "Hatha, Vinyasa & Kaula Tantra Yoga",
+        it: "Hatha, Vinyasa & Kaula Tantra Yoga",
+      },
+      bio: {
+        en: "Since 2020, yoga has been an important foundation for me, helping me to connect with myself, my surroundings and my fellow human beings and to be present. Whereas yoga used to be primarily a workout for me, today it is a spiritual practice that allows me to experience peace and relaxation in our fast-paced world, to anchor myself deeply in my body and to connect with my inner strength.\n\nAfter many years of practising Vinyasa, Hatha and Rocket Yoga, I completed two yoga trainings in Hatha, Vinyasa and Kundalini (200 hours) as well as Kaula Tantra Yoga (300 hours) in Colombia and Ecuador. In addition to my passion for powerful and playful flows, I discovered the beauty of slow, conscious practice. Kaula Tantra Yoga is like medicine for me. It is the first yoga practice that has truly relaxed me and put me in a state between waking and sleeping.",
+        de: "Seit 2020 ist Yoga für mich eine wichtige Grundlage geworden, die mir hilft, mich mit mir selbst, meiner Umgebung und meinen Mitmenschen zu verbinden und präsent zu sein. Während Yoga für mich früher hauptsächlich ein Workout war, ist es heute eine spirituelle Praxis, die es mir ermöglicht, Frieden und Entspannung in unserer schnelllebigen Welt zu erfahren, mich tief in meinem Körper zu verankern und mich mit meiner inneren Stärke zu verbinden.\n\nNach vielen Jahren des Praktizierens von Vinyasa, Hatha und Rocket Yoga habe ich zwei Yoga-Ausbildungen in Hatha, Vinyasa und Kundalini (200 Stunden) sowie Kaula Tantra Yoga (300 Stunden) in Kolumbien und Ecuador abgeschlossen. Neben meiner Leidenschaft für kraftvolle und spielerische Flows habe ich die Schönheit langsamer, bewusster Praxis entdeckt. Kaula Tantra Yoga ist wie Medizin für mich. Es ist die erste Yoga-Praxis, die mich wirklich entspannt und mich in einen Zustand zwischen Wachen und Schlafen versetzt hat.",
+        it: "Dal 2020, lo yoga è diventato una base importante per me, aiutandomi a connettermi con me stessa, il mio ambiente e i miei simili e ad essere presente. Mentre lo yoga era principalmente un allenamento per me, oggi è una pratica spirituale che mi permette di sperimentare pace e relax nel nostro mondo frenetico, di ancorarmi profondamente nel mio corpo e di connettermi con la mia forza interiore.\n\nDopo molti anni di pratica di Vinyasa, Hatha e Rocket Yoga, ho completato due formazioni yoga in Hatha, Vinyasa e Kundalini (200 ore) così come Kaula Tantra Yoga (300 ore) in Colombia ed Ecuador. Oltre alla mia passione per flussi potenti e giocosi, ho scoperto la bellezza della pratica lenta e consapevole. Kaula Tantra Yoga è come una medicina per me. È la prima pratica yoga che mi ha veramente rilassato e mi ha messo in uno stato tra veglia e sonno.",
+      },
+      philosophy: {
+        en: "For me, yoga practice is a playful way of learning from each other, true to the motto: there is a teacher in each and every one of us. I teach holistic classes that incorporate elements of pranayama, meditation, yoga philosophy, dance and music. In my classes, I invite you to look within, flow with your breath and see your body as the temple that it is.",
+        de: "Für mich ist die Yoga-Praxis eine spielerische Art, voneinander zu lernen, ganz nach dem Motto: In jedem von uns steckt ein Lehrer. Ich unterrichte ganzheitliche Klassen, die Elemente von Pranayama, Meditation, Yoga-Philosophie, Tanz und Musik einbeziehen. In meinen Klassen lade ich dich ein, nach innen zu schauen, mit deinem Atem zu fließen und deinen Körper als den Tempel zu sehen, der er ist.",
+        it: "Per me, la pratica yoga è un modo giocoso di imparare gli uni dagli altri, fedele al motto: c'è un insegnante in ognuno di noi. Insegno classi olistiche che incorporano elementi di pranayama, meditazione, filosofia yoga, danza e musica. Nelle mie classi, ti invito a guardare dentro, fluire con il tuo respiro e vedere il tuo corpo come il tempio che è.",
+      },
+    },
+  },
+  {
     id: "join-us-1",
     experience: "0",
     image: "/placeholder-user.jpg",
@@ -285,6 +317,7 @@ import {
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Card, CardContent } from "@/components/ui/card"
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import dynamic from 'next/dynamic'
 
 type Language = "en" | "de" | "it"
@@ -366,6 +399,56 @@ const translations: Translations = {
     de: "Beliebteste",
     it: "Più Popolare",
   },
+  monthly: {
+    en: "Monthly",
+    de: "Monatlich",
+    it: "Mensile",
+  },
+  yearly: {
+    en: "Yearly",
+    de: "Jährlich",
+    it: "Annuale",
+  },
+  passes: {
+    en: "Passes",
+    de: "Karten",
+    it: "Abbonamenti",
+  },
+  save: {
+    en: "Save",
+    de: "Sparen",
+    it: "Risparmia",
+  },
+  discount: {
+    en: "discount",
+    de: "Rabatt",
+    it: "sconto",
+  },
+  perYear: {
+    en: "per year",
+    de: "pro Jahr",
+    it: "all'anno",
+  },
+  monthlyTotal: {
+    en: "Monthly total",
+    de: "Monatlich gesamt",
+    it: "Totale mensile",
+  },
+  yearlyTotal: {
+    en: "Yearly total",
+    de: "Jährlich gesamt",
+    it: "Totale annuo",
+  },
+  youSave: {
+    en: "You save",
+    de: "Sie sparen",
+    it: "Risparmi",
+  },
+  studentDiscountNote: {
+    en: "* 20% student discount available",
+    de: "* 20% Studentenrabatt verfügbar",
+    it: "* Sconto studente del 20% disponibile",
+  },
 
   // Contact Section
   contactTitle: {
@@ -444,9 +527,9 @@ const translations: Translations = {
     it: "Miglior valore per i praticanti regolari"
   },
   tenClassPass: {
-    en: "10 Class Pass",
-    de: "10er Karte",
-    it: "Abbonamento 10 Lezioni"
+    en: "12 Class Pass",
+    de: "12er Karte",
+    it: "Abbonamento 12 Lezioni"
   },
   validSixMonths: {
     en: "Valid for 6 months",
@@ -454,9 +537,9 @@ const translations: Translations = {
     it: "Valido per 6 mesi"
   },
   tenClasses: {
-    en: "10 classes included",
-    de: "10 Kurse inklusive",
-    it: "10 lezioni incluse"
+    en: "12 classes included",
+    de: "12 Kurse inklusive",
+    it: "12 lezioni incluse"
   },
   sixMonthsUse: {
     en: "6 months to use",
@@ -1143,45 +1226,10 @@ function ScheduleModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
 function PricingSection() {
   const { t } = useLanguage()
   const [ref, isIntersecting] = useIntersectionObserver({ threshold: 0.1 })
+  const [activeTab, setActiveTab] = useState<"monthly" | "yearly" | "passes">("passes")
 
-  const pricingPlans = [
-    {
-      name: t("yearUnlimited"),
-      price: "€88.00",
-      duration: t("validMonths"),
-      priceNote: t("everyMonth"),
-      icon: Sparkles,
-      gradient: "from-[#B69724] to-[#D4B95C]",
-      features: [t("unlimitedAccess"), t("monthsValidity"), t("priorityBooking")],
-      popular: true,
-    },
-    {
-      name: t("tenClassPass"),
-      price: "€140.00",
-      duration: t("validSixMonths"),
-      icon: Heart,
-      gradient: "from-[#D4B95C] to-[#B69724]",
-      features: [t("tenClasses"), t("sixMonthsUse"), t("perfectRegular")],
-      popular: false,
-    },
-    {
-      name: t("giftCard"),
-      price: "€50.00",
-      duration: t("validOneYear"),
-      icon: Gift,
-      gradient: "from-[#B69724] to-[#D4B95C]",
-      features: [t("perfectGift"), t("yearValidity"), t("transferable")],
-      popular: false,
-    },
-    {
-      name: t("insurance"),
-      price: "",
-      duration: "",
-      icon: Leaf,
-      gradient: "from-[#B69724] to-[#D4B95C]",
-      features: [t("insuranceEligible"), t("twoMonthsValidity"), t("insuranceSupport")],
-      popular: false,
-    },
+  // Monthly subscription plans only
+  const monthlyPlans = [
     {
       name: t("goldenMembership"),
       price: "€95.00",
@@ -1190,6 +1238,7 @@ function PricingSection() {
       gradient: "from-[#D4B95C] to-[#B69724]",
       features: [t("premiumAccess"), t("allClassesIncluded"), t("bestValue")],
       popular: false,
+      studentDiscount: true, // 20% student discount available
     },
     {
       name: t("silverMembership"),
@@ -1199,7 +1248,30 @@ function PricingSection() {
       gradient: "from-[#B69724] to-[#D4B95C]",
       features: [t("basicAccess"), t("standardClasses"), t("communitySupport")],
       popular: false,
+      studentDiscount: true, // 20% student discount available
     },
+  ]
+
+  // Yearly subscription plans only
+  const yearlyPlans = [
+    {
+      name: t("yearUnlimited"),
+      price: "€88.00",
+      duration: t("validMonths"),
+      priceNote: t("everyMonth"),
+      icon: Sparkles,
+      gradient: "from-[#B69724] to-[#D4B95C]",
+      features: [t("unlimitedAccess"), t("monthsValidity")],
+      popular: true,
+      discount: 30, // 30% discount compared to Golden Membership (€95/month)
+      monthlyEquivalentTotal: "€1,140.00", // €95 × 12 months
+      yearlyTotal: "€798.00", // New yearly price
+      savings: "€342.00", // €1,140 - €798
+    },
+  ]
+
+  // One-time passes and special options
+  const passPlans = [
     {
       name: t("dropIn"),
       price: "€15.00",
@@ -1210,16 +1282,35 @@ function PricingSection() {
       popular: false,
     },
     {
-      name: t("studentDeals"),
-      price: "€45.00",
-      duration: t("perMonth"),
-      priceNote: t("startingFrom"),
-      icon: GraduationCap,
-      gradient: "from-[#B69724] to-[#D4B95C]",
-      features: [t("studentWeekly1"), t("studentWeekly2"), t("studentWeekly3")],
+      name: t("tenClassPass"),
+      price: "€150.00",
+      duration: t("validSixMonths"),
+      icon: Heart,
+      gradient: "from-[#D4B95C] to-[#B69724]",
+      features: [t("tenClasses"), t("sixMonthsUse"), t("perfectRegular")],
       popular: false,
+      discount: null, // No direct monthly equivalent
+      studentDiscount: true, // 20% student discount available
+    },
+    {
+      name: t("insurance"),
+      price: "",
+      duration: "",
+      icon: Leaf,
+      gradient: "from-[#B69724] to-[#D4B95C]",
+      features: [t("insuranceEligible"), t("twoMonthsValidity"), t("insuranceSupport")],
+      popular: false,
+      discount: null, // Insurance plan, no discount calculation
     },
   ]
+
+  const currentPlans = activeTab === "monthly" ? monthlyPlans : activeTab === "yearly" ? yearlyPlans : passPlans
+  
+  // Calculate best discount for yearly plans
+  const bestYearlyDiscount = yearlyPlans
+    .map(plan => plan.discount)
+    .filter((discount): discount is number => discount !== null)
+    .reduce((max, discount) => Math.max(max, discount), 0)
 
   return (
     <section id="pricing" className="min-h-[90vh] flex items-center justify-center relative overflow-hidden py-20">
@@ -1243,8 +1334,47 @@ function PricingSection() {
           </p>
         </div>
 
+        <div className="flex justify-center mb-12">
+          <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as "monthly" | "yearly" | "passes")} className="w-full max-w-2xl">
+            <TabsList className="grid w-full grid-cols-3 bg-stone-100/80 backdrop-blur-sm p-1 rounded-lg">
+              <TabsTrigger
+                value="passes"
+                className="data-[state=active]:bg-white data-[state=active]:text-[#B69724] data-[state=active]:shadow-sm font-light transition-all duration-300"
+                style={{
+                  color: activeTab === "passes" ? "#B69724" : "#8B7355",
+                }}
+              >
+                {t("passes")}
+              </TabsTrigger>
+              <TabsTrigger
+                value="monthly"
+                className="data-[state=active]:bg-white data-[state=active]:text-[#B69724] data-[state=active]:shadow-sm font-light transition-all duration-300"
+                style={{
+                  color: activeTab === "monthly" ? "#B69724" : "#8B7355",
+                }}
+              >
+                {t("monthly")}
+              </TabsTrigger>
+              <TabsTrigger
+                value="yearly"
+                className="data-[state=active]:bg-white data-[state=active]:text-[#B69724] data-[state=active]:shadow-sm font-light transition-all duration-300 relative flex items-center gap-2 justify-center"
+                style={{
+                  color: activeTab === "yearly" ? "#B69724" : "#8B7355",
+                }}
+              >
+                <span>{t("yearly")}</span>
+                {bestYearlyDiscount > 0 && (
+                  <span className="px-2 py-0.5 text-xs font-semibold rounded-full bg-gradient-to-r from-[#B69724] to-[#D4B95C] text-white shadow-sm whitespace-nowrap">
+                    {t("save")} {bestYearlyDiscount}%
+                  </span>
+                )}
+              </TabsTrigger>
+            </TabsList>
+          </Tabs>
+        </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {pricingPlans.map((plan, index) => (
+          {currentPlans.map((plan, index) => (
             <Card
               key={index}
               className={`group relative overflow-hidden border-0 shadow-xl transition-all duration-1000 bg-stone-50/90 backdrop-blur-xl rounded-2xl h-full ${isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-32"
@@ -1267,25 +1397,63 @@ function PricingSection() {
                     </div>
                   </div>
 
-                  <h3
-                    className="text-xl font-light text-stone-700 mb-3 group-hover:transition-colors duration-500 tracking-wide"
-                    style={{ "--hover-color": "#B8860B" } as React.CSSProperties}
-                  >
-                    {plan.name}
-                  </h3>
+                  <div className="relative mb-3">
+                    <h3
+                      className="text-xl font-light text-stone-700 mb-2 group-hover:transition-colors duration-500 tracking-wide"
+                      style={{ "--hover-color": "#B8860B" } as React.CSSProperties}
+                    >
+                      {plan.name}
+                    </h3>
+                    {activeTab === "yearly" && "discount" in plan && (plan as any).discount !== null && (plan as any).discount > 0 && (
+                      <div className="inline-flex items-center justify-center px-3 py-1 rounded-full bg-gradient-to-r from-[#B69724] to-[#D4B95C] text-white text-xs font-medium shadow-md mt-2">
+                        <span>{t("save")}</span>
+                        <span className="ml-1 font-semibold">{(plan as any).discount}%</span>
+                      </div>
+                    )}
+                  </div>
 
                   <div className="mb-4">
-                    <div
-                      className="text-3xl font-extralight bg-gradient-to-r bg-clip-text text-transparent mb-1"
-                      style={{
-                        backgroundImage: "linear-gradient(to right, #B69724, #D4B95C)",
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
-                      }}
-                    >
-                      {plan.price}
-                    </div>
-                    {plan.priceNote && <div className="text-stone-600 font-light text-sm">{plan.priceNote}</div>}
+                    {activeTab === "yearly" && "monthlyEquivalentTotal" in plan && (plan as any).monthlyEquivalentTotal && (
+                      <div className="mb-3">
+                        <div className="text-stone-500 font-light text-sm mb-1">{t("monthlyTotal")}</div>
+                        <div
+                          className="text-xl font-light line-through text-stone-400 mb-2"
+                        >
+                          {(plan as any).monthlyEquivalentTotal}
+                        </div>
+                        <div className="text-stone-500 font-light text-sm mb-1">{t("yearlyTotal")}</div>
+                        <div
+                          className="text-3xl font-extralight bg-gradient-to-r bg-clip-text text-transparent mb-1"
+                          style={{
+                            backgroundImage: "linear-gradient(to right, #B69724, #D4B95C)",
+                            WebkitBackgroundClip: "text",
+                            WebkitTextFillColor: "transparent",
+                          }}
+                        >
+                          {(plan as any).yearlyTotal}
+                        </div>
+                        {"savings" in plan && (plan as any).savings && (
+                          <div className="mt-2 text-sm font-medium" style={{ color: "#B69724" }}>
+                            {t("youSave")} {(plan as any).savings}
+                          </div>
+                        )}
+                      </div>
+                    )}
+                    {!(activeTab === "yearly" && "monthlyEquivalentTotal" in plan && (plan as any).monthlyEquivalentTotal) && (
+                      <>
+                        <div
+                          className="text-3xl font-extralight bg-gradient-to-r bg-clip-text text-transparent mb-1"
+                          style={{
+                            backgroundImage: "linear-gradient(to right, #B69724, #D4B95C)",
+                            WebkitBackgroundClip: "text",
+                            WebkitTextFillColor: "transparent",
+                          }}
+                        >
+                          {plan.price}
+                        </div>
+                        {"priceNote" in plan && plan.priceNote && <div className="text-stone-600 font-light text-sm">{plan.priceNote}</div>}
+                      </>
+                    )}
                     <div className="text-stone-600 font-light text-xs mt-1">{plan.duration}</div>
                   </div>
 
@@ -1302,6 +1470,15 @@ function PricingSection() {
                       </div>
                     ))}
                   </div>
+
+                  {/* Student Discount Note - Individual Card */}
+                  {"studentDiscount" in plan && (plan as any).studentDiscount && (
+                    <div className="mt-auto pt-4 border-t border-stone-200">
+                      <p className="text-stone-600 font-light text-xs text-center">
+                        {t("studentDiscountNote")}
+                      </p>
+                    </div>
+                  )}
                 </div>
               </CardContent>
             </Card>
