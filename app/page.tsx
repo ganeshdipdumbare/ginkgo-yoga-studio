@@ -298,6 +298,132 @@ const teamMembers: TeamMember[] = [
     },
   },
 ];
+
+interface EventTranslation {
+  title: {
+    en: string;
+    de: string;
+    it: string;
+  };
+  subtitle: {
+    en: string;
+    de: string;
+    it: string;
+  };
+  description: {
+    en: string;
+    de: string;
+    it: string;
+  };
+  level: {
+    en: string;
+    de: string;
+    it: string;
+  };
+  date: {
+    en: string;
+    de: string;
+    it: string;
+  };
+  time: {
+    en: string;
+    de: string;
+    it: string;
+  };
+  earlyBird: {
+    en: string;
+    de: string;
+    it: string;
+  };
+  regular: {
+    en: string;
+    de: string;
+    it: string;
+  };
+  usc: {
+    en: string;
+    de: string;
+    it: string;
+  };
+  spots: {
+    en: string;
+    de: string;
+    it: string;
+  };
+}
+
+interface Event {
+  id: string;
+  icon: React.ComponentType<{ className?: string }>;
+  gradient: string;
+  featured?: boolean;
+  email: string;
+  translations: EventTranslation;
+}
+
+// Events data - easy to add/remove events here
+const events: Event[] = [
+  {
+    id: "equinox-108-sun-salutations",
+    icon: Sun,
+    gradient: "from-[#D4B95C] to-[#B69724]",
+    featured: true,
+    email: "ginkgoyogaberlin@gmail.com",
+    translations: {
+      title: {
+        en: "108 Sun Salutations",
+        de: "108 Sonnengrüße",
+        it: "108 Saluti al Sole",
+      },
+      subtitle: {
+        en: "Equinox Yoga Ritual",
+        de: "Äquinoktium Yoga Ritual",
+        it: "Rituale Yoga dell'Equinozio",
+      },
+      description: {
+        en: "Join us for a powerful and meditative yoga practice to honor the equinox — a moment of balance, transition, and renewal. We will move together through 108 Sun Salutations, guided by breath, rhythm, and collective energy. A strong yet mindful practice.",
+        de: "Nimm an einer kraftvollen und meditativen Yoga-Praxis teil, um die Tagundnachtgleiche zu ehren — einen Moment des Gleichgewichts, des Übergangs und der Erneuerung. Wir werden gemeinsam 108 Sonnengrüße durchführen, geleitet von Atem, Rhythmus und kollektiver Energie. Eine starke, aber achtsame Praxis.",
+        it: "Unisciti a noi per una pratica yoga potente e meditativa per onorare l'equinozio — un momento di equilibrio, transizione e rinnovamento. Ci muoveremo insieme attraverso 108 Saluti al Sole, guidati dal respiro, dal ritmo e dall'energia collettiva. Una pratica forte ma consapevole.",
+      },
+      level: {
+        en: "For practitioners with some yoga experience",
+        de: "Für Praktizierende mit etwas Yoga-Erfahrung",
+        it: "Per praticanti con qualche esperienza di yoga",
+      },
+      date: {
+        en: "Saturday, March 21",
+        de: "Samstag, 21. März",
+        it: "Sabato 21 marzo",
+      },
+      time: {
+        en: "13:30 - 15:30",
+        de: "13:30 - 15:30",
+        it: "13:30 - 15:30",
+      },
+      earlyBird: {
+        en: "Early Bird €30 (until Feb 29)",
+        de: "Frühbucher €30 (bis 29. Feb)",
+        it: "Early Bird €30 (fino al 29 febbraio)",
+      },
+      regular: {
+        en: "Regular €40",
+        de: "Regulär €40",
+        it: "Regolare €40",
+      },
+      usc: {
+        en: "USC: Check-in + €20 event contribution",
+        de: "USC: Check-in + €20 Veranstaltungsbeitrag",
+        it: "USC: Check-in + €20 contributo evento",
+      },
+      spots: {
+        en: "Limited spots · Minimum 6 participants",
+        de: "Begrenzte Plätze · Mindestens 6 Teilnehmer",
+        it: "Posti limitati · Minimo 6 partecipanti",
+      },
+    },
+  },
+];
+
 import {
   ChevronDown,
   Globe,
@@ -313,6 +439,10 @@ import {
   Theater,
   Coffee,
   GraduationCap,
+  Calendar,
+  Sun,
+  Clock,
+  Users,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
@@ -337,6 +467,7 @@ const translations: Translations = {
   schedule: { en: "Schedule", de: "Terminplan", it: "Programma" },
   pricing: { en: "Prices", de: "Preise", it: "Prezzi" },
   team: { en: "Team", de: "Team", it: "Team" },
+  events: { en: "Events", de: "Veranstaltungen", it: "Eventi" },
   contact: { en: "Contact", de: "Kontakt", it: "Contatti" },
 
   // Hero Section
@@ -448,6 +579,23 @@ const translations: Translations = {
     en: "* 20% student discount available",
     de: "* 20% Studentenrabatt verfügbar",
     it: "* Sconto studente del 20% disponibile",
+  },
+
+  // Events Section
+  eventsTitle: {
+    en: "Upcoming Events",
+    de: "Kommende Veranstaltungen",
+    it: "Prossimi Eventi",
+  },
+  eventsSubtitle: {
+    en: "Join us for special yoga experiences and community gatherings",
+    de: "Nimm an besonderen Yoga-Erlebnissen und Gemeinschaftstreffen teil",
+    it: "Unisciti a noi per esperienze yoga speciali e incontri della comunità",
+  },
+  eventReserve: {
+    en: "Reserve your spot",
+    de: "Reserviere deinen Platz",
+    it: "Prenota il tuo posto",
   },
 
   // Contact Section
@@ -949,7 +1097,7 @@ function GinkgoLeafPattern() {
   )
 }
 
-function Header({ onScheduleClick }: { onScheduleClick: () => void }) {
+function Header({ onScheduleClick, onEventsClick }: { onScheduleClick: () => void; onEventsClick: () => void }) {
   const { language, setLanguage, t } = useLanguage()
   const [isScrolled, setIsScrolled] = useState(false)
 
@@ -966,8 +1114,15 @@ function Header({ onScheduleClick }: { onScheduleClick: () => void }) {
       onScheduleClick()
       return
     }
+    if (id === "events") {
+      onEventsClick()
+      return
+    }
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" })
   }
+
+  // Check if there are featured events
+  const hasFeaturedEvents = events.some(event => event.featured)
 
   return (
     <header
@@ -1008,6 +1163,15 @@ function Header({ onScheduleClick }: { onScheduleClick: () => void }) {
             <button onClick={() => scrollToSection("team")} className="text-stone-600 hover:text-[#B69724] transition-colors font-light">
               {t("team")}
             </button>
+            <button 
+              onClick={() => scrollToSection("events")} 
+              className="relative text-stone-600 hover:text-[#B69724] transition-colors font-light"
+            >
+              {t("events")}
+              {hasFeaturedEvents && (
+                <span className="absolute -top-1 -right-1 w-2 h-2 bg-gradient-to-r from-[#D4B95C] to-[#B69724] rounded-full animate-pulse"></span>
+              )}
+            </button>
             <button onClick={() => scrollToSection("contact")} className="text-stone-600 hover:text-[#B69724] transition-colors font-light">
               {t("contact")}
             </button>
@@ -1036,6 +1200,12 @@ function Header({ onScheduleClick }: { onScheduleClick: () => void }) {
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={() => scrollToSection("team")}>
                     {t("team")}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => scrollToSection("events")} className="relative">
+                    {t("events")}
+                    {hasFeaturedEvents && (
+                      <span className="ml-2 w-2 h-2 bg-gradient-to-r from-[#D4B95C] to-[#B69724] rounded-full"></span>
+                    )}
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={() => scrollToSection("contact")}>
                     {t("contact")}
@@ -1794,6 +1964,377 @@ function JoinUsDialog({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
   )
 }
 
+function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
+  const { t, language } = useLanguage()
+  const [isVisible, setIsVisible] = useState(false)
+  const [currentEventIndex, setCurrentEventIndex] = useState(0)
+
+  useEffect(() => {
+    // Check if there are featured events
+    const featuredEvents = events.filter(event => event.featured)
+    if (featuredEvents.length === 0) {
+      return
+    }
+
+    // Show popup after a short delay (1.5 seconds) on every page load
+    const timer = setTimeout(() => {
+      setIsVisible(true)
+    }, 1500)
+
+    return () => clearTimeout(timer)
+  }, [])
+
+  const handleClose = () => {
+    setIsVisible(false)
+    // Just close for this session - will show again on next page refresh
+  }
+
+  // Check if popup should be shown (has featured events)
+  const featuredEvents = events.filter(event => event.featured)
+  
+  if (!isVisible || featuredEvents.length === 0) {
+    return null
+  }
+
+  // Get current featured event
+  const featuredEvent = featuredEvents[currentEventIndex]
+  const EventIcon = featuredEvent.icon
+  const eventTranslations = featuredEvent.translations
+
+  const handleNext = () => {
+    setCurrentEventIndex((prev) => (prev + 1) % featuredEvents.length)
+  }
+
+  const handlePrevious = () => {
+    setCurrentEventIndex((prev) => (prev - 1 + featuredEvents.length) % featuredEvents.length)
+  }
+
+  return (
+    <div 
+      className={`fixed bottom-4 right-4 z-50 transition-all duration-500 ease-out ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
+      }`}
+      style={{ maxWidth: 'calc(100vw - 2rem)' }}
+    >
+      <div 
+        className="bg-white/95 backdrop-blur-xl rounded-2xl p-6 shadow-2xl border-2 border-yellow-300/60 relative max-w-md"
+        style={{
+          boxShadow: "0 20px 60px -12px rgba(182, 151, 36, 0.4)",
+          minHeight: "380px",
+        }}
+      >
+        {/* Gradient overlay */}
+        <div className={`absolute top-0 right-0 w-48 h-48 bg-gradient-to-br ${featuredEvent.gradient} opacity-10 rounded-full blur-3xl -z-0`} />
+        
+        {/* Close button - higher z-index to ensure it's clickable */}
+        <button
+          onClick={handleClose}
+          className="absolute top-3 right-3 text-stone-400 hover:text-stone-600 transition-colors p-1.5 rounded-full hover:bg-stone-100 z-50 cursor-pointer"
+          aria-label="Close"
+          type="button"
+        >
+          <svg className="w-5 h-5 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        {/* Event content */}
+        <div className="relative z-0">
+          {/* Navigation arrows for multiple events */}
+          {featuredEvents.length > 1 && (
+            <div className="flex items-center justify-between mb-3">
+              <button
+                onClick={handlePrevious}
+                className="p-1.5 text-stone-400 hover:text-stone-600 transition-colors rounded-full hover:bg-stone-100"
+                aria-label="Previous event"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <div className="flex gap-1.5">
+                {featuredEvents.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentEventIndex(index)}
+                    className={`w-1.5 h-1.5 rounded-full transition-all ${
+                      index === currentEventIndex 
+                        ? 'bg-[#B69724] w-4' 
+                        : 'bg-stone-300 hover:bg-stone-400'
+                    }`}
+                    aria-label={`Go to event ${index + 1}`}
+                  />
+                ))}
+              </div>
+              <button
+                onClick={handleNext}
+                className="p-1.5 text-stone-400 hover:text-stone-600 transition-colors rounded-full hover:bg-stone-100"
+                aria-label="Next event"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          )}
+
+          {/* Header */}
+          <div className="flex items-start gap-3 mb-4">
+            <div className={`w-12 h-12 bg-gradient-to-br ${featuredEvent.gradient} rounded-xl flex items-center justify-center shadow-lg flex-shrink-0`}>
+              <EventIcon className="h-6 w-6 text-white" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2 mb-1 flex-wrap">
+                <h3 className="text-xl font-light" style={{ color: "#B69724" }}>
+                  {eventTranslations.title[language]}
+                </h3>
+                <span className="px-2 py-0.5 bg-gradient-to-r from-[#D4B95C] to-[#B69724] text-white text-xs font-light rounded-full whitespace-nowrap">
+                  Featured
+                </span>
+                {featuredEvents.length > 1 && (
+                  <span className="text-xs text-stone-400 font-light">
+                    {currentEventIndex + 1} / {featuredEvents.length}
+                  </span>
+                )}
+              </div>
+              <p className="text-sm text-stone-600 font-light">
+                {eventTranslations.subtitle[language]}
+              </p>
+            </div>
+          </div>
+
+          {/* Quick info */}
+          <div className="space-y-2 mb-4">
+            <div className="flex items-center gap-2 text-sm text-stone-700">
+              <Calendar className="h-4 w-4" style={{ color: "#B69724" }} />
+              <span className="font-light">{eventTranslations.date[language]} · {eventTranslations.time[language]}</span>
+            </div>
+            <p className="text-xs text-stone-600 font-light line-clamp-2">
+              {eventTranslations.description[language]}
+            </p>
+          </div>
+
+          {/* Action buttons */}
+          <div className="space-y-2">
+            <div className="flex gap-2">
+              <a
+                href={`mailto:${featuredEvent.email}?subject=Reservation: ${eventTranslations.title[language]} - ${eventTranslations.subtitle[language]}&body=Hello,%0D%0A%0D%0AI would like to reserve a spot for the ${eventTranslations.title[language]} - ${eventTranslations.subtitle[language]} on ${eventTranslations.date[language]} at ${eventTranslations.time[language]}.%0D%0A%0D%0AThank you!`}
+                className={`flex-1 px-4 py-2.5 bg-gradient-to-r ${featuredEvent.gradient} text-white rounded-xl font-light text-sm hover:shadow-lg transition-all duration-300 hover:scale-105 text-center`}
+                style={{
+                  boxShadow: "0 4px 15px -3px rgba(182, 151, 36, 0.4)",
+                }}
+              >
+                {t("eventReserve")}
+              </a>
+              <button
+                onClick={handleClose}
+                className="px-4 py-2.5 text-stone-600 hover:text-stone-800 font-light text-sm transition-all duration-300 border border-stone-200 rounded-xl hover:border-stone-300 hover:bg-stone-50"
+              >
+                Later
+              </button>
+            </div>
+            <button
+              onClick={() => {
+                handleClose()
+                onOpenModal()
+              }}
+              className="w-full px-4 py-2.5 text-stone-600 hover:text-[#B69724] font-light text-sm transition-all duration-300 border border-stone-200 rounded-xl hover:border-[#B69724]/30 hover:bg-yellow-50/50 flex items-center justify-center gap-1.5"
+            >
+              View All Events & Details
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function EventsModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  const { t, language } = useLanguage()
+
+  if (!isOpen) return null
+
+  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      onClose()
+    }
+  }
+
+  // Filter to show only upcoming events (you can add date filtering logic here)
+  const upcomingEvents = events.filter(event => {
+    // Add date filtering logic if needed
+    return true; // For now, show all events
+  })
+
+  return (
+    <div 
+      className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-1 sm:p-2"
+      onClick={handleBackdropClick}
+    >
+      <div 
+        className="bg-stone-50/95 backdrop-blur-xl rounded-2xl sm:rounded-3xl w-full h-full sm:h-auto sm:max-w-[95vw] sm:max-h-[95vh] overflow-hidden border border-yellow-800/20 shadow-2xl flex flex-col"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="flex justify-between items-center p-3 sm:p-4 flex-shrink-0 border-b border-stone-200/50">
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-light tracking-wide" style={{ color: "#B69724" }}>
+              {t("eventsTitle")}
+            </h2>
+            <p className="text-sm text-stone-600 font-light mt-1">
+              {t("eventsSubtitle")}
+            </p>
+          </div>
+          <button
+            onClick={onClose}
+            className="text-stone-500 hover:text-stone-700 transition-colors p-2 rounded-full hover:bg-stone-200/50 flex-shrink-0"
+          >
+            <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Events Content */}
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6">
+          {upcomingEvents.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-stone-600 font-light text-lg">No upcoming events at the moment.</p>
+            </div>
+          ) : (
+            <div className="max-w-4xl mx-auto space-y-6">
+              {upcomingEvents.map((event) => {
+                const EventIcon = event.icon;
+                const eventTranslations = event.translations;
+                
+                return (
+                  <div
+                    key={event.id}
+                    className="bg-white/80 backdrop-blur-xl rounded-3xl p-6 md:p-10 border-2 border-yellow-300/60 shadow-xl relative overflow-hidden"
+                    style={{
+                      boxShadow: "0 20px 60px -12px rgba(182, 151, 36, 0.25)",
+                    }}
+                  >
+                    {/* Subtle gradient overlay */}
+                    <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${event.gradient} opacity-20 rounded-full blur-3xl -z-0`} />
+                    
+                    {/* Event Header */}
+                    <div className="flex items-start justify-between mb-6 pb-6 border-b border-stone-200 relative z-10">
+                      <div className="flex-1">
+                        <div className="flex items-start gap-4 mb-3">
+                          <div className={`w-12 h-12 bg-gradient-to-br ${event.gradient} rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0`}>
+                            <EventIcon className="h-6 w-6 text-white" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-3 mb-2 flex-wrap">
+                              <h3 className="text-2xl md:text-3xl font-light" style={{ color: "#B69724" }}>
+                                {eventTranslations.title[language]}
+                              </h3>
+                              {event.featured && (
+                                <span className="px-3 py-1 bg-gradient-to-r from-[#D4B95C] to-[#B69724] text-white text-xs font-light rounded-full whitespace-nowrap">
+                                  Featured
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-lg text-stone-600 font-light">
+                              {eventTranslations.subtitle[language]}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Event Description */}
+                    <div className="mb-6 relative z-10">
+                      <p className="text-base text-stone-700 leading-relaxed font-light mb-3">
+                        {eventTranslations.description[language]}
+                      </p>
+                      <p className="text-sm text-stone-600 font-light italic">
+                        {eventTranslations.level[language]}
+                      </p>
+                    </div>
+
+                    {/* Event Details Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 relative z-10">
+                      {/* Date */}
+                      <div className="flex items-start gap-3">
+                        <div className="w-9 h-9 bg-yellow-100/50 rounded-xl flex items-center justify-center flex-shrink-0">
+                          <Calendar className="h-4 w-4" style={{ color: "#B69724" }} />
+                        </div>
+                        <div>
+                          <p className="text-xs text-stone-500 font-light mb-1">Date</p>
+                          <p className="text-base text-stone-700 font-light">{eventTranslations.date[language]}</p>
+                        </div>
+                      </div>
+
+                      {/* Time */}
+                      <div className="flex items-start gap-3">
+                        <div className="w-9 h-9 bg-yellow-100/50 rounded-xl flex items-center justify-center flex-shrink-0">
+                          <Clock className="h-4 w-4" style={{ color: "#B69724" }} />
+                        </div>
+                        <div>
+                          <p className="text-xs text-stone-500 font-light mb-1">Time</p>
+                          <p className="text-base text-stone-700 font-light">{eventTranslations.time[language]}</p>
+                        </div>
+                      </div>
+
+                      {/* Pricing */}
+                      <div className="flex items-start gap-3 md:col-span-2">
+                        <div className="w-9 h-9 bg-yellow-100/50 rounded-xl flex items-center justify-center flex-shrink-0">
+                          <Gift className="h-4 w-4" style={{ color: "#B69724" }} />
+                        </div>
+                        <div className="flex-1">
+                          <p className="text-xs text-stone-500 font-light mb-2">Pricing</p>
+                          <div className="space-y-1">
+                            <p className="text-base text-stone-700 font-light">{eventTranslations.earlyBird[language]}</p>
+                            <p className="text-base text-stone-700 font-light">{eventTranslations.regular[language]}</p>
+                            <p className="text-sm text-stone-600 font-light">{eventTranslations.usc[language]}</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Spots */}
+                      <div className="flex items-start gap-3 md:col-span-2">
+                        <div className="w-9 h-9 bg-yellow-100/50 rounded-xl flex items-center justify-center flex-shrink-0">
+                          <Users className="h-4 w-4" style={{ color: "#B69724" }} />
+                        </div>
+                        <div>
+                          <p className="text-xs text-stone-500 font-light mb-1">Availability</p>
+                          <p className="text-base text-stone-700 font-light">{eventTranslations.spots[language]}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Reserve Button */}
+                    <div className="pt-6 border-t border-stone-200 relative z-10">
+                      <div className="text-center">
+                        <p className="text-base text-stone-700 font-light mb-3">{t("eventReserve")}</p>
+                        <a
+                          href={`mailto:${event.email}?subject=Reservation: ${eventTranslations.title[language]} - ${eventTranslations.subtitle[language]}&body=Hello,%0D%0A%0D%0AI would like to reserve a spot for the ${eventTranslations.title[language]} - ${eventTranslations.subtitle[language]} on ${eventTranslations.date[language]} at ${eventTranslations.time[language]}.%0D%0A%0D%0AThank you!`}
+                          className={`inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r ${event.gradient} text-white rounded-2xl font-light text-base hover:shadow-xl transition-all duration-300 hover:scale-105`}
+                          style={{
+                            boxShadow: "0 10px 30px -8px rgba(182, 151, 36, 0.4)",
+                          }}
+                        >
+                          <Mail className="h-4 w-4" />
+                          {event.email}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function ContactSection() {
   const { t } = useLanguage()
   const [ref, isIntersecting] = useIntersectionObserver({ threshold: 0.1 })
@@ -2136,6 +2677,7 @@ function VenueRentalDialog() {
 function YogaStudioPortfolio() {
   const isClient = useIsClient()
   const [isScheduleModalOpen, setIsScheduleModalOpen] = useState(false)
+  const [isEventsModalOpen, setIsEventsModalOpen] = useState(false)
 
   if (!isClient) {
     return null
@@ -2278,7 +2820,10 @@ function YogaStudioPortfolio() {
         `}</style>
 
         {/* --- site sections --- */}
-        <Header onScheduleClick={() => setIsScheduleModalOpen(true)} />
+        <Header 
+          onScheduleClick={() => setIsScheduleModalOpen(true)} 
+          onEventsClick={() => setIsEventsModalOpen(true)} 
+        />
         <main className="space-y-4">
           <HeroSection onScheduleClick={() => setIsScheduleModalOpen(true)} />
           <AboutSection />
@@ -2292,6 +2837,11 @@ function YogaStudioPortfolio() {
           isOpen={isScheduleModalOpen} 
           onClose={() => setIsScheduleModalOpen(false)} 
         />
+        <EventsModal 
+          isOpen={isEventsModalOpen} 
+          onClose={() => setIsEventsModalOpen(false)} 
+        />
+        <EventsPopup onOpenModal={() => setIsEventsModalOpen(true)} />
       </div>
     </LanguageProvider>
   )
