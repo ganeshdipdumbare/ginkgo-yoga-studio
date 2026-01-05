@@ -2020,7 +2020,6 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
         className="bg-white/95 backdrop-blur-xl rounded-2xl p-6 shadow-2xl border-2 border-yellow-300/60 relative max-w-md"
         style={{
           boxShadow: "0 20px 60px -12px rgba(182, 151, 36, 0.4)",
-          minHeight: "380px",
         }}
       >
         {/* Gradient overlay */}
