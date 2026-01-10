@@ -177,7 +177,7 @@ const teamMembers: TeamMember[] = [
     aura: "amber",
     expertise: ["15+ Years Practice", "Hatha Yoga", "Iyengar Yoga", "Anusara Yoga", "Jivamukti Yoga", "Ashtanga Yoga", "Life Science Researcher"],
     email: "ginkgoyogaberlin@gmail.com",
-    languages: ["English", "Portuguese", "German"],
+    languages: ["English", "Portuguese"],
     translations: {
       name: {
         en: "Sílvia",
@@ -396,9 +396,9 @@ const events: Event[] = [
         it: "Sabato 21 marzo",
       },
       time: {
-        en: "13:30 - 15:30",
-        de: "13:30 - 15:30",
-        it: "13:30 - 15:30",
+        en: "15:30-17:30",
+        de: "15:30-17:30",
+        it: "15:30-17:30",
       },
       earlyBird: {
         en: "Early Bird €30 (until Feb 29)",
@@ -812,9 +812,19 @@ const translations: Translations = {
     it: "Lezione di prova €12"
   },
   giftClass: {
-    en: "Gift a class €15",
-    de: "Stunde verschenken €15",
-    it: "Regala una lezione €15"
+    en: "gift a class 15€",
+    de: "Stunde verschenken 15€",
+    it: "Regala una lezione 15€"
+  },
+  price60_75min: {
+    en: "15€ for 60/75 min",
+    de: "15€ für 60/75 Min",
+    it: "15€ per 60/75 min"
+  },
+  price90min: {
+    en: "18€ for 90 min",
+    de: "18€ für 90 Min",
+    it: "18€ per 90 min"
   },
   noCommitment: {
     en: "No commitment needed",
@@ -1444,11 +1454,11 @@ function PricingSection() {
   const passPlans = [
     {
       name: t("dropIn"),
-      price: "€15.00",
+      price: "15€/18€",
       duration: t("singleClass"),
       icon: Coffee,
       gradient: "from-[#D4B95C] to-[#B69724]",
-      features: [t("tryOutClass"), t("giftClass"), t("noCommitment")],
+      features: [t("price60_75min"), t("price90min"), t("giftClass")],
       popular: false,
     },
     {
