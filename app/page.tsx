@@ -2518,8 +2518,19 @@ function Footer() {
             Ginkgo Yoga
           </span>
         </div>
-        <p className="text-slate-400 text-sm font-light">
+        <p className="text-slate-400 text-sm font-light mb-4">
           © 2025 Ginkgo Yoga. All rights reserved.
+        </p>
+        <p className="text-slate-500 text-xs font-light">
+          Made with ❤️ by{" "}
+          <a
+            href="https://ganeshdip.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-400 hover:text-[#B69724] transition-colors duration-300"
+          >
+            ganeshdip.dev
+          </a>
         </p>
       </div>
     </footer>
