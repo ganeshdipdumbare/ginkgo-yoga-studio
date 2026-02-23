@@ -1349,8 +1349,50 @@ function AboutSection() {
 
 function ScheduleModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const { t } = useLanguage()
+  const widgetRef = useRef<HTMLDivElement>(null)
 
-  if (!isOpen) return null
+  // Load Eversports widget script once when component mounts
+  useEffect(() => {
+    // Check if script is already loaded
+    const existingScript = document.querySelector('script[src="https://widget-static.eversports.io/loader.js"]')
+    if (existingScript) {
+      return
+    }
+
+    // Load the script
+    const script = document.createElement('script')
+    script.type = 'module'
+    script.src = 'https://widget-static.eversports.io/loader.js'
+    script.async = true
+    script.defer = true
+    document.body.appendChild(script)
+  }, [])
+
+  // Trigger widget initialization when modal opens
+  useEffect(() => {
+    if (!isOpen || !widgetRef.current) return
+
+    // Wait a bit for DOM to be ready, then try to trigger widget load
+    const timer = setTimeout(() => {
+      // Try to trigger Eversports to re-scan by dispatching events
+      window.dispatchEvent(new Event('DOMContentLoaded'))
+      window.dispatchEvent(new Event('load'))
+      
+      // Also try MutationObserver approach - remove and re-add attribute
+      const container = widgetRef.current
+      if (container) {
+        const widgetId = container.getAttribute('data-eversports-widget-id')
+        if (widgetId) {
+          container.removeAttribute('data-eversports-widget-id')
+          // Force reflow
+          void container.offsetHeight
+          container.setAttribute('data-eversports-widget-id', widgetId)
+        }
+      }
+    }, 500)
+
+    return () => clearTimeout(timer)
+  }, [isOpen])
 
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
@@ -1358,10 +1400,13 @@ function ScheduleModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
     }
   }
 
+  // Keep modal in DOM when closed so the Eversports widget container persists.
+  // The loader only scans once on page load and does not re-scan for remounted elements.
   return (
     <div 
-      className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-1 sm:p-2"
+      className={`fixed inset-0 z-50 flex items-center justify-center p-1 sm:p-2 transition-opacity ${!isOpen ? 'invisible pointer-events-none opacity-0' : 'bg-black/50 backdrop-blur-sm opacity-100'}`}
       onClick={handleBackdropClick}
+      aria-hidden={!isOpen}
     >
       <div 
         className="bg-stone-50/95 backdrop-blur-xl rounded-2xl sm:rounded-3xl w-full h-full sm:h-auto sm:max-w-[98vw] sm:max-h-[98vh] overflow-hidden border border-yellow-800/20 shadow-2xl flex flex-col"
@@ -1383,16 +1428,14 @@ function ScheduleModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
         </div>
 
         {/* Calendar / Native Eversports widget */}
-        <div className="flex-1 w-full bg-white/80 backdrop-blur-xl overflow-auto border border-stone-200/50 p-2 sm:p-4">
-          <div data-eversports-widget-id="6e0dfb60-54c9-4461-8789-a1881c7808de">
-            {/* Include the script only once per page. */}
+        <div className="flex-1 w-full bg-white/80 backdrop-blur-xl overflow-auto border border-stone-200/50 p-2 sm:p-4 min-h-[400px]">
+          <div 
+            ref={widgetRef}
+            data-eversports-widget-id="6e0dfb60-54c9-4461-8789-a1881c7808de"
+            className="w-full h-full min-h-[400px]"
+          >
+            {/* Widget will be loaded here by Eversports script */}
           </div>
-          <script
-            type="module"
-            src="https://widget-static.eversports.io/loader.js"
-            async
-            defer
-          ></script>
         </div>
       </div>
     </div>
