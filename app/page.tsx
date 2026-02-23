@@ -34,6 +34,7 @@ interface TeamMember {
   aura: string;
   expertise: string[];
   email: string;
+  website?: string;
   languages: string[];
   translations: TeamMemberTranslation;
 }
@@ -145,6 +146,7 @@ const teamMembers: TeamMember[] = [
     aura: "amber",
     expertise: ["Jivamukti Yoga (300h)", "Talia Sutra Influenced", "Dylan Werner Influenced", "Isha Yoga Influenced", "Hand-on-Assistenz"],
     email: "ginkgoyogaberlin@gmail.com",
+    website: "https://yogacranioisa.com",
     languages: ["German", "English"],
     translations: {
       name: {
@@ -1380,23 +1382,17 @@ function ScheduleModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
           </button>
         </div>
 
-        {/* Calendar */}
-        <div className="flex-1 w-full bg-white/80 backdrop-blur-xl overflow-auto border border-stone-200/50">
-          <div className="w-full h-full min-h-[600px] sm:min-h-[700px] flex items-center justify-start p-1">
-            <div className="w-full h-full min-w-[900px] max-w-[900px] mx-auto">
-              <iframe
-                title="embedded-calendar"
-                src="https://admin.gymly.io/embed/calendar/36196fbb-fb36-48de-891d-36c88f4b1ce8?responsive=true"
-                className="w-full h-full min-h-[600px] sm:min-h-[700px]"
-                style={{ 
-                  border: 0,
-                  minWidth: '900px'
-                }}
-                allow="fullscreen"
-                loading="lazy"
-              />
-            </div>
+        {/* Calendar / Native Eversports widget */}
+        <div className="flex-1 w-full bg-white/80 backdrop-blur-xl overflow-auto border border-stone-200/50 p-2 sm:p-4">
+          <div data-eversports-widget-id="6e0dfb60-54c9-4461-8789-a1881c7808de">
+            {/* Include the script only once per page. */}
           </div>
+          <script
+            type="module"
+            src="https://widget-static.eversports.io/loader.js"
+            async
+            defer
+          ></script>
         </div>
       </div>
     </div>
@@ -1818,12 +1814,24 @@ function InstructorsSection() {
                 {/* Contact */}
                 <div>
                   <h4 className="text-lg font-light text-stone-700 mb-2">Contact</h4>
-                  <a
-                    href={`mailto:${selectedInstructor.email}`}
-                    className="text-stone-600 hover:text-yellow-800 transition-colors font-light"
-                  >
-                    {selectedInstructor.email}
-                  </a>
+                  <div className="flex flex-col gap-1">
+                    <a
+                      href={`mailto:${selectedInstructor.email}`}
+                      className="text-stone-600 hover:text-yellow-800 transition-colors font-light"
+                    >
+                      {selectedInstructor.email}
+                    </a>
+                    {selectedInstructor.website && (
+                      <a
+                        href={selectedInstructor.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-stone-600 hover:text-yellow-800 transition-colors font-light underline"
+                      >
+                        {selectedInstructor.website}
+                      </a>
+                    )}
+                  </div>
                 </div>
 
                 {/* Experience */}
@@ -1977,6 +1985,7 @@ function JoinUsDialog({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
 function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
   const { t, language } = useLanguage()
   const [isVisible, setIsVisible] = useState(false)
+  const [isBubbleMode, setIsBubbleMode] = useState(false)
   const [currentEventIndex, setCurrentEventIndex] = useState(0)
 
   useEffect(() => {
@@ -1994,15 +2003,32 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
     return () => clearTimeout(timer)
   }, [])
 
+  // Auto-close after 3 seconds when visible, then transform to bubble
+  useEffect(() => {
+    if (!isVisible) return
+
+    const autoCloseTimer = setTimeout(() => {
+      setIsVisible(false)
+      setIsBubbleMode(true)
+    }, 3000)
+
+    return () => clearTimeout(autoCloseTimer)
+  }, [isVisible])
+
   const handleClose = () => {
     setIsVisible(false)
-    // Just close for this session - will show again on next page refresh
+    setIsBubbleMode(true)
+  }
+
+  const handleBubbleClick = () => {
+    setIsBubbleMode(false)
+    setIsVisible(true)
   }
 
   // Check if popup should be shown (has featured events)
   const featuredEvents = events.filter(event => event.featured)
   
-  if (!isVisible || featuredEvents.length === 0) {
+  if (featuredEvents.length === 0) {
     return null
   }
 
@@ -2010,6 +2036,28 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
   const featuredEvent = featuredEvents[currentEventIndex]
   const EventIcon = featuredEvent.icon
   const eventTranslations = featuredEvent.translations
+
+  // Show bubble mode
+  if (isBubbleMode && !isVisible) {
+    return (
+      <button
+        onClick={handleBubbleClick}
+        className="fixed bottom-24 right-4 z-50 w-12 h-12 rounded-full bg-gradient-to-br from-[#B69724] to-[#D4B95C] shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center group"
+        style={{
+          boxShadow: "0 8px 24px -8px rgba(182, 151, 36, 0.4)",
+        }}
+        aria-label="View featured event"
+      >
+        <EventIcon className="h-6 w-6 text-white transition-transform duration-300 group-hover:scale-110" />
+        <span className="absolute -top-0.5 -right-0.5 w-3 h-3 bg-red-500 rounded-full border-2 border-white animate-pulse"></span>
+      </button>
+    )
+  }
+
+  // Show full popup
+  if (!isVisible) {
+    return null
+  }
 
   const handleNext = () => {
     setCurrentEventIndex((prev) => (prev + 1) % featuredEvents.length)
@@ -2021,7 +2069,7 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
 
   return (
     <div 
-      className={`fixed bottom-4 right-4 z-50 transition-all duration-500 ease-out ${
+      className={`fixed bottom-24 right-4 z-50 transition-all duration-500 ease-out ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
       }`}
       style={{ maxWidth: 'calc(100vw - 2rem)' }}
