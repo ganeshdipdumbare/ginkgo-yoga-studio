@@ -403,19 +403,19 @@ const events: Event[] = [
         it: "15:30-17:30",
       },
       earlyBird: {
-        en: "Early Bird €30 (until Feb 29)",
-        de: "Frühbucher €30 (bis 29. Feb)",
-        it: "Early Bird €30 (fino al 29 febbraio)",
+        en: "Early Bird €25 (until March 11)",
+        de: "Frühbucher €25 (bis 11. März)",
+        it: "Early Bird €25 (fino all'11 marzo)",
       },
       regular: {
-        en: "Regular €40",
-        de: "Regulär €40",
-        it: "Regolare €40",
+        en: "Regular €35",
+        de: "Regulär €35",
+        it: "Regolare €35",
       },
       usc: {
-        en: "USC: Check-in + €20 event contribution",
-        de: "USC: Check-in + €20 Veranstaltungsbeitrag",
-        it: "USC: Check-in + €20 contributo evento",
+        en: "USC: Check-in + €15 event contribution",
+        de: "USC: Check-in + €15 Veranstaltungsbeitrag",
+        it: "USC: Check-in + €15 contributo evento",
       },
       spots: {
         en: "Limited spots · Minimum 6 participants",
@@ -2046,14 +2046,14 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
     return () => clearTimeout(timer)
   }, [])
 
-  // Auto-close after 3 seconds when visible, then transform to bubble
+  // Auto-close after 1.5 seconds when visible, then transform to bubble
   useEffect(() => {
     if (!isVisible) return
 
     const autoCloseTimer = setTimeout(() => {
       setIsVisible(false)
       setIsBubbleMode(true)
-    }, 3000)
+    }, 1500)
 
     return () => clearTimeout(autoCloseTimer)
   }, [isVisible])
