@@ -268,6 +268,38 @@ const teamMembers: TeamMember[] = [
     },
   },
   {
+    id: "katha",
+    experience: "1.5",
+    image: "/images/katha.png",
+    gradient: "from-[#B69724] to-[#D4B95C]",
+    aura: "amber",
+    expertise: ["Pranayama", "Meditation", "Yin Yoga", "Yoga Nidra", "Mobility & Healthy Back", "500hrs RYT", "Reiki"],
+    email: "ginkgoyogaberlin@gmail.com",
+    languages: ["German", "English"],
+    translations: {
+      name: {
+        en: "Katha",
+        de: "Katha",
+        it: "Katha",
+      },
+      specialty: {
+        en: "Pranayama, Yin & Mind-Body",
+        de: "Pranayama, Yin & Körper-Geist",
+        it: "Pranayama, Yin & Mente-Corpo",
+      },
+      bio: {
+        en: "My first memory with yoga was through a weekend course (paid by health insurance) with focus on minimalizing daily stress. I was 21 back then. The sense of ease and peace I experienced was unknown to my whole being.\n\nSince then I practiced sometimes more, sometimes less, until Covid hit. I had time to ask myself: What do I want more of to live a good & meaningful life? I remembered the feeling of the yoga weekend back then, and decided to do my first teacher training, followed directly by the second. During the trainings I realised the reciprocal relationship of being a teacher and student simultaneously.\n\nAt that same time my back pain started to get really intense and I was \"forced\" to focus on studying the Mind-Body connection even more in depth. I gained so much knowledge and expanded my range in areas of Qi Gong, Tapping, Breath, Mobility, Affirmations and Reiki. My lived experiences reflect my classes, and I feel honoured to share them.",
+        de: "Meine erste Erinnerung an Yoga war ein Wochenendkurs (von der Krankenkasse bezahlt) mit Fokus auf die Reduzierung von Alltagsstress. Ich war damals 21. Das Gefühl von Leichtigkeit und Frieden, das ich erlebte, war meinem ganzen Wesen unbekannt.\n\nSeitdem habe ich mal mehr, mal weniger praktiziert, bis Covid kam. Ich hatte Zeit, mich zu fragen: Was brauche ich mehr, um ein gutes und sinnvolles Leben zu führen? Ich erinnerte mich an das Gefühl des Yoga-Wochenendes von damals und entschied mich für meine erste Lehrerausbildung, direkt gefolgt von der zweiten. Während der Ausbildungen erkannte ich die wechselseitige Beziehung, gleichzeitig Lehrerin und Schülerin zu sein.\n\nZu dieser Zeit wurde mein Rückenschmerz wirklich intensiv und ich war „gezwungen“, mich noch tiefer mit der Körper-Geist-Verbindung auseinanderzusetzen. Ich habe so viel Wissen gewonnen und meinen Horizont in den Bereichen Qi Gong, Tapping, Atem, Mobilität, Affirmationen und Reiki erweitert. Meine gelebten Erfahrungen spiegeln sich in meinen Klassen wider, und ich fühle mich geehrt, sie zu teilen.",
+        it: "Il mio primo ricordo dello yoga è stato un corso weekend (pagato dall'assicurazione sanitaria) con focus sulla riduzione dello stress quotidiano. Avevo 21 anni. La sensazione di leggerezza e pace che ho provato era sconosciuta al mio intero essere.\n\nDa allora ho praticato a volte di più, a volte di meno, fino al Covid. Ho avuto tempo di chiedermi: Di cosa ho bisogno di più per vivere una vita buona e significativa? Mi sono ricordata della sensazione del weekend di yoga di allora e ho deciso di fare la mia prima formazione per insegnanti, seguita direttamente dalla seconda. Durante le formazioni ho capito la relazione reciproca dell'essere contemporaneamente insegnante e studente.\n\nIn quel periodo il mio mal di schiena è diventato davvero intenso e sono stata \"costretta\" a concentrarmi ancora più approfonditamente sullo studio della connessione mente-corpo. Ho acquisito così tante conoscenze e ho ampliato la mia gamma nelle aree di Qi Gong, Tapping, Respiro, Mobilità, Affermazioni e Reiki. Le mie esperienze vissute si riflettono nelle mie lezioni, e mi sento onorata di condividerle.",
+      },
+      philosophy: {
+        en: "Carving out time to intentionally be with all parts of the self. To listen, to give grace to arriving thoughts, and to start asking the body: What can I do for you? I'm here, I'm listening. Being a team with the body rather than pushing through with the mind. Mind-Body connection is essential for a good life, and yoga is a great catalyst to support this union.",
+        de: "Sich bewusst Zeit nehmen, um mit allen Teilen des Selbst zu sein. Zuzuhören, ankommenden Gedanken Gnade zu schenken und den Körper zu fragen: Was kann ich für dich tun? Ich bin hier, ich höre zu. Mit dem Körper ein Team zu sein, anstatt mit dem Verstand durchzupushen. Die Körper-Geist-Verbindung ist wesentlich für ein gutes Leben, und Yoga ist ein großartiger Katalysator, um diese Verbindung zu unterstützen.",
+        it: "Ritagliarsi tempo per essere intenzionalmente con tutte le parti di sé. Ascoltare, dare grazia ai pensieri che arrivano e iniziare a chiedere al corpo: Cosa posso fare per te? Sono qui, sto ascoltando. Essere una squadra con il corpo piuttosto che spingere con la mente. La connessione mente-corpo è essenziale per una buona vita, e lo yoga è un grande catalizzatore per sostenere questa unione.",
+      },
+    },
+  },
+  {
     id: "join-us-1",
     experience: "0",
     image: "/placeholder-user.jpg",
@@ -403,24 +435,24 @@ const events: Event[] = [
         it: "15:30-17:30",
       },
       earlyBird: {
-        en: "Early Bird €25 (until March 11)",
-        de: "Frühbucher €25 (bis 11. März)",
-        it: "Early Bird €25 (fino all'11 marzo)",
+        en: "Donation, or Urban Sports Club / Wellpass check-in + optional donation",
+        de: "Spende, oder Urban Sports Club / Wellpass Check-in + optionale Spende",
+        it: "Donazione, oppure Urban sports club / Wellpass check-in + donazione facoltativa",
       },
       regular: {
-        en: "Regular €35",
-        de: "Regulär €35",
-        it: "Regolare €35",
+        en: "",
+        de: "",
+        it: "",
       },
       usc: {
-        en: "USC: Check-in + €15 event contribution",
-        de: "USC: Check-in + €15 Veranstaltungsbeitrag",
-        it: "USC: Check-in + €15 contributo evento",
+        en: "",
+        de: "",
+        it: "",
       },
       spots: {
-        en: "Limited spots · Minimum 6 participants",
-        de: "Begrenzte Plätze · Mindestens 6 Teilnehmer",
-        it: "Posti limitati · Minimo 6 partecipanti",
+        en: "Limited spots · Reservation required · Minimum 6 participants",
+        de: "Begrenzte Plätze · Reservierung erforderlich · Mindestens 6 Teilnehmer",
+        it: "Posti limitati · Prenotazione obbligatoria · Minimo 6 partecipanti",
       },
     },
   },
@@ -2389,9 +2421,9 @@ function EventsModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void
                         <div className="flex-1">
                           <p className="text-xs text-stone-500 font-light mb-2">Pricing</p>
                           <div className="space-y-1">
-                            <p className="text-base text-stone-700 font-light">{eventTranslations.earlyBird[language]}</p>
-                            <p className="text-base text-stone-700 font-light">{eventTranslations.regular[language]}</p>
-                            <p className="text-sm text-stone-600 font-light">{eventTranslations.usc[language]}</p>
+                            {eventTranslations.earlyBird[language] && <p className="text-base text-stone-700 font-light">{eventTranslations.earlyBird[language]}</p>}
+                            {eventTranslations.regular[language] && <p className="text-base text-stone-700 font-light">{eventTranslations.regular[language]}</p>}
+                            {eventTranslations.usc[language] && <p className="text-sm text-stone-600 font-light">{eventTranslations.usc[language]}</p>}
                           </div>
                         </div>
                       </div>
