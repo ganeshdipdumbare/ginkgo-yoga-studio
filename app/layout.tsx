@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/next"
+import './globals.css'
 
 export const metadata: Metadata = {
   title: "Ginkgo Yoga",
@@ -47,6 +48,3 @@ export default function RootLayout({
     </html>
   )
 }
-
-
-import './globals.css'
