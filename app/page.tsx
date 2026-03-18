@@ -783,6 +783,11 @@ const translations: Translations = {
     de: "Gültig für ca. 3 Monate",
     it: "Valido per ca. 3 mesi"
   },
+  prenatalClasses: {
+    en: "140€ x 8 prenatal classes",
+    de: "140€ x 8 Geburtsvorbereitung",
+    it: "140€ x 8 lezioni prenatali"
+  },
   goldenMembership: {
     en: "Golden Membership",
     de: "Gold Mitgliedschaft",
@@ -1549,7 +1554,7 @@ function PricingSection() {
       duration: "",
       icon: Leaf,
       gradient: "from-[#B69724] to-[#D4B95C]",
-      features: [t("insuranceEligible"), t("twoMonthsValidity"), t("insuranceSupport")],
+      features: [t("insuranceEligible"), t("twoMonthsValidity"), t("prenatalClasses"), t("insuranceSupport")],
       popular: false,
       discount: null, // Insurance plan, no discount calculation
     },
