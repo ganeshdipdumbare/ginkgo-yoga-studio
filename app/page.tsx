@@ -300,6 +300,43 @@ const teamMembers: TeamMember[] = [
     },
   },
   {
+    id: "laura",
+    experience: "5",
+    image: "/images/laura.png",
+    gradient: "from-[#B69724] to-[#D4B95C]",
+    aura: "amber",
+    expertise: [
+      "Ashtanga & Vinyasa Teacher Training (2021)",
+      "Vinyasa & Yin Teacher Training (2025)",
+      "Breathwork & Themed Classes",
+      "Hands-on Adjustments",
+    ],
+    email: "ginkgoyogaberlin@gmail.com",
+    languages: ["German", "English"],
+    translations: {
+      name: {
+        en: "Laura",
+        de: "Laura",
+        it: "Laura",
+      },
+      specialty: {
+        en: "Vinyasa & Yin Yoga",
+        de: "Vinyasa & Yin Yoga",
+        it: "Vinyasa & Yin Yoga",
+      },
+      bio: {
+        en: "Nearly 15 years ago I started yoga in need of something to relax myself. Back then I couldn't imagine that yoga is a whole universe with unlimited content to discover. Whereas my first teacher training in Ashtanga and Vinyasa 2021 was about alignment and adjustment, during the second education in Vinyasa and Yin 2025 I had the chance to focus more on spiritual and philosophical aspects, as well as breathwork. Both trainings complement each other.\n\nFor me, Yoga is not only a source of energy but also a pause from daily life and an anchor when life gets stormy. I strive to give my students a similar experience. My own practice is teaching me mindfulness, patience and the incredible impact of breath. I deepened that knowledge in several workshops.\n\nI have a passion for creating energizing and mobilising Vinyasa flows as well as grounding and relaxing Yin classes often following a special theme.\n\nMy classes are inclusive: whether you're experienced or consider yourself as a beginner and curious of trying something new, you're very welcome.\n\nI'm looking forward to seeing you on the mat.",
+        de: "Vor fast 15 Jahren habe ich mit Yoga begonnen, weil ich etwas suchte, um mich zu entspannen. Damals konnte ich mir nicht vorstellen, dass Yoga ein ganzes Universum mit unendlich viel zu Entdeckendem ist. Während meine erste Lehrer*innenausbildung in Ashtanga und Vinyasa 2021 Ausrichtung und Assistenzen in den Mittelpunkt stellte, konnte ich mich in der zweiten Ausbildung in Vinyasa und Yin 2025 stärker auf spirituelle und philosophische Aspekte sowie Atemarbeit konzentrieren. Beide Ausbildungen ergänzen einander.\n\nFür mich ist Yoga nicht nur eine Quelle von Energie, sondern auch eine Pause vom Alltag und ein Anker, wenn das Leben stürmisch wird. Ich möchte meinen Schüler*innen ein ähnliches Erlebnis ermöglichen. Meine eigene Praxis lehrt mich Achtsamkeit, Geduld und die unglaubliche Wirkung des Atems. Dieses Wissen habe ich in mehreren Workshops vertieft.\n\nIch liebe es, belebende und mobilisierende Vinyasa-Flows ebenso zu gestalten wie erdende und entspannende Yin-Stunden, oft mit einem besonderen Thema.\n\nMeine Stunden sind inklusiv: Ob du erfahren bist oder dich als Anfänger*in siehst und neugierig auf Neues bist – du bist herzlich willkommen.\n\nIch freue mich darauf, dich auf der Matte zu sehen.",
+        it: "Quasi 15 anni fa ho iniziato lo yoga perché avevo bisogno di qualcosa per rilassarmi. Allora non riuscivo a immaginare che lo yoga fosse un universo intero con contenuti illimitati da scoprire. Mentre la mia prima formazione insegnanti in Ashtanga e Vinyasa nel 2021 riguardava allineamento e assistenze, durante la seconda formazione in Vinyasa e Yin nel 2025 ho potuto concentrarmi di più su aspetti spirituali e filosofici, oltre che sul lavoro del respiro. Le due formazioni si completano a vicenda.\n\nPer me lo yoga non è solo una fonte di energia, ma anche una pausa dalla vita quotidiana e un'ancora quando la vita si fa tempestosa. Cerco di offrire alle mie allieve e ai miei allievi un'esperienza simile. La mia pratica personale mi insegna consapevolezza, pazienza e l'incredibile impatto del respiro. Ho approfondito queste conoscenze in diversi workshop.\n\nHo una passione per creare flussi Vinyasa energizzanti e mobilizzanti, così come lezioni Yin radicanti e rilassanti, spesso seguendo un tema speciale.\n\nLe mie lezioni sono inclusive: che tu sia esperta/o o ti consideri principiante e curioso/a di provare qualcosa di nuovo, sei molto benvenuto/a.\n\nNon vedo l'ora di vederti sul tappetino.",
+      },
+      philosophy: {
+        en: "Clear guidance, safe alignment and beneficial hands-on adjustment are important to me and therefore core elements of my teaching. I value the uniqueness of each body.",
+        de: "Klare Anleitung, sichere Ausrichtung und wohltuende hands-on Assistenzen sind mir wichtig und gehören deshalb zu den Kernstücken meines Unterrichts. Ich schätze die Einzigartigkeit jedes Körpers.",
+        it: "Una guida chiara, un allineamento sicuro e assistenze manuali benefiche sono importanti per me e sono quindi elementi centrali del mio insegnamento. Apprezzo l'unicità di ogni corpo.",
+      },
+    },
+  },
+  {
     id: "join-us-1",
     experience: "0",
     image: "/placeholder-user.jpg",
