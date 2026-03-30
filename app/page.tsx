@@ -428,6 +428,8 @@ interface Event {
   icon: React.ComponentType<{ className?: string }>;
   gradient: string;
   featured?: boolean;
+  /** When true, listed under past events and excluded from featured popup */
+  past?: boolean;
   email: string;
   translations: EventTranslation;
 }
@@ -438,7 +440,7 @@ const events: Event[] = [
     id: "equinox-108-sun-salutations",
     icon: Sun,
     gradient: "from-[#D4B95C] to-[#B69724]",
-    featured: true,
+    past: true,
     email: "ginkgoyogaberlin@gmail.com",
     translations: {
       title: {
@@ -487,9 +489,9 @@ const events: Event[] = [
         it: "",
       },
       spots: {
-        en: "Limited spots · Reservation required · Minimum 6 participants",
-        de: "Begrenzte Plätze · Reservierung erforderlich · Mindestens 6 Teilnehmer",
-        it: "Posti limitati · Prenotazione obbligatoria · Minimo 6 partecipanti",
+        en: "Thank you to everyone who joined us for this practice.",
+        de: "Danke an alle, die an dieser Praxis teilgenommen haben.",
+        it: "Grazie a tutti coloro che hanno partecipato a questa pratica.",
       },
     },
   },
@@ -667,6 +669,16 @@ const translations: Translations = {
     en: "Reserve your spot",
     de: "Reserviere deinen Platz",
     it: "Prenota il tuo posto",
+  },
+  eventsPastTitle: {
+    en: "Past events",
+    de: "Vergangene Veranstaltungen",
+    it: "Eventi passati",
+  },
+  eventPastBadge: {
+    en: "Past event",
+    de: "Vergangene Veranstaltung",
+    it: "Evento passato",
   },
 
   // Contact Section
@@ -1207,8 +1219,8 @@ function Header({ onScheduleClick, onEventsClick }: { onScheduleClick: () => voi
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" })
   }
 
-  // Check if there are featured events
-  const hasFeaturedEvents = events.some(event => event.featured)
+  // Check if there are featured upcoming events (past events never highlight nav)
+  const hasFeaturedEvents = events.some(event => event.featured && !event.past)
 
   return (
     <header
@@ -2102,12 +2114,10 @@ function JoinUsDialog({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
 function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
   const { t, language } = useLanguage()
   const [isVisible, setIsVisible] = useState(false)
-  const [isBubbleMode, setIsBubbleMode] = useState(false)
   const [currentEventIndex, setCurrentEventIndex] = useState(0)
 
   useEffect(() => {
-    // Check if there are featured events
-    const featuredEvents = events.filter(event => event.featured)
+    const featuredEvents = events.filter(event => event.featured && !event.past)
     if (featuredEvents.length === 0) {
       return
     }
@@ -2120,13 +2130,12 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
     return () => clearTimeout(timer)
   }, [])
 
-  // Auto-close after 1.5 seconds when visible, then transform to bubble
+  // Auto-dismiss full popup after a short time (no minimized bubble)
   useEffect(() => {
     if (!isVisible) return
 
     const autoCloseTimer = setTimeout(() => {
       setIsVisible(false)
-      setIsBubbleMode(true)
     }, 1500)
 
     return () => clearTimeout(autoCloseTimer)
@@ -2134,44 +2143,18 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
 
   const handleClose = () => {
     setIsVisible(false)
-    setIsBubbleMode(true)
   }
 
-  const handleBubbleClick = () => {
-    setIsBubbleMode(false)
-    setIsVisible(true)
-  }
-
-  // Check if popup should be shown (has featured events)
-  const featuredEvents = events.filter(event => event.featured)
+  const featuredEvents = events.filter(event => event.featured && !event.past)
   
   if (featuredEvents.length === 0) {
     return null
   }
 
-  // Get current featured event
   const featuredEvent = featuredEvents[currentEventIndex]
   const EventIcon = featuredEvent.icon
   const eventTranslations = featuredEvent.translations
 
-  // Show bubble mode
-  if (isBubbleMode && !isVisible) {
-    return (
-      <button
-        onClick={handleBubbleClick}
-        className="fixed bottom-24 right-4 z-50 w-12 h-12 rounded-full bg-gradient-to-br from-[#B69724] to-[#D4B95C] shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 flex items-center justify-center group"
-        style={{
-          boxShadow: "0 8px 24px -8px rgba(182, 151, 36, 0.4)",
-        }}
-        aria-label="View featured event"
-      >
-        <EventIcon className="h-6 w-6 text-white transition-transform duration-300 group-hover:scale-110" />
-        <span className="absolute -top-0.5 -right-0.5 w-3 h-3 bg-red-500 rounded-full border-2 border-white animate-pulse"></span>
-      </button>
-    )
-  }
-
-  // Show full popup
   if (!isVisible) {
     return null
   }
@@ -2326,6 +2309,138 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
   )
 }
 
+function EventModalCard({
+  event,
+  language,
+  t,
+  isPast,
+}: {
+  event: Event
+  language: Language
+  t: (key: string) => string
+  isPast: boolean
+}) {
+  const EventIcon = event.icon
+  const eventTranslations = event.translations
+
+  return (
+    <div
+      className={`bg-white/80 backdrop-blur-xl rounded-3xl p-6 md:p-10 border-2 shadow-xl relative overflow-hidden ${
+        isPast ? "border-stone-200/80 opacity-95" : "border-yellow-300/60"
+      }`}
+      style={{
+        boxShadow: "0 20px 60px -12px rgba(182, 151, 36, 0.25)",
+      }}
+    >
+      <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${event.gradient} opacity-20 rounded-full blur-3xl -z-0`} />
+
+      <div className="flex items-start justify-between mb-6 pb-6 border-b border-stone-200 relative z-10">
+        <div className="flex-1">
+          <div className="flex items-start gap-4 mb-3">
+            <div className={`w-12 h-12 bg-gradient-to-br ${event.gradient} rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0`}>
+              <EventIcon className="h-6 w-6 text-white" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-3 mb-2 flex-wrap">
+                <h3 className="text-2xl md:text-3xl font-light" style={{ color: "#B69724" }}>
+                  {eventTranslations.title[language]}
+                </h3>
+                {isPast ? (
+                  <span className="px-3 py-1 bg-stone-200 text-stone-700 text-xs font-light rounded-full whitespace-nowrap">
+                    {t("eventPastBadge")}
+                  </span>
+                ) : (
+                  event.featured && (
+                    <span className="px-3 py-1 bg-gradient-to-r from-[#D4B95C] to-[#B69724] text-white text-xs font-light rounded-full whitespace-nowrap">
+                      Featured
+                    </span>
+                  )
+                )}
+              </div>
+              <p className="text-lg text-stone-600 font-light">{eventTranslations.subtitle[language]}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="mb-6 relative z-10">
+        <p className="text-base text-stone-700 leading-relaxed font-light mb-3">{eventTranslations.description[language]}</p>
+        <p className="text-sm text-stone-600 font-light italic">{eventTranslations.level[language]}</p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 relative z-10">
+        <div className="flex items-start gap-3">
+          <div className="w-9 h-9 bg-yellow-100/50 rounded-xl flex items-center justify-center flex-shrink-0">
+            <Calendar className="h-4 w-4" style={{ color: "#B69724" }} />
+          </div>
+          <div>
+            <p className="text-xs text-stone-500 font-light mb-1">Date</p>
+            <p className="text-base text-stone-700 font-light">{eventTranslations.date[language]}</p>
+          </div>
+        </div>
+
+        <div className="flex items-start gap-3">
+          <div className="w-9 h-9 bg-yellow-100/50 rounded-xl flex items-center justify-center flex-shrink-0">
+            <Clock className="h-4 w-4" style={{ color: "#B69724" }} />
+          </div>
+          <div>
+            <p className="text-xs text-stone-500 font-light mb-1">Time</p>
+            <p className="text-base text-stone-700 font-light">{eventTranslations.time[language]}</p>
+          </div>
+        </div>
+
+        <div className="flex items-start gap-3 md:col-span-2">
+          <div className="w-9 h-9 bg-yellow-100/50 rounded-xl flex items-center justify-center flex-shrink-0">
+            <Gift className="h-4 w-4" style={{ color: "#B69724" }} />
+          </div>
+          <div className="flex-1">
+            <p className="text-xs text-stone-500 font-light mb-2">Pricing</p>
+            <div className="space-y-1">
+              {eventTranslations.earlyBird[language] && (
+                <p className="text-base text-stone-700 font-light">{eventTranslations.earlyBird[language]}</p>
+              )}
+              {eventTranslations.regular[language] && (
+                <p className="text-base text-stone-700 font-light">{eventTranslations.regular[language]}</p>
+              )}
+              {eventTranslations.usc[language] && (
+                <p className="text-sm text-stone-600 font-light">{eventTranslations.usc[language]}</p>
+              )}
+            </div>
+          </div>
+        </div>
+
+        <div className="flex items-start gap-3 md:col-span-2">
+          <div className="w-9 h-9 bg-yellow-100/50 rounded-xl flex items-center justify-center flex-shrink-0">
+            <Users className="h-4 w-4" style={{ color: "#B69724" }} />
+          </div>
+          <div>
+            <p className="text-xs text-stone-500 font-light mb-1">Availability</p>
+            <p className="text-base text-stone-700 font-light">{eventTranslations.spots[language]}</p>
+          </div>
+        </div>
+      </div>
+
+      {!isPast && (
+        <div className="pt-6 border-t border-stone-200 relative z-10">
+          <div className="text-center">
+            <p className="text-base text-stone-700 font-light mb-3">{t("eventReserve")}</p>
+            <a
+              href={`mailto:${event.email}?subject=Reservation: ${eventTranslations.title[language]} - ${eventTranslations.subtitle[language]}&body=Hello,%0D%0A%0D%0AI would like to reserve a spot for the ${eventTranslations.title[language]} - ${eventTranslations.subtitle[language]} on ${eventTranslations.date[language]} at ${eventTranslations.time[language]}.%0D%0A%0D%0AThank you!`}
+              className={`inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r ${event.gradient} text-white rounded-2xl font-light text-base hover:shadow-xl transition-all duration-300 hover:scale-105`}
+              style={{
+                boxShadow: "0 10px 30px -8px rgba(182, 151, 36, 0.4)",
+              }}
+            >
+              <Mail className="h-4 w-4" />
+              {event.email}
+            </a>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
 function EventsModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
   const { t, language } = useLanguage()
 
@@ -2337,11 +2452,8 @@ function EventsModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void
     }
   }
 
-  // Filter to show only upcoming events (you can add date filtering logic here)
-  const upcomingEvents = events.filter(event => {
-    // Add date filtering logic if needed
-    return true; // For now, show all events
-  })
+  const upcomingEvents = events.filter((event) => !event.past)
+  const pastEvents = events.filter((event) => event.past)
 
   return (
     <div 
@@ -2374,133 +2486,33 @@ function EventsModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void
 
         {/* Events Content */}
         <div className="flex-1 overflow-y-auto p-4 sm:p-6">
-          {upcomingEvents.length === 0 ? (
+          {upcomingEvents.length === 0 && pastEvents.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-stone-600 font-light text-lg">No upcoming events at the moment.</p>
             </div>
           ) : (
             <div className="max-w-4xl mx-auto space-y-6">
-              {upcomingEvents.map((event) => {
-                const EventIcon = event.icon;
-                const eventTranslations = event.translations;
-                
-                return (
-                  <div
-                    key={event.id}
-                    className="bg-white/80 backdrop-blur-xl rounded-3xl p-6 md:p-10 border-2 border-yellow-300/60 shadow-xl relative overflow-hidden"
-                    style={{
-                      boxShadow: "0 20px 60px -12px rgba(182, 151, 36, 0.25)",
-                    }}
+              {upcomingEvents.length === 0 && pastEvents.length > 0 && (
+                <p className="text-center text-stone-600 font-light text-lg pb-2">
+                  No upcoming events at the moment.
+                </p>
+              )}
+              {upcomingEvents.map((event) => (
+                <EventModalCard key={event.id} event={event} language={language} t={t} isPast={false} />
+              ))}
+              {pastEvents.length > 0 && (
+                <>
+                  <h3
+                    className="text-lg font-light tracking-wide pt-4 border-t border-stone-200"
+                    style={{ color: "#B69724" }}
                   >
-                    {/* Subtle gradient overlay */}
-                    <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${event.gradient} opacity-20 rounded-full blur-3xl -z-0`} />
-                    
-                    {/* Event Header */}
-                    <div className="flex items-start justify-between mb-6 pb-6 border-b border-stone-200 relative z-10">
-                      <div className="flex-1">
-                        <div className="flex items-start gap-4 mb-3">
-                          <div className={`w-12 h-12 bg-gradient-to-br ${event.gradient} rounded-2xl flex items-center justify-center shadow-lg flex-shrink-0`}>
-                            <EventIcon className="h-6 w-6 text-white" />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-3 mb-2 flex-wrap">
-                              <h3 className="text-2xl md:text-3xl font-light" style={{ color: "#B69724" }}>
-                                {eventTranslations.title[language]}
-                              </h3>
-                              {event.featured && (
-                                <span className="px-3 py-1 bg-gradient-to-r from-[#D4B95C] to-[#B69724] text-white text-xs font-light rounded-full whitespace-nowrap">
-                                  Featured
-                                </span>
-                              )}
-                            </div>
-                            <p className="text-lg text-stone-600 font-light">
-                              {eventTranslations.subtitle[language]}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Event Description */}
-                    <div className="mb-6 relative z-10">
-                      <p className="text-base text-stone-700 leading-relaxed font-light mb-3">
-                        {eventTranslations.description[language]}
-                      </p>
-                      <p className="text-sm text-stone-600 font-light italic">
-                        {eventTranslations.level[language]}
-                      </p>
-                    </div>
-
-                    {/* Event Details Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 relative z-10">
-                      {/* Date */}
-                      <div className="flex items-start gap-3">
-                        <div className="w-9 h-9 bg-yellow-100/50 rounded-xl flex items-center justify-center flex-shrink-0">
-                          <Calendar className="h-4 w-4" style={{ color: "#B69724" }} />
-                        </div>
-                        <div>
-                          <p className="text-xs text-stone-500 font-light mb-1">Date</p>
-                          <p className="text-base text-stone-700 font-light">{eventTranslations.date[language]}</p>
-                        </div>
-                      </div>
-
-                      {/* Time */}
-                      <div className="flex items-start gap-3">
-                        <div className="w-9 h-9 bg-yellow-100/50 rounded-xl flex items-center justify-center flex-shrink-0">
-                          <Clock className="h-4 w-4" style={{ color: "#B69724" }} />
-                        </div>
-                        <div>
-                          <p className="text-xs text-stone-500 font-light mb-1">Time</p>
-                          <p className="text-base text-stone-700 font-light">{eventTranslations.time[language]}</p>
-                        </div>
-                      </div>
-
-                      {/* Pricing */}
-                      <div className="flex items-start gap-3 md:col-span-2">
-                        <div className="w-9 h-9 bg-yellow-100/50 rounded-xl flex items-center justify-center flex-shrink-0">
-                          <Gift className="h-4 w-4" style={{ color: "#B69724" }} />
-                        </div>
-                        <div className="flex-1">
-                          <p className="text-xs text-stone-500 font-light mb-2">Pricing</p>
-                          <div className="space-y-1">
-                            {eventTranslations.earlyBird[language] && <p className="text-base text-stone-700 font-light">{eventTranslations.earlyBird[language]}</p>}
-                            {eventTranslations.regular[language] && <p className="text-base text-stone-700 font-light">{eventTranslations.regular[language]}</p>}
-                            {eventTranslations.usc[language] && <p className="text-sm text-stone-600 font-light">{eventTranslations.usc[language]}</p>}
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Spots */}
-                      <div className="flex items-start gap-3 md:col-span-2">
-                        <div className="w-9 h-9 bg-yellow-100/50 rounded-xl flex items-center justify-center flex-shrink-0">
-                          <Users className="h-4 w-4" style={{ color: "#B69724" }} />
-                        </div>
-                        <div>
-                          <p className="text-xs text-stone-500 font-light mb-1">Availability</p>
-                          <p className="text-base text-stone-700 font-light">{eventTranslations.spots[language]}</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Reserve Button */}
-                    <div className="pt-6 border-t border-stone-200 relative z-10">
-                      <div className="text-center">
-                        <p className="text-base text-stone-700 font-light mb-3">{t("eventReserve")}</p>
-                        <a
-                          href={`mailto:${event.email}?subject=Reservation: ${eventTranslations.title[language]} - ${eventTranslations.subtitle[language]}&body=Hello,%0D%0A%0D%0AI would like to reserve a spot for the ${eventTranslations.title[language]} - ${eventTranslations.subtitle[language]} on ${eventTranslations.date[language]} at ${eventTranslations.time[language]}.%0D%0A%0D%0AThank you!`}
-                          className={`inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r ${event.gradient} text-white rounded-2xl font-light text-base hover:shadow-xl transition-all duration-300 hover:scale-105`}
-                          style={{
-                            boxShadow: "0 10px 30px -8px rgba(182, 151, 36, 0.4)",
-                          }}
-                        >
-                          <Mail className="h-4 w-4" />
-                          {event.email}
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+                    {t("eventsPastTitle")}
+                  </h3>
+                  {pastEvents.map((event) => (
+                    <EventModalCard key={event.id} event={event} language={language} t={t} isPast />
+                  ))}
+                </>
+              )}
             </div>
           )}
         </div>
