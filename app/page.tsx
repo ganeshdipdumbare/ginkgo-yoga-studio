@@ -337,6 +337,38 @@ const teamMembers: TeamMember[] = [
     },
   },
   {
+    id: "valentina",
+    experience: "1",
+    image: "/images/valentina.png",
+    gradient: "from-[#B69724] to-[#D4B95C]",
+    aura: "amber",
+    expertise: ["Ashtanga Open & Vinyasa Certified"],
+    email: "ginkgoyogaberlin@gmail.com",
+    languages: ["English", "German", "Spanish"],
+    translations: {
+      name: {
+        en: "Valentina",
+        de: "Valentina",
+        it: "Valentina",
+      },
+      specialty: {
+        en: "Ashtanga Open & Vinyasa",
+        de: "Ashtanga Open & Vinyasa",
+        it: "Ashtanga Open & Vinyasa",
+      },
+      bio: {
+        en: "Yoga has been part of my life for over ten years, through phases of closeness, distance, return, and change. Over time, the practice taught me the value of staying with things long enough for them to unfold. Through breath, repetition, sensation, and sustained practice, I became interested in forms of learning that emerge through experience itself.\n\nI'm currently beginning my path as a yoga teacher, while bringing a long-term personal practice grounded in curiosity, reflection, and a desire to engage with yoga beyond the physical practice alone.\n\nIn my classes, I connect physical practice with the more subtle dimensions of yoga, including pranayama, meditation, and the ethical foundations of the practice. I value repetition deeply because repetition creates the possibility for awareness and integration, especially on a bodily level. Returning to the same movements, sensations, and patterns over time can sharpen our awareness of how we respond to challenge, resistance, or unfamiliar experiences. For me, practice is not about immediately overcoming those moments, but about learning to stay with them a little longer, with curiosity, care, and kindness toward ourselves.\n\nAt the same time, it is important to me to approach yoga with awareness of the cultural, historical, and philosophical contexts it emerges from, while remaining open to critical reflection around tradition, exclusion, and power structures within the yoga world. I try to hold a practice that is both respectful and questioning — one that honors yoga's roots without turning them into rigid dogma.\n\nMy classes are structured, breath-led, and grounded in repetition, while still leaving room for each person's individual experience within the practice. I value precision and consistency, while trying to create spaces that feel warm, accessible, and grounded.",
+        de: "Yoga begleitet mich seit über zehn Jahren – durch Phasen der Nähe, der Distanz, der Rückkehr und des Wandels. Mit der Zeit hat mir die Praxis gezeigt, wie wertvoll es ist, bei Dingen zu bleiben, bis sie sich entfalten. Durch Atem, Wiederholung, Empfindung und eine kontinuierliche Praxis bin ich an Lernformen interessiert geworden, die durch Erfahrung selbst entstehen.\n\nIch beginne gerade meinen Weg als Yogalehrerin und bringe eine langjährige persönliche Praxis mit, die von Neugier, Reflexion und dem Wunsch geprägt ist, Yoga über die körperliche Praxis hinaus zu erforschen.\n\nIn meinen Klassen verbinde ich körperliche Praxis mit den feineren Dimensionen des Yoga, einschließlich Pranayama, Meditation und den ethischen Grundlagen der Praxis. Wiederholung ist mir besonders wichtig, weil sie Raum für Bewusstsein und Integration schafft – besonders auf körperlicher Ebene. Immer wieder zu denselben Bewegungen, Empfindungen und Mustern zurückzukehren, kann unser Bewusstsein dafür schärfen, wie wir auf Herausforderung, Widerstand oder Unbekanntes reagieren. Für mich geht es in der Praxis nicht darum, solche Momente sofort zu überwinden, sondern darum, ein wenig länger bei ihnen zu bleiben – mit Neugier, Fürsorge und Freundlichkeit uns selbst gegenüber.\n\nGleichzeitig ist es mir wichtig, Yoga mit Bewusstsein für die kulturellen, historischen und philosophischen Zusammenhänge zu begegnen, aus denen es entstanden ist, und offen für kritische Reflexion über Tradition, Ausgrenzung und Machtstrukturen in der Yoga-Welt zu bleiben. Ich versuche, eine Praxis zu halten, die sowohl respektvoll als auch hinterfragend ist – eine, die die Wurzeln des Yoga ehrt, ohne sie in starre Dogmen zu verwandeln.\n\nMeine Klassen sind strukturiert, atemgeführt und in Wiederholung verankert, lassen aber dennoch Raum für die individuelle Erfahrung jeder Person in der Praxis. Mir sind Präzision und Beständigkeit wichtig, und ich versuche, Räume zu schaffen, die sich warm, zugänglich und geerdet anfühlen.",
+        it: "Lo yoga fa parte della mia vita da oltre dieci anni, attraverso fasi di vicinanza, distanza, ritorno e cambiamento. Con il tempo, la pratica mi ha insegnato il valore di restare con le cose abbastanza a lungo da lasciarle dispiegarsi. Attraverso il respiro, la ripetizione, la sensazione e una pratica sostenuta, mi sono interessata a forme di apprendimento che emergono attraverso l'esperienza stessa.\n\nSto iniziando il mio percorso come insegnante di yoga, portando con me una pratica personale di lunga data fondata sulla curiosità, la riflessione e il desiderio di esplorare lo yoga oltre la sola pratica fisica.\n\nNelle mie lezioni collego la pratica fisica con le dimensioni più sottili dello yoga, inclusi pranayama, meditazione e le fondamenta etiche della pratica. Valuto profondamente la ripetizione perché crea la possibilità di consapevolezza e integrazione, soprattutto a livello corporeo. Tornare agli stessi movimenti, sensazioni e schemi nel tempo può affinare la nostra consapevolezza di come rispondiamo alla sfida, alla resistenza o all'inesperienza. Per me, la pratica non consiste nel superare subito quei momenti, ma nell'imparare a restare con loro un po' più a lungo, con curiosità, cura e gentilezza verso noi stessi.\n\nAllo stesso tempo, per me è importante avvicinarmi allo yoga con consapevolezza dei contesti culturali, storici e filosofici da cui emerge, restando aperta a una riflessione critica su tradizione, esclusione e strutture di potere nel mondo dello yoga. Cerco di sostenere una pratica che sia insieme rispettosa e interrogativa — che onori le radici dello yoga senza trasformarle in dogma rigido.\n\nLe mie lezioni sono strutturate, guidate dal respiro e radicate nella ripetizione, lasciando comunque spazio all'esperienza individuale di ogni persona nella pratica. Apprezzo precisione e coerenza, cercando di creare spazi che si sentano caldi, accessibili e radicati.",
+      },
+      philosophy: {
+        en: "I see yoga as a practice that can cultivate presence, care, and connection — both individually and collectively. My intention is to create spaces that feel grounded, inclusive, and respectful, while approaching practice with curiosity, consistency, and attention to the body as a place of lived experience.",
+        de: "Ich sehe Yoga als eine Praxis, die Präsenz, Fürsorge und Verbindung kultivieren kann – sowohl individuell als auch gemeinschaftlich. Meine Absicht ist es, Räume zu schaffen, die sich geerdet, inklusiv und respektvoll anfühlen, während ich die Praxis mit Neugier, Beständigkeit und Aufmerksamkeit für den Körper als Ort gelebter Erfahrung angehe.",
+        it: "Vedo lo yoga come una pratica che può coltivare presenza, cura e connessione — sia individualmente che collettivamente. La mia intenzione è creare spazi che si sentano radicati, inclusivi e rispettosi, avvicinandomi alla pratica con curiosità, coerenza e attenzione al corpo come luogo di esperienza vissuta.",
+      },
+    },
+  },
+  {
     id: "join-us-1",
     experience: "0",
     image: "/placeholder-user.jpg",
@@ -1963,16 +1995,6 @@ function InstructorsSection() {
                   </div>
                 </div>
 
-                {/* Experience */}
-                <div className="pt-4 border-t border-stone-200">
-                  <div className="flex items-center justify-center space-x-2">
-                    <Sparkles className="h-5 w-5" style={{ color: "#B69724" }} />
-                    <span className="text-stone-600 font-light">
-                      {selectedInstructor.experience} {t("teachingExperience")}
-                    </span>
-                    <Sparkles className="h-5 w-5" style={{ color: "#B69724" }} />
-                  </div>
-                </div>
               </div>
             </div>
           </div>
