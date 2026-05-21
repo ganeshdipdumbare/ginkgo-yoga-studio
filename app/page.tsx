@@ -28,7 +28,6 @@ interface TeamMemberTranslation {
 
 interface TeamMember {
   id: string;
-  experience: string;
   image: string;
   gradient: string;
   aura: string;
@@ -44,11 +43,10 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   {
     id: "giulia",
-    experience: "10",
     image: "/images/giulia.png",
     gradient: "from-[#B69724] to-[#D4B95C]",
     aura: "amber",
-    expertise: ["Hatha Yoga Certified", "Health Insurance Recognized", "10+ Years Experience", "Prenatal Yoga (7 Years)"],
+    expertise: ["Hatha Yoga Certified", "Health Insurance Recognized", "Prenatal Yoga"],
     email: "ginkgoyogaberlin@gmail.com",
     languages: ["English", "Italian", "German"],
     translations: {
@@ -63,9 +61,9 @@ const teamMembers: TeamMember[] = [
         it: "Yoga Mindful",
       },
       bio: {
-        en: "Yoga begins with something as simple as a breath—and from there, it becomes a practice of listening, feeling, and being present.\n\nIn each class, I invite you to explore the sensations, emotions, and thoughts that arise, observing them with kindness and without judgment (yes, even those random thoughts that pop up mid-headstand—like can't wait to get pizza later and a cold beer!).\n\nEvery session feels different because the energy and flow come from the group. I focus on how deep, mindful breathing helps us relax into stretches, find strength amid challenge, and develop equanimity—a calm, steady mind that stays balanced through life's ups and downs.\n\nRather than aiming for perfect shapes or performance, we practice meeting ourselves where we are—through awareness, not achievement. This calm attention becomes a natural path toward meditation—the quiet observer within.\n\nMy own path into yoga began through meditation and mindfulness. I discovered how powerful these practices were in bringing awareness and clarity into my life, and yoga felt like a natural step into this world—a way to access presence through movement.\n\nI've never quite seen myself as a \"teacher,\" but more as a fellow student—curious and always learning. Every class is a space for shared discovery, where we explore the body and mind together.\n\nThough I'm certified in Hatha Yoga (and recognized by health insurance providers), my teaching has been shaped by a wide range of influences over the past ten years—including vinyasa, ashtanga, yin, kundalini, and elements of dance. I enjoy creating classes where different forms can flow together naturally and intuitively.\n\nI've also been teaching prenatal yoga for the past seven years.\n\nYou're welcome to come as you are and discover what your practice brings to you.",
-        de: "Yoga beginnt mit etwas so Einfachem wie einem Atemzug—und von dort wird es zu einer Praxis des Zuhörens, Fühlens und Präsent-Seins.\n\nIn jeder Stunde lade ich dich ein, die Empfindungen, Emotionen und Gedanken zu erkunden, die aufkommen, sie mit Freundlichkeit und ohne Urteil zu beobachten (ja, sogar diese zufälligen Gedanken, die mitten im Kopfstand auftauchen—wie ich kann es kaum erwarten, später Pizza und ein kaltes Bier zu bekommen!).\n\nJede Stunde fühlt sich anders an, weil die Energie und der Fluss von der Gruppe kommen. Ich konzentriere mich darauf, wie tiefes, achtsames Atmen uns hilft, uns in Dehnungen zu entspannen, Kraft inmitten von Herausforderungen zu finden und Gleichmut zu entwickeln—einen ruhigen, stetigen Geist, der durch die Höhen und Tiefen des Lebens ausgeglichen bleibt.\n\nAnstatt perfekte Formen oder Leistung anzustreben, üben wir, uns dort zu begegnen, wo wir sind—durch Bewusstsein, nicht durch Leistung. Diese ruhige Aufmerksamkeit wird zu einem natürlichen Weg zur Meditation—dem stillen Beobachter in uns.\n\nMein eigener Weg zum Yoga begann durch Meditation und Achtsamkeit. Ich entdeckte, wie kraftvoll diese Praktiken waren, um Bewusstsein und Klarheit in mein Leben zu bringen, und Yoga fühlte sich wie ein natürlicher Schritt in diese Welt an—ein Weg, Präsenz durch Bewegung zu erreichen.\n\nIch habe mich nie ganz als \"Lehrerin\" gesehen, sondern eher als Mitstudentin—neugierig und immer lernend. Jede Stunde ist ein Raum für gemeinsame Entdeckung, wo wir Körper und Geist zusammen erkunden.\n\nObwohl ich in Hatha Yoga zertifiziert bin (und von Krankenkassen anerkannt), wurde mein Unterricht in den letzten zehn Jahren von einer Vielzahl von Einflüssen geprägt—einschließlich Vinyasa, Ashtanga, Yin, Kundalini und Elementen des Tanzes. Ich genieße es, Stunden zu kreieren, in denen verschiedene Formen natürlich und intuitiv zusammenfließen können.\n\nIch unterrichte auch seit sieben Jahren Pränatal-Yoga.\n\nDu bist willkommen, so zu kommen, wie du bist, und zu entdecken, was deine Praxis dir bringt.",
-        it: "Lo yoga inizia con qualcosa di semplice come un respiro—e da lì diventa una pratica di ascolto, sentire ed essere presenti.\n\nIn ogni lezione, ti invito a esplorare le sensazioni, le emozioni e i pensieri che sorgono, osservandoli con gentilezza e senza giudizio (sì, anche quei pensieri casuali che spuntano a metà verticale—come non vedo l'ora di mangiare pizza più tardi e una birra fredda!).\n\nOgni sessione si sente diversa perché l'energia e il flusso vengono dal gruppo. Mi concentro su come la respirazione profonda e consapevole ci aiuta a rilassarci negli allungamenti, trovare forza nelle sfide e sviluppare equanimità—una mente calma e stabile che rimane equilibrata attraverso gli alti e bassi della vita.\n\nPiuttosto che mirare a forme perfette o prestazioni, pratichiamo l'incontrarci dove siamo—attraverso la consapevolezza, non il risultato. Questa attenzione calma diventa un percorso naturale verso la meditazione—l'osservatore silenzioso dentro di noi.\n\nIl mio percorso nello yoga è iniziato attraverso la meditazione e la mindfulness. Ho scoperto quanto fossero potenti queste pratiche nel portare consapevolezza e chiarezza nella mia vita, e lo yoga si è sentito come un passo naturale in questo mondo—un modo per accedere alla presenza attraverso il movimento.\n\nNon mi sono mai vista come una \"insegnante\", ma più come una compagna di studi—curiosa e sempre in apprendimento. Ogni lezione è uno spazio per la scoperta condivisa, dove esploriamo il corpo e la mente insieme.\n\nAnche se sono certificata in Hatha Yoga (e riconosciuta dai fornitori di assicurazione sanitaria), il mio insegnamento è stato plasmato da una vasta gamma di influenze negli ultimi dieci anni—inclusi vinyasa, ashtanga, yin, kundalini ed elementi di danza. Mi piace creare lezioni dove diverse forme possono fluire insieme naturalmente e intuitivamente.\n\nInsegno anche yoga prenatale da sette anni.\n\nSei il benvenuto a venire come sei e scoprire cosa la tua pratica ti porta.",
+        en: "Yoga begins with something as simple as a breath—and from there, it becomes a practice of listening, feeling, and being present.\n\nIn each class, I invite you to explore the sensations, emotions, and thoughts that arise, observing them with kindness and without judgment (yes, even those random thoughts that pop up mid-headstand—like can't wait to get pizza later and a cold beer!).\n\nEvery session feels different because the energy and flow come from the group. I focus on how deep, mindful breathing helps us relax into stretches, find strength amid challenge, and develop equanimity—a calm, steady mind that stays balanced through life's ups and downs.\n\nRather than aiming for perfect shapes or performance, we practice meeting ourselves where we are—through awareness, not achievement. This calm attention becomes a natural path toward meditation—the quiet observer within.\n\nMy own path into yoga began through meditation and mindfulness. I discovered how powerful these practices were in bringing awareness and clarity into my life, and yoga felt like a natural step into this world—a way to access presence through movement.\n\nI've never quite seen myself as a \"teacher,\" but more as a fellow student—curious and always learning. Every class is a space for shared discovery, where we explore the body and mind together.\n\nThough I'm certified in Hatha Yoga (and recognized by health insurance providers), my teaching has been shaped by a wide range of influences—including vinyasa, ashtanga, yin, kundalini, and elements of dance. I enjoy creating classes where different forms can flow together naturally and intuitively.\n\nI also have experience in prenatal yoga.\n\nYou're welcome to come as you are and discover what your practice brings to you.",
+        de: "Yoga beginnt mit etwas so Einfachem wie einem Atemzug—und von dort wird es zu einer Praxis des Zuhörens, Fühlens und Präsent-Seins.\n\nIn jeder Stunde lade ich dich ein, die Empfindungen, Emotionen und Gedanken zu erkunden, die aufkommen, sie mit Freundlichkeit und ohne Urteil zu beobachten (ja, sogar diese zufälligen Gedanken, die mitten im Kopfstand auftauchen—wie ich kann es kaum erwarten, später Pizza und ein kaltes Bier zu bekommen!).\n\nJede Stunde fühlt sich anders an, weil die Energie und der Fluss von der Gruppe kommen. Ich konzentriere mich darauf, wie tiefes, achtsames Atmen uns hilft, uns in Dehnungen zu entspannen, Kraft inmitten von Herausforderungen zu finden und Gleichmut zu entwickeln—einen ruhigen, stetigen Geist, der durch die Höhen und Tiefen des Lebens ausgeglichen bleibt.\n\nAnstatt perfekte Formen oder Leistung anzustreben, üben wir, uns dort zu begegnen, wo wir sind—durch Bewusstsein, nicht durch Leistung. Diese ruhige Aufmerksamkeit wird zu einem natürlichen Weg zur Meditation—dem stillen Beobachter in uns.\n\nMein eigener Weg zum Yoga begann durch Meditation und Achtsamkeit. Ich entdeckte, wie kraftvoll diese Praktiken waren, um Bewusstsein und Klarheit in mein Leben zu bringen, und Yoga fühlte sich wie ein natürlicher Schritt in diese Welt an—ein Weg, Präsenz durch Bewegung zu erreichen.\n\nIch habe mich nie ganz als \"Lehrerin\" gesehen, sondern eher als Mitstudentin—neugierig und immer lernend. Jede Stunde ist ein Raum für gemeinsame Entdeckung, wo wir Körper und Geist zusammen erkunden.\n\nObwohl ich in Hatha Yoga zertifiziert bin (und von Krankenkassen anerkannt), wurde mein Unterricht von einer Vielzahl von Einflüssen geprägt—einschließlich Vinyasa, Ashtanga, Yin, Kundalini und Elementen des Tanzes. Ich genieße es, Stunden zu kreieren, in denen verschiedene Formen natürlich und intuitiv zusammenfließen können.\n\nIch habe auch Erfahrung im Pränatal-Yoga.\n\nDu bist willkommen, so zu kommen, wie du bist, und zu entdecken, was deine Praxis dir bringt.",
+        it: "Lo yoga inizia con qualcosa di semplice come un respiro—e da lì diventa una pratica di ascolto, sentire ed essere presenti.\n\nIn ogni lezione, ti invito a esplorare le sensazioni, le emozioni e i pensieri che sorgono, osservandoli con gentilezza e senza giudizio (sì, anche quei pensieri casuali che spuntano a metà verticale—come non vedo l'ora di mangiare pizza più tardi e una birra fredda!).\n\nOgni sessione si sente diversa perché l'energia e il flusso vengono dal gruppo. Mi concentro su come la respirazione profonda e consapevole ci aiuta a rilassarci negli allungamenti, trovare forza nelle sfide e sviluppare equanimità—una mente calma e stabile che rimane equilibrata attraverso gli alti e bassi della vita.\n\nPiuttosto che mirare a forme perfette o prestazioni, pratichiamo l'incontrarci dove siamo—attraverso la consapevolezza, non il risultato. Questa attenzione calma diventa un percorso naturale verso la meditazione—l'osservatore silenzioso dentro di noi.\n\nIl mio percorso nello yoga è iniziato attraverso la meditazione e la mindfulness. Ho scoperto quanto fossero potenti queste pratiche nel portare consapevolezza e chiarezza nella mia vita, e lo yoga si è sentito come un passo naturale in questo mondo—un modo per accedere alla presenza attraverso il movimento.\n\nNon mi sono mai vista come una \"insegnante\", ma più come una compagna di studi—curiosa e sempre in apprendimento. Ogni lezione è uno spazio per la scoperta condivisa, dove esploriamo il corpo e la mente insieme.\n\nAnche se sono certificata in Hatha Yoga (e riconosciuta dai fornitori di assicurazione sanitaria), il mio insegnamento è stato plasmato da una vasta gamma di influenze—inclusi vinyasa, ashtanga, yin, kundalini ed elementi di danza. Mi piace creare lezioni dove diverse forme possono fluire insieme naturalmente e intuitivamente.\n\nHo anche esperienza nello yoga prenatale.\n\nSei il benvenuto a venire come sei e scoprire cosa la tua pratica ti porta.",
       },
       philosophy: {
         en: "Rather than aiming for perfect shapes or performance, we practice meeting ourselves where we are—through awareness, not achievement. This calm attention becomes a natural path toward meditation—the quiet observer within.",
@@ -76,7 +74,6 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: "alica",
-    experience: "5",
     image: "/images/alica.png",
     gradient: "from-[#B69724] to-[#D4B95C]",
     aura: "amber",
@@ -108,11 +105,10 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: "larissa",
-    experience: "6",
     image: "/images/larissa.png",
     gradient: "from-[#B69724] to-[#D4B95C]",
     aura: "amber",
-    expertise: ["Resource-Oriented Therapist", "Trauma-Sensitive Yoga", "15+ Years Practice"],
+    expertise: ["Resource-Oriented Therapist", "Trauma-Sensitive Yoga"],
     email: "ginkgoyogaberlin@gmail.com",
     languages: ["German", "English"],
     translations: {
@@ -140,7 +136,6 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: "isa",
-    experience: "7",
     image: "/images/isa.png",
     gradient: "from-[#B69724] to-[#D4B95C]",
     aura: "amber",
@@ -173,11 +168,10 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: "silvia",
-    experience: "1+",
     image: "/images/silvia.png",
     gradient: "from-[#B69724] to-[#D4B95C]",
     aura: "amber",
-    expertise: ["15+ Years Practice", "Hatha Yoga", "Iyengar Yoga", "Anusara Yoga", "Jivamukti Yoga", "Ashtanga Yoga", "Life Science Researcher"],
+    expertise: ["Hatha Yoga", "Iyengar Yoga", "Anusara Yoga", "Jivamukti Yoga", "Ashtanga Yoga", "Life Science Researcher"],
     email: "ginkgoyogaberlin@gmail.com",
     languages: ["English", "Portuguese"],
     translations: {
@@ -205,11 +199,10 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: "yulia",
-    experience: "5",
     image: "/images/yulia.png",
     gradient: "from-[#B69724] to-[#D4B95C]",
     aura: "amber",
-    expertise: ["Hatha Vinyasa Yoga", "Vinyasa Flow", "Yin Yoga", "Hands-on Assists", "Pranayama", "14+ Years Yoga Experience"],
+    expertise: ["Hatha Vinyasa Yoga", "Vinyasa Flow", "Yin Yoga", "Hands-on Assists", "Pranayama"],
     email: "ginkgoyogaberlin@gmail.com",
     languages: ["German", "English", "Russian", "Dutch", "French"],
     translations: {
@@ -237,7 +230,6 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: "kira",
-    experience: "0.5",
     image: "/images/kira.png",
     gradient: "from-[#B69724] to-[#D4B95C]",
     aura: "amber",
@@ -269,7 +261,6 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: "katha",
-    experience: "1.5",
     image: "/images/katha.png",
     gradient: "from-[#B69724] to-[#D4B95C]",
     aura: "amber",
@@ -301,7 +292,6 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: "laura",
-    experience: "5",
     image: "/images/laura.png",
     gradient: "from-[#B69724] to-[#D4B95C]",
     aura: "amber",
@@ -338,7 +328,6 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: "valentina",
-    experience: "1",
     image: "/images/valentina.png",
     gradient: "from-[#B69724] to-[#D4B95C]",
     aura: "amber",
@@ -370,7 +359,6 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: "join-us-1",
-    experience: "0",
     image: "/placeholder-user.jpg",
     gradient: "from-[#D4B95C] to-[#B69724]",
     aura: "yellow",
@@ -754,8 +742,6 @@ const translations: Translations = {
   // Stats
   students: { en: "Awakened Souls", de: "Erwachte Seelen", it: "Anime Risvegliate" },
   classes_count: { en: "Sacred Gatherings", de: "Heilige Versammlungen", it: "Raduni Sacri" },
-  experience: { en: "Years of Wisdom", de: "Jahre der Weisheit", it: "Anni di Saggezza" },
-
   // Team member translations are now included directly in the teamMembers array
 
   // Pricing Plans
@@ -999,13 +985,6 @@ const translations: Translations = {
     en: "Languages",
     de: "Sprachen",
     it: "Lingue"
-  },
-
-  // Common instructor translations  
-  teachingExperience: {
-    en: "years of teaching experience",
-    de: "Jahre Lehrerfahrung",
-    it: "anni di esperienza di insegnamento"
   },
 
   // Venue Rental Section
@@ -2092,7 +2071,7 @@ function JoinUsDialog({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
                   name="experience"
                   value={formData.experience}
                   onChange={handleInputChange}
-                  placeholder="Years of Teaching Experience"
+                  placeholder="Your Experience & Background"
                   className="w-full px-4 py-2 rounded-xl bg-white/50 border border-stone-200 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-[#B69724]/50 focus:border-transparent transition-all duration-300 font-light"
                   required
                 />
