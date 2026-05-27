@@ -1620,7 +1620,7 @@ function PricingSection() {
     },
     {
       name: t("silverMembership"),
-      price: "€56.00",
+      price: "€49.00",
       duration: t("validOneMonth"),
       icon: Gem,
       gradient: "from-[#B69724] to-[#D4B95C]",
@@ -2194,14 +2194,14 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
     return () => clearTimeout(timer)
   }, [])
 
-  // Auto-minimize after 8 seconds of inactivity so it doesn't block the screen
+  // Auto-minimize after 3 seconds of inactivity so it doesn't block the screen
   useEffect(() => {
     if (!isExpanded || !hasAutoExpanded) return
 
     const autoMinimizeTimer = setTimeout(() => {
       setIsExpanded(false)
       setHasAutoExpanded(false)
-    }, 8000)
+    }, 3000)
 
     return () => clearTimeout(autoMinimizeTimer)
   }, [isExpanded, hasAutoExpanded])
