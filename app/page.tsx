@@ -457,6 +457,65 @@ interface Event {
 // Events data - easy to add/remove events here
 const events: Event[] = [
   {
+    id: "slow-deep-hatha-yoga-workshop",
+    icon: Leaf,
+    gradient: "from-[#B69724] to-[#D4B95C]",
+    featured: true,
+    email: "ginkgoyogaberlin@gmail.com",
+    translations: {
+      title: {
+        en: "Slow Deep Hatha Yoga Workshop",
+        de: "Slow Deep Hatha Yoga Workshop",
+        it: "Workshop di Slow Deep Hatha Yoga",
+      },
+      subtitle: {
+        en: "With Giulia · Breath • Movement • Stillness",
+        de: "Mit Giulia · Atem • Bewegung • Stille",
+        it: "Con Giulia · Respiro • Movimento • Silenzio",
+      },
+      description: {
+        en: "This workshop is designed as a gentle, spacious journey through breathwork, traditional Hatha Yoga postures, and deep relaxation. We’ll take the time to move with awareness, explore stillness, and allow the body and mind to settle.",
+        de: "Dieser Workshop ist konzipiert als eine sanfte, weite Reise durch Atemarbeit, traditionelle Hatha-Yoga-Haltungen und tiefe Entspannung. Wir nehmen uns die Zeit, uns achtsam zu bewegen, die Stille zu erkunden und Körper sowie Geist zur Ruhe kommen zu lassen.",
+        it: "Questo workshop è pensato come un viaggio delicato e spazioso attraverso il lavoro sul respiro, le posture tradizionali del Hatha Yoga e il rilassamento profondo. Ci prenderemo il tempo per muoverci con consapevolezza, esplorare l'immobilità e lasciare che il corpo e la mente si calmino.",
+      },
+      level: {
+        en: "Open to all levels — a 3-hour immersive practice to slow down, reconnect, and go deeper.",
+        de: "Offen für alle Level — eine 3-stündige, immersive Praxis, um zu entschleunigen, dich neu zu verbinden und tiefer zu gehen.",
+        it: "Aperto a tutti i livelli — una pratica immersiva di 3 ore per rallentare, riconnettersi e andare più in profondità.",
+      },
+      date: {
+        en: "Saturday, June 13th, 2026",
+        de: "Samstag, 13. Juni 2026",
+        it: "Sabato 13 giugno 2026",
+      },
+      time: {
+        en: "14:00 - 17:00",
+        de: "14:00 - 17:00",
+        it: "14:00 - 17:00",
+      },
+      earlyBird: {
+        en: "Early Bird: €35 (until May 31st)",
+        de: "Early Bird: 35 € (bis 31. Mai)",
+        it: "Early Bird: 35 € (fino al 31 maggio)",
+      },
+      regular: {
+        en: "Regular: €45",
+        de: "Normalpreis: 45 €",
+        it: "Prezzo regolare: 45 €",
+      },
+      usc: {
+        en: "Urban Sports Club / Wellpass: Check-in + €25",
+        de: "Urban Sports Club / Wellpass: Check-in + 25 €",
+        it: "Urban Sports Club / Wellpass: Check-in + 25 €",
+      },
+      spots: {
+        en: "Spots available — reservation by email",
+        de: "Plätze verfügbar — Anmeldung per E-Mail",
+        it: "Posti disponibili — prenotazione via email",
+      },
+    },
+  },
+  {
     id: "equinox-108-sun-salutations",
     icon: Sun,
     gradient: "from-[#D4B95C] to-[#B69724]",
@@ -1235,14 +1294,17 @@ function Header({ onScheduleClick, onEventsClick }: { onScheduleClick: () => voi
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white/80 backdrop-blur-xl border-b border-stone-200/50" : "bg-transparent"
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${
+        isScrolled 
+          ? "bg-white/85 backdrop-blur-xl border-stone-200/30 shadow-[0_2px_8px_rgba(0,0,0,0.02)]" 
+          : "bg-white/45 backdrop-blur-md border-transparent"
+      }`}
     >
       <nav className="container mx-auto px-4 sm:px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <a href="#home" className="flex items-center space-x-2 group">
-              <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center transition-transform duration-500 group-hover:scale-110">
+              <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center transition-all duration-500 group-hover:scale-105 shadow-sm border border-stone-200/20">
                 <img
                   src="/images/ginkgo-logo.jpg"
                   alt="Ginkgo Yoga Logo"
@@ -1250,38 +1312,38 @@ function Header({ onScheduleClick, onEventsClick }: { onScheduleClick: () => voi
                   style={{ clipPath: "circle(50% at 50% 50%)" }}
                 />
               </div>
-              <span className="text-xl font-light tracking-wide" style={{ color: "#B69724" }}>
+              <span className="text-xl font-light tracking-wide transition-colors duration-300 group-hover:opacity-80" style={{ color: "#B69724" }}>
                 Ginkgo
               </span>
             </a>
           </div>
 
           <div className="hidden md:flex items-center space-x-8">
-            <button onClick={() => scrollToSection("home")} className="text-stone-600 hover:text-[#B69724] transition-colors font-light">
+            <button onClick={() => scrollToSection("home")} className="text-stone-600/90 hover:text-[#B69724] transition-all duration-300 font-light hover:opacity-85">
               {t("home")}
             </button>
-            <button onClick={() => scrollToSection("about")} className="text-stone-600 hover:text-[#B69724] transition-colors font-light">
+            <button onClick={() => scrollToSection("about")} className="text-stone-600/90 hover:text-[#B69724] transition-all duration-300 font-light hover:opacity-85">
               {t("about")}
             </button>
-            <button onClick={() => scrollToSection("schedule")} className="text-stone-600 hover:text-[#B69724] transition-colors font-light">
+            <button onClick={() => scrollToSection("schedule")} className="text-stone-600/90 hover:text-[#B69724] transition-all duration-300 font-light hover:opacity-85">
               {t("schedule")}
             </button>
-            <button onClick={() => scrollToSection("pricing")} className="text-stone-600 hover:text-[#B69724] transition-colors font-light">
+            <button onClick={() => scrollToSection("pricing")} className="text-stone-600/90 hover:text-[#B69724] transition-all duration-300 font-light hover:opacity-85">
               {t("pricing")}
             </button>
-            <button onClick={() => scrollToSection("team")} className="text-stone-600 hover:text-[#B69724] transition-colors font-light">
+            <button onClick={() => scrollToSection("team")} className="text-stone-600/90 hover:text-[#B69724] transition-all duration-300 font-light hover:opacity-85">
               {t("team")}
             </button>
             <button 
               onClick={() => scrollToSection("events")} 
-              className="relative text-stone-600 hover:text-[#B69724] transition-colors font-light"
+              className="relative text-stone-600/90 hover:text-[#B69724] transition-all duration-300 font-light hover:opacity-85"
             >
               {t("events")}
               {hasFeaturedEvents && (
                 <span className="absolute -top-1 -right-1 w-2 h-2 bg-gradient-to-r from-[#D4B95C] to-[#B69724] rounded-full animate-pulse"></span>
               )}
             </button>
-            <button onClick={() => scrollToSection("contact")} className="text-stone-600 hover:text-[#B69724] transition-colors font-light">
+            <button onClick={() => scrollToSection("contact")} className="text-stone-600/90 hover:text-[#B69724] transition-all duration-300 font-light hover:opacity-85">
               {t("contact")}
             </button>
           </div>
@@ -1361,14 +1423,14 @@ function HeroSection({ onScheduleClick }: { onScheduleClick: () => void }) {
   return (
     <section
       id="home"
-      className="min-h-[90vh] flex items-center justify-center relative overflow-hidden pt-16"
+      className="min-h-[95vh] flex items-center justify-center relative overflow-hidden pt-20"
     >
       <div className="absolute inset-0 bg-gradient-to-b from-stone-50 to-yellow-50/20" />
       <GinkgoLeafPattern />
 
-      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-        <div className="mb-16">
-          <div className="w-32 h-32 rounded-full overflow-hidden flex items-center justify-center mx-auto mb-12 shadow-lg shadow-yellow-800/10">
+      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto py-12 md:py-20">
+        <div className="mb-10">
+          <div className="w-24 h-24 rounded-full overflow-hidden flex items-center justify-center mx-auto mb-8 shadow-md border border-stone-200/20 hover:scale-105 transition-transform duration-500">
             <img
               src="/images/ginkgo-logo.jpg"
               alt="Ginkgo Yoga Logo"
@@ -1379,21 +1441,21 @@ function HeroSection({ onScheduleClick }: { onScheduleClick: () => void }) {
         </div>
 
         <h1
-          className="text-4xl md:text-6xl font-light mb-12 leading-relaxed tracking-wide"
+          className="text-4xl md:text-6xl lg:text-7xl font-extralight mb-8 leading-tight tracking-tight max-w-4xl mx-auto"
           style={{ color: "#B69724" }}
         >
           {t("heroTitle")}
         </h1>
 
         <p
-          className="text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed font-light"
+          className="text-lg md:text-xl lg:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed font-light"
           style={{ color: "#8B7355" }}
         >
           {t("heroSubtitle")}
         </p>
 
         <p
-          className="text-base md:text-lg mb-16 max-w-2xl mx-auto leading-relaxed font-light italic"
+          className="text-sm md:text-base mb-12 max-w-2xl mx-auto leading-relaxed font-light italic"
           style={{ color: "#A0845C" }}
         >
           {t("heroWordOfMouth")}
@@ -1401,7 +1463,7 @@ function HeroSection({ onScheduleClick }: { onScheduleClick: () => void }) {
 
         <Button
           size="lg"
-          className="text-white px-12 py-6 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 font-light"
+          className="text-white px-14 py-7 text-lg rounded-full shadow-lg hover:shadow-xl hover:scale-102 active:scale-98 transition-all duration-300 font-light tracking-wide"
           style={{
             backgroundColor: "#B69724",
             "--tw-shadow-color": "#B69724",
@@ -1420,21 +1482,21 @@ function AboutSection() {
   const [ref, isIntersecting] = useIntersectionObserver({ threshold: 0.2 })
 
   return (
-    <section id="about" className="min-h-[90vh] flex items-center justify-center relative overflow-hidden">
+    <section id="about" className="min-h-[85vh] flex items-center justify-center relative overflow-hidden py-16 md:py-24">
       <div className="absolute inset-0 bg-gradient-to-b from-stone-50 to-yellow-50/20" />
       <GinkgoLeafPattern />
       <MorphingShapes />
 
       <div ref={ref} className="relative z-10 text-center px-6 max-w-5xl mx-auto">
         <h2
-          className="text-4xl md:text-6xl font-light mb-12 leading-relaxed tracking-wide transition-all duration-1500"
+          className="text-4xl md:text-5xl lg:text-6xl font-extralight mb-8 leading-tight tracking-tight transition-all duration-1500"
           style={{ color: "#B69724" }}
         >
           {t("aboutTitle")}
         </h2>
 
         <p
-          className="text-lg md:text-xl mb-16 max-w-3xl mx-auto leading-relaxed font-light transition-all duration-1500 delay-500"
+          className="text-lg md:text-xl lg:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed font-light transition-all duration-1500 delay-500"
           style={{ color: "#8B7355" }}
         >
           {t("aboutText")}
@@ -1629,7 +1691,7 @@ function PricingSection() {
     .reduce((max, discount) => Math.max(max, discount), 0)
 
   return (
-    <section id="pricing" className="min-h-[90vh] flex items-center justify-center relative overflow-hidden py-20">
+    <section id="pricing" className="min-h-[90vh] flex items-center justify-center relative overflow-hidden py-24 md:py-32">
       <div className="absolute inset-0 bg-gradient-to-b from-amber-50/30 via-stone-50 to-orange-50/30" />
       <GinkgoLeafPattern />
       <MorphingShapes />
@@ -1637,25 +1699,25 @@ function PricingSection() {
       <div ref={ref} className="relative z-10 w-full px-4 sm:px-6">
         <div className="text-center mb-16">
           <h2
-            className={`text-4xl md:text-6xl font-light mb-12 leading-relaxed tracking-wide transition-all duration-1500`}
+            className={`text-4xl md:text-5xl lg:text-6xl font-extralight mb-8 leading-tight tracking-tight transition-all duration-1500`}
             style={{ color: "#B69724" }}
           >
             {t("pricingTitle")}
           </h2>
           <p
-            className={`text-lg md:text-xl mb-16 max-w-3xl mx-auto leading-relaxed font-light transition-all duration-1500 delay-300`}
+            className={`text-lg md:text-xl mb-12 max-w-3xl mx-auto leading-relaxed font-light transition-all duration-1500 delay-300`}
             style={{ color: "#8B7355" }}
           >
             {t("pricingSubtitle")}
           </p>
         </div>
 
-        <div className="flex justify-center mb-12">
-          <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as "monthly" | "yearly" | "passes")} className="w-full max-w-2xl">
-            <TabsList className="grid w-full grid-cols-3 bg-stone-100/80 backdrop-blur-sm p-1 rounded-lg">
+        <div className="flex justify-center mb-16">
+          <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as "monthly" | "yearly" | "passes")} className="w-full max-w-xl">
+            <TabsList className="grid w-full grid-cols-3 bg-stone-100/50 backdrop-blur-md p-1 rounded-full border border-stone-200/20">
               <TabsTrigger
                 value="passes"
-                className="data-[state=active]:bg-white data-[state=active]:text-[#B69724] data-[state=active]:shadow-sm font-light transition-all duration-300"
+                className="data-[state=active]:bg-white data-[state=active]:text-[#B69724] data-[state=active]:shadow-sm font-light rounded-full py-2.5 transition-all duration-300"
                 style={{
                   color: activeTab === "passes" ? "#B69724" : "#8B7355",
                 }}
@@ -1664,7 +1726,7 @@ function PricingSection() {
               </TabsTrigger>
               <TabsTrigger
                 value="monthly"
-                className="data-[state=active]:bg-white data-[state=active]:text-[#B69724] data-[state=active]:shadow-sm font-light transition-all duration-300"
+                className="data-[state=active]:bg-white data-[state=active]:text-[#B69724] data-[state=active]:shadow-sm font-light rounded-full py-2.5 transition-all duration-300"
                 style={{
                   color: activeTab === "monthly" ? "#B69724" : "#8B7355",
                 }}
@@ -1673,15 +1735,15 @@ function PricingSection() {
               </TabsTrigger>
               <TabsTrigger
                 value="yearly"
-                className="data-[state=active]:bg-white data-[state=active]:text-[#B69724] data-[state=active]:shadow-sm font-light transition-all duration-300 relative flex items-center gap-2 justify-center"
+                className="data-[state=active]:bg-white data-[state=active]:text-[#B69724] data-[state=active]:shadow-sm font-light rounded-full py-2.5 transition-all duration-300 relative flex items-center gap-2 justify-center"
                 style={{
                   color: activeTab === "yearly" ? "#B69724" : "#8B7355",
                 }}
               >
                 <span>{t("yearly")}</span>
                 {bestYearlyDiscount > 0 && (
-                  <span className="px-2 py-0.5 text-xs font-semibold rounded-full bg-gradient-to-r from-[#B69724] to-[#D4B95C] text-white shadow-sm whitespace-nowrap">
-                    {t("save")} {bestYearlyDiscount}%
+                  <span className="px-2 py-0.5 text-[10px] font-semibold rounded-full bg-gradient-to-r from-[#B69724] to-[#D4B95C] text-white shadow-sm whitespace-nowrap">
+                    -{bestYearlyDiscount}%
                   </span>
                 )}
               </TabsTrigger>
@@ -1689,55 +1751,55 @@ function PricingSection() {
           </Tabs>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-2">
           {currentPlans.map((plan, index) => (
             <Card
               key={index}
-              className={`group relative overflow-hidden border-0 shadow-xl transition-all duration-1000 bg-stone-50/90 backdrop-blur-xl rounded-2xl h-full ${isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-32"
-                }`}
+              className={`group relative overflow-hidden border border-stone-200/30 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(182,151,36,0.12)] transition-all duration-500 bg-white/70 backdrop-blur-xl rounded-3xl h-full hover:-translate-y-1 hover:scale-[1.01] ${
+                isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-24"
+              }`}
               style={{
                 transitionDelay: `${index * 100}ms`,
-                boxShadow: "0 25px 50px -12px rgba(184, 134, 11, 0.15)",
               }}
             >
-              <CardContent className="p-6 h-full flex flex-col">
+              <CardContent className="p-8 h-full flex flex-col">
                 <div className="text-center flex-1 flex flex-col">
-                  <div className="relative mb-4">
-                    <div className="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center mx-auto group-hover:scale-110 transition-all duration-700 shadow-lg shadow-yellow-800/20">
+                  <div className="relative mb-6">
+                    <div className="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center mx-auto group-hover:scale-105 transition-all duration-500 shadow-md border border-stone-100/50">
                       <img
                         src="/images/ginkgo-logo.jpg"
                         alt="Ginkgo Yoga Logo"
-                        className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
+                        className="w-full h-full object-cover object-center"
                         style={{ clipPath: "circle(50% at 50% 50%)" }}
                       />
                     </div>
                   </div>
 
-                  <div className="relative mb-3">
+                  <div className="relative mb-4">
                     <h3
-                      className="text-xl font-light text-stone-700 mb-2 group-hover:transition-colors duration-500 tracking-wide"
-                      style={{ "--hover-color": "#B8860B" } as React.CSSProperties}
+                      className="text-xl font-light text-stone-700 mb-2 transition-colors duration-300 tracking-wide"
+                      style={{ color: "#444444" }}
                     >
                       {plan.name}
                     </h3>
                     {activeTab === "yearly" && "discount" in plan && (plan as any).discount !== null && (plan as any).discount > 0 && (
-                      <div className="inline-flex items-center justify-center px-3 py-1 rounded-full bg-gradient-to-r from-[#B69724] to-[#D4B95C] text-white text-xs font-medium shadow-md mt-2">
+                      <div className="inline-flex items-center justify-center px-3 py-1 rounded-full bg-gradient-to-r from-[#B69724] to-[#D4B95C] text-white text-xs font-light shadow-sm mt-2">
                         <span>{t("save")}</span>
-                        <span className="ml-1 font-semibold">{(plan as any).discount}%</span>
+                        <span className="ml-1 font-medium">{(plan as any).discount}%</span>
                       </div>
                     )}
                   </div>
 
-                  <div className="mb-4">
+                  <div className="mb-6">
                     {activeTab === "yearly" && "monthlyEquivalentTotal" in plan && (plan as any).monthlyEquivalentTotal && (
                       <div className="mb-3">
-                        <div className="text-stone-500 font-light text-sm mb-1">{t("monthlyTotal")}</div>
+                        <div className="text-stone-400 font-light text-xs mb-1">{t("monthlyTotal")}</div>
                         <div
-                          className="text-xl font-light line-through text-stone-400 mb-2"
+                          className="text-xl font-light line-through text-stone-350 mb-2"
                         >
                           {(plan as any).monthlyEquivalentTotal}
                         </div>
-                        <div className="text-stone-500 font-light text-sm mb-1">{t("yearlyTotal")}</div>
+                        <div className="text-stone-400 font-light text-xs mb-1">{t("yearlyTotal")}</div>
                         <div
                           className="text-3xl font-extralight bg-gradient-to-r bg-clip-text text-transparent mb-1"
                           style={{
@@ -1767,13 +1829,13 @@ function PricingSection() {
                         >
                           {plan.price}
                         </div>
-                        {"priceNote" in plan && plan.priceNote && <div className="text-stone-600 font-light text-sm">{plan.priceNote}</div>}
+                        {"priceNote" in plan && plan.priceNote && <div className="text-stone-500 font-light text-sm">{plan.priceNote}</div>}
                       </>
                     )}
-                    <div className="text-stone-600 font-light text-xs mt-1">{plan.duration}</div>
+                    <div className="text-stone-400 font-light text-xs mt-1">{plan.duration}</div>
                   </div>
 
-                  <div className="space-y-2 mb-6 flex-1">
+                  <div className="space-y-3 mb-8 flex-1">
                     {plan.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-start space-x-2 text-left">
                         <div
@@ -1789,8 +1851,8 @@ function PricingSection() {
 
                   {/* Student Discount Note - Individual Card */}
                   {"studentDiscount" in plan && (plan as any).studentDiscount && (
-                    <div className="mt-auto pt-4 border-t border-stone-200">
-                      <p className="text-stone-600 font-light text-xs text-center">
+                    <div className="mt-auto pt-6 border-t border-stone-200/50">
+                      <p className="text-stone-400 font-light text-xs text-center">
                         {t("studentDiscountNote")}
                       </p>
                     </div>
@@ -1833,45 +1895,44 @@ function InstructorsSection() {
       <div ref={ref} className="relative z-10 w-full px-4 sm:px-6">
         <div className="text-center mb-16">
           <h2
-            className="text-4xl md:text-6xl font-light mb-12 leading-relaxed tracking-wide transition-all duration-1500"
+            className="text-4xl md:text-5xl lg:text-6xl font-extralight mb-12 leading-tight tracking-tight transition-all duration-1500"
             style={{ color: "#B69724" }}
           >
             {t("team")}
           </h2>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-y-16 max-w-7xl mx-auto">
+        <div className="flex flex-wrap justify-center gap-x-12 gap-y-16 max-w-6xl mx-auto px-4">
           {teamMembers.map((instructor, index) => (
             <div
               key={instructor.id}
-              className={`flex flex-col items-center justify-start group transition-all duration-1000 cursor-pointer h-full mx-24 ${isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-32"
-                }`}
-              style={{ transitionDelay: `${index * 300}ms` }}
+              className={`flex flex-col items-center justify-start group transition-all duration-1000 cursor-pointer w-64 ${
+                isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-20"
+              }`}
+              style={{ transitionDelay: `${index * 80}ms` }}
               onClick={() => handleInstructorClick(instructor)}
             >
-              <div className="w-64 h-64 mb-10 relative">
-                <div className="w-full h-full overflow-hidden rounded-full border-4 border-amber-100/50 bg-transparent">
-                  <div className="w-full h-full relative">
-                    <img
-                      src={instructor.image || "/placeholder-user.jpg"}
-                      alt={instructor.translations.name[language]}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
-                      style={{ objectFit: 'cover', objectPosition: 'center center' }}
-                    />
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-t ${instructor.gradient} opacity-10 group-hover:opacity-20 transition-opacity duration-700`}
-                    />
-                  </div>
+              <div className="w-48 h-48 mb-6 relative overflow-hidden rounded-full border-2 border-stone-200/40 shadow-sm group-hover:shadow-md group-hover:border-[#B69724]/20 transition-all duration-500">
+                <div className="w-full h-full relative">
+                  <img
+                    src={instructor.image || "/placeholder-user.jpg"}
+                    alt={instructor.translations.name[language]}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    style={{ objectFit: 'cover', objectPosition: 'center center' }}
+                  />
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-t ${instructor.gradient} opacity-10 group-hover:opacity-20 transition-opacity duration-700`}
+                  />
                 </div>
               </div>
               <div className="flex flex-col items-center flex-grow">
                 <h3
-                  className="text-4xl font-light text-stone-700 mb-4 group-hover:transition-colors duration-500 tracking-wide"
-                  style={{ "--hover-color": "#B8860B" } as React.CSSProperties}
+                  className="text-2xl font-light text-stone-700 mb-2 transition-colors duration-300 tracking-wide text-center"
+                  style={{ color: "#444444" }}
                 >
                   {instructor.translations.name[language]}
                 </h3>
-                <p className="mb-8 font-light text-lg tracking-wide" style={{ color: "#B69724" }}>
+                <p className="mb-4 font-light text-sm tracking-wider uppercase text-center" style={{ color: "#B69724" }}>
                   {instructor.translations.specialty[language]}
                 </p>
               </div>
@@ -2114,7 +2175,8 @@ function JoinUsDialog({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
 
 function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
   const { t, language } = useLanguage()
-  const [isVisible, setIsVisible] = useState(false)
+  const [isExpanded, setIsExpanded] = useState(false)
+  const [hasAutoExpanded, setHasAutoExpanded] = useState(false)
   const [currentEventIndex, setCurrentEventIndex] = useState(0)
 
   useEffect(() => {
@@ -2125,25 +2187,28 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
 
     // Show popup after a short delay (1.5 seconds) on every page load
     const timer = setTimeout(() => {
-      setIsVisible(true)
+      setIsExpanded(true)
+      setHasAutoExpanded(true)
     }, 1500)
 
     return () => clearTimeout(timer)
   }, [])
 
-  // Auto-dismiss full popup after a short time (no minimized bubble)
+  // Auto-minimize after 8 seconds of inactivity so it doesn't block the screen
   useEffect(() => {
-    if (!isVisible) return
+    if (!isExpanded || !hasAutoExpanded) return
 
-    const autoCloseTimer = setTimeout(() => {
-      setIsVisible(false)
-    }, 1500)
+    const autoMinimizeTimer = setTimeout(() => {
+      setIsExpanded(false)
+      setHasAutoExpanded(false)
+    }, 8000)
 
-    return () => clearTimeout(autoCloseTimer)
-  }, [isVisible])
+    return () => clearTimeout(autoMinimizeTimer)
+  }, [isExpanded, hasAutoExpanded])
 
   const handleClose = () => {
-    setIsVisible(false)
+    setIsExpanded(false)
+    setHasAutoExpanded(false)
   }
 
   const featuredEvents = events.filter(event => event.featured && !event.past)
@@ -2156,10 +2221,6 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
   const EventIcon = featuredEvent.icon
   const eventTranslations = featuredEvent.translations
 
-  if (!isVisible) {
-    return null
-  }
-
   const handleNext = () => {
     setCurrentEventIndex((prev) => (prev + 1) % featuredEvents.length)
   }
@@ -2170,142 +2231,166 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
 
   return (
     <div 
-      className={`fixed bottom-24 right-4 z-50 transition-all duration-500 ease-out ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
-      }`}
+      className="fixed bottom-24 right-4 md:right-8 z-50 transition-all duration-500 ease-out"
       style={{ maxWidth: 'calc(100vw - 2rem)' }}
     >
-      <div 
-        className="bg-white/95 backdrop-blur-xl rounded-2xl p-6 shadow-2xl border-2 border-yellow-300/60 relative max-w-md"
-        style={{
-          boxShadow: "0 20px 60px -12px rgba(182, 151, 36, 0.4)",
-        }}
-      >
-        {/* Gradient overlay */}
-        <div className={`absolute top-0 right-0 w-48 h-48 bg-gradient-to-br ${featuredEvent.gradient} opacity-10 rounded-full blur-3xl -z-0`} />
-        
-        {/* Close button - higher z-index to ensure it's clickable */}
-        <button
-          onClick={handleClose}
-          className="absolute top-3 right-3 text-stone-400 hover:text-stone-600 transition-colors p-1.5 rounded-full hover:bg-stone-100 z-50 cursor-pointer"
-          aria-label="Close"
-          type="button"
+      {isExpanded ? (
+        <div 
+          className="bg-white/95 backdrop-blur-xl rounded-2xl p-6 shadow-2xl border-2 border-yellow-300/60 relative max-w-md animate-in fade-in zoom-in-95 duration-300"
+          style={{
+            boxShadow: "0 20px 60px -12px rgba(182, 151, 36, 0.4)",
+          }}
         >
-          <svg className="w-5 h-5 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
+          {/* Gradient overlay */}
+          <div className={`absolute top-0 right-0 w-48 h-48 bg-gradient-to-br ${featuredEvent.gradient} opacity-10 rounded-full blur-3xl -z-0`} />
+          
+          {/* Close button - higher z-index to ensure it's clickable */}
+          <button
+            onClick={handleClose}
+            className="absolute top-3 right-3 text-stone-400 hover:text-stone-600 transition-colors p-1.5 rounded-full hover:bg-stone-100 z-50 cursor-pointer"
+            aria-label="Close"
+            type="button"
+          >
+            <svg className="w-5 h-5 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
 
-        {/* Event content */}
-        <div className="relative z-0">
-          {/* Navigation arrows for multiple events */}
-          {featuredEvents.length > 1 && (
-            <div className="flex items-center justify-between mb-3">
-              <button
-                onClick={handlePrevious}
-                className="p-1.5 text-stone-400 hover:text-stone-600 transition-colors rounded-full hover:bg-stone-100"
-                aria-label="Previous event"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              <div className="flex gap-1.5">
-                {featuredEvents.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentEventIndex(index)}
-                    className={`w-1.5 h-1.5 rounded-full transition-all ${
-                      index === currentEventIndex 
-                        ? 'bg-[#B69724] w-4' 
-                        : 'bg-stone-300 hover:bg-stone-400'
-                    }`}
-                    aria-label={`Go to event ${index + 1}`}
-                  />
-                ))}
+          {/* Event content */}
+          <div className="relative z-0">
+            {/* Navigation arrows for multiple events */}
+            {featuredEvents.length > 1 && (
+              <div className="flex items-center justify-between mb-3">
+                <button
+                  onClick={handlePrevious}
+                  className="p-1.5 text-stone-400 hover:text-stone-600 transition-colors rounded-full hover:bg-stone-100"
+                  aria-label="Previous event"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <div className="flex gap-1.5">
+                  {featuredEvents.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentEventIndex(index)}
+                      className={`w-1.5 h-1.5 rounded-full transition-all ${
+                        index === currentEventIndex 
+                          ? 'bg-[#B69724] w-4' 
+                          : 'bg-stone-300 hover:bg-stone-400'
+                      }`}
+                      aria-label={`Go to event ${index + 1}`}
+                    />
+                  ))}
+                </div>
+                <button
+                  onClick={handleNext}
+                  className="p-1.5 text-stone-400 hover:text-stone-600 transition-colors rounded-full hover:bg-stone-100"
+                  aria-label="Next event"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            )}
+
+            {/* Header */}
+            <div className="flex items-start gap-3 mb-4">
+              <div className={`w-12 h-12 bg-gradient-to-br ${featuredEvent.gradient} rounded-xl flex items-center justify-center shadow-lg flex-shrink-0`}>
+                <EventIcon className="h-6 w-6 text-white" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1 flex-wrap">
+                  <h3 className="text-xl font-light" style={{ color: "#B69724" }}>
+                    {eventTranslations.title[language]}
+                  </h3>
+                  <span className="px-2 py-0.5 bg-gradient-to-r from-[#D4B95C] to-[#B69724] text-white text-xs font-light rounded-full whitespace-nowrap">
+                    Featured
+                  </span>
+                  {featuredEvents.length > 1 && (
+                    <span className="text-xs text-stone-400 font-light">
+                      {currentEventIndex + 1} / {featuredEvents.length}
+                    </span>
+                  )}
+                </div>
+                <p className="text-sm text-stone-600 font-light">
+                  {eventTranslations.subtitle[language]}
+                </p>
+              </div>
+            </div>
+
+            {/* Quick info */}
+            <div className="space-y-2 mb-4">
+              <div className="flex items-center gap-2 text-sm text-stone-700">
+                <Calendar className="h-4 w-4" style={{ color: "#B69724" }} />
+                <span className="font-light">{eventTranslations.date[language]} · {eventTranslations.time[language]}</span>
+              </div>
+              <p className="text-xs text-stone-600 font-light line-clamp-2">
+                {eventTranslations.description[language]}
+              </p>
+            </div>
+
+            {/* Action buttons */}
+            <div className="space-y-2">
+              <div className="flex gap-2">
+                <a
+                  href={`mailto:${featuredEvent.email}?subject=Reservation: ${eventTranslations.title[language]} - ${eventTranslations.subtitle[language]}&body=Hello,%0D%0A%0D%0AI would like to reserve a spot for the ${eventTranslations.title[language]} - ${eventTranslations.subtitle[language]} on ${eventTranslations.date[language]} at ${eventTranslations.time[language]}.%0D%0A%0D%0AThank you!`}
+                  className={`flex-1 px-4 py-2.5 bg-gradient-to-r ${featuredEvent.gradient} text-white rounded-xl font-light text-sm hover:shadow-lg transition-all duration-300 hover:scale-105 text-center`}
+                  style={{
+                    boxShadow: "0 4px 15px -3px rgba(182, 151, 36, 0.4)",
+                  }}
+                >
+                  {t("eventReserve")}
+                </a>
+                <button
+                  onClick={handleClose}
+                  className="px-4 py-2.5 text-stone-600 hover:text-stone-800 font-light text-sm transition-all duration-300 border border-stone-200 rounded-xl hover:border-stone-300 hover:bg-stone-50"
+                >
+                  Later
+                </button>
               </div>
               <button
-                onClick={handleNext}
-                className="p-1.5 text-stone-400 hover:text-stone-600 transition-colors rounded-full hover:bg-stone-100"
-                aria-label="Next event"
+                onClick={() => {
+                  handleClose()
+                  onOpenModal()
+                }}
+                className="w-full px-4 py-2.5 text-stone-600 hover:text-[#B69724] font-light text-sm transition-all duration-300 border border-stone-200 rounded-xl hover:border-[#B69724]/30 hover:bg-yellow-50/50 flex items-center justify-center gap-1.5"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                View All Events & Details
+                <svg className="w-4 h-4 animate-bounce-horizontal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </button>
             </div>
-          )}
-
-          {/* Header */}
-          <div className="flex items-start gap-3 mb-4">
-            <div className={`w-12 h-12 bg-gradient-to-br ${featuredEvent.gradient} rounded-xl flex items-center justify-center shadow-lg flex-shrink-0`}>
-              <EventIcon className="h-6 w-6 text-white" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2 mb-1 flex-wrap">
-                <h3 className="text-xl font-light" style={{ color: "#B69724" }}>
-                  {eventTranslations.title[language]}
-                </h3>
-                <span className="px-2 py-0.5 bg-gradient-to-r from-[#D4B95C] to-[#B69724] text-white text-xs font-light rounded-full whitespace-nowrap">
-                  Featured
-                </span>
-                {featuredEvents.length > 1 && (
-                  <span className="text-xs text-stone-400 font-light">
-                    {currentEventIndex + 1} / {featuredEvents.length}
-                  </span>
-                )}
-              </div>
-              <p className="text-sm text-stone-600 font-light">
-                {eventTranslations.subtitle[language]}
-              </p>
-            </div>
-          </div>
-
-          {/* Quick info */}
-          <div className="space-y-2 mb-4">
-            <div className="flex items-center gap-2 text-sm text-stone-700">
-              <Calendar className="h-4 w-4" style={{ color: "#B69724" }} />
-              <span className="font-light">{eventTranslations.date[language]} · {eventTranslations.time[language]}</span>
-            </div>
-            <p className="text-xs text-stone-600 font-light line-clamp-2">
-              {eventTranslations.description[language]}
-            </p>
-          </div>
-
-          {/* Action buttons */}
-          <div className="space-y-2">
-            <div className="flex gap-2">
-              <a
-                href={`mailto:${featuredEvent.email}?subject=Reservation: ${eventTranslations.title[language]} - ${eventTranslations.subtitle[language]}&body=Hello,%0D%0A%0D%0AI would like to reserve a spot for the ${eventTranslations.title[language]} - ${eventTranslations.subtitle[language]} on ${eventTranslations.date[language]} at ${eventTranslations.time[language]}.%0D%0A%0D%0AThank you!`}
-                className={`flex-1 px-4 py-2.5 bg-gradient-to-r ${featuredEvent.gradient} text-white rounded-xl font-light text-sm hover:shadow-lg transition-all duration-300 hover:scale-105 text-center`}
-                style={{
-                  boxShadow: "0 4px 15px -3px rgba(182, 151, 36, 0.4)",
-                }}
-              >
-                {t("eventReserve")}
-              </a>
-              <button
-                onClick={handleClose}
-                className="px-4 py-2.5 text-stone-600 hover:text-stone-800 font-light text-sm transition-all duration-300 border border-stone-200 rounded-xl hover:border-stone-300 hover:bg-stone-50"
-              >
-                Later
-              </button>
-            </div>
-            <button
-              onClick={() => {
-                handleClose()
-                onOpenModal()
-              }}
-              className="w-full px-4 py-2.5 text-stone-600 hover:text-[#B69724] font-light text-sm transition-all duration-300 border border-stone-200 rounded-xl hover:border-[#B69724]/30 hover:bg-yellow-50/50 flex items-center justify-center gap-1.5"
-            >
-              View All Events & Details
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
           </div>
         </div>
-      </div>
+      ) : (
+        <div className="flex justify-end">
+          <button
+            onClick={() => setIsExpanded(true)}
+            className="w-14 h-14 rounded-full bg-gradient-to-r from-[#B69724] to-[#D4B95C] text-white shadow-2xl flex items-center justify-center cursor-pointer hover:scale-110 active:scale-95 transition-all duration-300 group relative border border-white/20 animate-in fade-in zoom-in-75 duration-300"
+            style={{
+              boxShadow: "0 10px 25px -5px rgba(182, 151, 36, 0.5)",
+            }}
+            aria-label="View upcoming events"
+          >
+            {/* Pulsing ring */}
+            <span className="absolute inset-0 rounded-full bg-gradient-to-r from-[#B69724] to-[#D4B95C] animate-ping opacity-25" />
+            
+            <Calendar className="h-6 w-6 group-hover:rotate-12 transition-transform duration-300" />
+            
+            {/* Pulsing notification dot */}
+            <span className="absolute top-0 right-0 w-3.5 h-3.5 bg-red-500 rounded-full border-2 border-white shadow-md animate-pulse" />
+
+            {/* Hover tooltip label */}
+            <span className="absolute right-full mr-3 px-3 py-1.5 bg-slate-900/90 backdrop-blur-md text-white text-xs font-light rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap border border-white/10 shadow-xl">
+              {t("events")} ({featuredEvents.length})
+            </span>
+          </button>
+        </div>
+      )}
     </div>
   )
 }
