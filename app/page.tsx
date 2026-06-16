@@ -457,65 +457,6 @@ interface Event {
 // Events data - easy to add/remove events here
 const events: Event[] = [
   {
-    id: "slow-deep-hatha-yoga-workshop",
-    icon: Leaf,
-    gradient: "from-[#B69724] to-[#D4B95C]",
-    featured: true,
-    email: "ginkgoyogaberlin@gmail.com",
-    translations: {
-      title: {
-        en: "Slow Deep Hatha Yoga Workshop",
-        de: "Slow Deep Hatha Yoga Workshop",
-        it: "Workshop di Slow Deep Hatha Yoga",
-      },
-      subtitle: {
-        en: "With Giulia · Breath • Movement • Stillness",
-        de: "Mit Giulia · Atem • Bewegung • Stille",
-        it: "Con Giulia · Respiro • Movimento • Silenzio",
-      },
-      description: {
-        en: "This workshop is designed as a gentle, spacious journey through breathwork, traditional Hatha Yoga postures, and deep relaxation. We’ll take the time to move with awareness, explore stillness, and allow the body and mind to settle.",
-        de: "Dieser Workshop ist konzipiert als eine sanfte, weite Reise durch Atemarbeit, traditionelle Hatha-Yoga-Haltungen und tiefe Entspannung. Wir nehmen uns die Zeit, uns achtsam zu bewegen, die Stille zu erkunden und Körper sowie Geist zur Ruhe kommen zu lassen.",
-        it: "Questo workshop è pensato come un viaggio delicato e spazioso attraverso il lavoro sul respiro, le posture tradizionali del Hatha Yoga e il rilassamento profondo. Ci prenderemo il tempo per muoverci con consapevolezza, esplorare l'immobilità e lasciare che il corpo e la mente si calmino.",
-      },
-      level: {
-        en: "Open to all levels — a 3-hour immersive practice to slow down, reconnect, and go deeper.",
-        de: "Offen für alle Level — eine 3-stündige, immersive Praxis, um zu entschleunigen, dich neu zu verbinden und tiefer zu gehen.",
-        it: "Aperto a tutti i livelli — una pratica immersiva di 3 ore per rallentare, riconnettersi e andare più in profondità.",
-      },
-      date: {
-        en: "Saturday, June 13th, 2026",
-        de: "Samstag, 13. Juni 2026",
-        it: "Sabato 13 giugno 2026",
-      },
-      time: {
-        en: "14:00 - 17:00",
-        de: "14:00 - 17:00",
-        it: "14:00 - 17:00",
-      },
-      earlyBird: {
-        en: "Early Bird: €35 (until May 31st)",
-        de: "Early Bird: 35 € (bis 31. Mai)",
-        it: "Early Bird: 35 € (fino al 31 maggio)",
-      },
-      regular: {
-        en: "Regular: €45",
-        de: "Normalpreis: 45 €",
-        it: "Prezzo regolare: 45 €",
-      },
-      usc: {
-        en: "Urban Sports Club / Wellpass: Check-in + €25",
-        de: "Urban Sports Club / Wellpass: Check-in + 25 €",
-        it: "Urban Sports Club / Wellpass: Check-in + 25 €",
-      },
-      spots: {
-        en: "Spots available — reservation by email",
-        de: "Plätze verfügbar — Anmeldung per E-Mail",
-        it: "Posti disponibili — prenotazione via email",
-      },
-    },
-  },
-  {
     id: "equinox-108-sun-salutations",
     icon: Sun,
     gradient: "from-[#D4B95C] to-[#B69724]",
