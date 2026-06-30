@@ -457,6 +457,65 @@ interface Event {
 // Events data - easy to add/remove events here
 const events: Event[] = [
   {
+    id: "open-house-2026",
+    icon: Coffee,
+    gradient: "from-[#D4B95C] to-[#B69724]",
+    featured: true,
+    email: "ginkgoyogaberlin@gmail.com",
+    translations: {
+      title: {
+        en: "Open House",
+        de: "Open House",
+        it: "Open House",
+      },
+      subtitle: {
+        en: "Get to know our studio",
+        de: "Lerne unser Studio kennen",
+        it: "Conosci il nostro studio",
+      },
+      description: {
+        en: "We are opening our doors. Come by and get to know our yoga studio in a relaxed atmosphere. Enjoy tea & snacks, take a look at our rooms, and get into conversation with us and others from the neighborhood. Whether you practice yoga or are simply curious — we look forward to meeting you.",
+        de: "Wir öffnen unsere Türen. Komm vorbei und lerne unser Yogastudio in entspannter Atmosphäre kennen. Genieße Tee & Snacks, wirf einen Blick in unsere Räume und komm mit uns und anderen aus der Nachbarschaft ins Gespräch. Ob du Yoga praktizierst oder einfach neugierig bist – wir freuen uns darauf, dich kennenzulernen.",
+        it: "Apriamo le nostre porte. Vieni a conoscere il nostro studio di yoga in un'atmosfera rilassata. Goditi tè e snack, dai un'occhiata ai nostri spazi e fai due chiacchiere con noi e con altre persone del quartiere. Che tu pratichi yoga o sia semplicemente curioso/a — non vediamo l'ora di conoscerti.",
+      },
+      level: {
+        en: "Come and go whenever you like.",
+        de: "Komm und geh, wann du möchtest.",
+        it: "Vieni e vai quando preferisci.",
+      },
+      date: {
+        en: "Sunday, July 26, 2026",
+        de: "Sonntag, den 26.07.2026",
+        it: "Domenica 26 luglio 2026",
+      },
+      time: {
+        en: "Open House 14:00-17:00 · Open reading circle 17:00-17:45",
+        de: "Open House 14:00-17:00 · Offene Leserunde 17:00-17:45",
+        it: "Open House 14:00-17:00 · Circolo di lettura aperto 17:00-17:45",
+      },
+      earlyBird: {
+        en: "Free entry, everyone is welcome.",
+        de: "Eintritt frei, alle sind willkommen.",
+        it: "Ingresso libero, tutti sono i benvenuti.",
+      },
+      regular: {
+        en: "",
+        de: "",
+        it: "",
+      },
+      usc: {
+        en: "Zum Ausklang: share a poem, a short text, or simply listen.",
+        de: "Zum Ausklang: Teile ein Gedicht, einen kurzen Text oder höre einfach zu.",
+        it: "Per concludere: condividi una poesia, un breve testo o semplicemente ascolta.",
+      },
+      spots: {
+        en: "Liebenwalder Str. 11, 13347 – Aufgang D. All are welcome.",
+        de: "Liebenwalder Str. 11, 13347 – Aufgang D. Alle sind herzlich willkommen.",
+        it: "Liebenwalder Str. 11, 13347 – Aufgang D. Tutti sono i benvenuti.",
+      },
+    },
+  },
+  {
     id: "equinox-108-sun-salutations",
     icon: Sun,
     gradient: "from-[#D4B95C] to-[#B69724]",
@@ -2117,7 +2176,6 @@ function JoinUsDialog({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
 function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
   const { t, language } = useLanguage()
   const [isExpanded, setIsExpanded] = useState(false)
-  const [hasAutoExpanded, setHasAutoExpanded] = useState(false)
   const [currentEventIndex, setCurrentEventIndex] = useState(0)
 
   useEffect(() => {
@@ -2129,27 +2187,24 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
     // Show popup after a short delay (1.5 seconds) on every page load
     const timer = setTimeout(() => {
       setIsExpanded(true)
-      setHasAutoExpanded(true)
     }, 1500)
 
     return () => clearTimeout(timer)
   }, [])
 
-  // Auto-minimize after 3 seconds of inactivity so it doesn't block the screen
+  // Auto-minimize 3 seconds after the popup expands so it doesn't block the screen
   useEffect(() => {
-    if (!isExpanded || !hasAutoExpanded) return
+    if (!isExpanded) return
 
     const autoMinimizeTimer = setTimeout(() => {
       setIsExpanded(false)
-      setHasAutoExpanded(false)
     }, 3000)
 
     return () => clearTimeout(autoMinimizeTimer)
-  }, [isExpanded, hasAutoExpanded])
+  }, [isExpanded])
 
   const handleClose = () => {
     setIsExpanded(false)
-    setHasAutoExpanded(false)
   }
 
   const featuredEvents = events.filter(event => event.featured && !event.past)
