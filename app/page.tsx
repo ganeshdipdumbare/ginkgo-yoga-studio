@@ -504,7 +504,7 @@ const events: Event[] = [
         it: "",
       },
       usc: {
-        en: "Zum Ausklang: share a poem, a short text, or simply listen.",
+        en: "To close: share a poem, a short text, or simply listen.",
         de: "Zum Ausklang: Teile ein Gedicht, einen kurzen Text oder höre einfach zu.",
         it: "Per concludere: condividi una poesia, un breve testo o semplicemente ascolta.",
       },
@@ -2182,6 +2182,9 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
   const [autoOpened, setAutoOpened] = useState(false)
   // Bumped on every navigation so the auto-minimize timer resets after each action.
   const [lastInteractionAt, setLastInteractionAt] = useState(0)
+  // Held so the bubble's click handler can cancel the load timer before it fires,
+  // preventing the race where setAutoOpened(true) runs on a user-initiated open.
+  const autoOpenTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     const featuredEvents = events.filter(event => event.featured && !event.past)
@@ -2190,12 +2193,18 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
     }
 
     // Show popup after a short delay (1.5 seconds) on every page load
-    const timer = setTimeout(() => {
+    autoOpenTimerRef.current = setTimeout(() => {
+      autoOpenTimerRef.current = null
       setAutoOpened(true)
       setIsExpanded(true)
     }, 1500)
 
-    return () => clearTimeout(timer)
+    return () => {
+      if (autoOpenTimerRef.current) {
+        clearTimeout(autoOpenTimerRef.current)
+        autoOpenTimerRef.current = null
+      }
+    }
   }, [])
 
   // Auto-minimize only for the automatic open — never when the user deliberately
@@ -2382,7 +2391,13 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
       ) : (
         <div className="flex justify-end">
           <button
-            onClick={() => setIsExpanded(true)}
+            onClick={() => {
+              if (autoOpenTimerRef.current) {
+                clearTimeout(autoOpenTimerRef.current)
+                autoOpenTimerRef.current = null
+              }
+              setIsExpanded(true)
+            }}
             className="w-14 h-14 rounded-full bg-gradient-to-r from-[#B69724] to-[#D4B95C] text-white shadow-2xl flex items-center justify-center cursor-pointer hover:scale-110 active:scale-95 transition-all duration-300 group relative border border-white/20 animate-in fade-in zoom-in-75 duration-300"
             style={{
               boxShadow: "0 10px 25px -5px rgba(182, 151, 36, 0.5)",
