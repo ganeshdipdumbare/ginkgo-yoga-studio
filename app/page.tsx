@@ -2177,6 +2177,11 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
   const { t, language } = useLanguage()
   const [isExpanded, setIsExpanded] = useState(false)
   const [currentEventIndex, setCurrentEventIndex] = useState(0)
+  // True only when the popup was opened by the page-load timer, not by the user.
+  // The auto-minimize timer must not run when the user explicitly opens the popup.
+  const [autoOpened, setAutoOpened] = useState(false)
+  // Bumped on every navigation so the auto-minimize timer resets after each action.
+  const [lastInteractionAt, setLastInteractionAt] = useState(0)
 
   useEffect(() => {
     const featuredEvents = events.filter(event => event.featured && !event.past)
@@ -2186,25 +2191,30 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
 
     // Show popup after a short delay (1.5 seconds) on every page load
     const timer = setTimeout(() => {
+      setAutoOpened(true)
       setIsExpanded(true)
     }, 1500)
 
     return () => clearTimeout(timer)
   }, [])
 
-  // Auto-minimize 3 seconds after the popup expands so it doesn't block the screen
+  // Auto-minimize only for the automatic open — never when the user deliberately
+  // clicked the bubble. Resetting on lastInteractionAt ensures navigation extends
+  // the window rather than letting the original timer close mid-browse.
   useEffect(() => {
-    if (!isExpanded) return
+    if (!isExpanded || !autoOpened) return
 
     const autoMinimizeTimer = setTimeout(() => {
       setIsExpanded(false)
+      setAutoOpened(false)
     }, 3000)
 
     return () => clearTimeout(autoMinimizeTimer)
-  }, [isExpanded])
+  }, [isExpanded, autoOpened, lastInteractionAt])
 
   const handleClose = () => {
     setIsExpanded(false)
+    setAutoOpened(false)
   }
 
   const featuredEvents = events.filter(event => event.featured && !event.past)
@@ -2218,11 +2228,18 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
   const eventTranslations = featuredEvent.translations
 
   const handleNext = () => {
+    setLastInteractionAt(Date.now())
     setCurrentEventIndex((prev) => (prev + 1) % featuredEvents.length)
   }
 
   const handlePrevious = () => {
+    setLastInteractionAt(Date.now())
     setCurrentEventIndex((prev) => (prev - 1 + featuredEvents.length) % featuredEvents.length)
+  }
+
+  const handleDotClick = (index: number) => {
+    setLastInteractionAt(Date.now())
+    setCurrentEventIndex(index)
   }
 
   return (
@@ -2270,7 +2287,7 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
                   {featuredEvents.map((_, index) => (
                     <button
                       key={index}
-                      onClick={() => setCurrentEventIndex(index)}
+                      onClick={() => handleDotClick(index)}
                       className={`w-1.5 h-1.5 rounded-full transition-all ${
                         index === currentEventIndex 
                           ? 'bg-[#B69724] w-4' 
