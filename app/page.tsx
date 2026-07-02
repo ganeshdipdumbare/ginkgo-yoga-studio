@@ -457,65 +457,6 @@ interface Event {
 // Events data - easy to add/remove events here
 const events: Event[] = [
   {
-    id: "open-house-2026",
-    icon: Coffee,
-    gradient: "from-[#D4B95C] to-[#B69724]",
-    featured: true,
-    email: "ginkgoyogaberlin@gmail.com",
-    translations: {
-      title: {
-        en: "Open House",
-        de: "Open House",
-        it: "Open House",
-      },
-      subtitle: {
-        en: "Get to know our studio",
-        de: "Lerne unser Studio kennen",
-        it: "Conosci il nostro studio",
-      },
-      description: {
-        en: "We are opening our doors. Come by and get to know our yoga studio in a relaxed atmosphere. Enjoy tea & snacks, take a look at our rooms, and get into conversation with us and others from the neighborhood. Whether you practice yoga or are simply curious — we look forward to meeting you.",
-        de: "Wir öffnen unsere Türen. Komm vorbei und lerne unser Yogastudio in entspannter Atmosphäre kennen. Genieße Tee & Snacks, wirf einen Blick in unsere Räume und komm mit uns und anderen aus der Nachbarschaft ins Gespräch. Ob du Yoga praktizierst oder einfach neugierig bist – wir freuen uns darauf, dich kennenzulernen.",
-        it: "Apriamo le nostre porte. Vieni a conoscere il nostro studio di yoga in un'atmosfera rilassata. Goditi tè e snack, dai un'occhiata ai nostri spazi e fai due chiacchiere con noi e con altre persone del quartiere. Che tu pratichi yoga o sia semplicemente curioso/a — non vediamo l'ora di conoscerti.",
-      },
-      level: {
-        en: "Come and go whenever you like.",
-        de: "Komm und geh, wann du möchtest.",
-        it: "Vieni e vai quando preferisci.",
-      },
-      date: {
-        en: "Sunday, July 26, 2026",
-        de: "Sonntag, den 26.07.2026",
-        it: "Domenica 26 luglio 2026",
-      },
-      time: {
-        en: "Open House 14:00-17:00 · Open reading circle 17:00-17:45",
-        de: "Open House 14:00-17:00 · Offene Leserunde 17:00-17:45",
-        it: "Open House 14:00-17:00 · Circolo di lettura aperto 17:00-17:45",
-      },
-      earlyBird: {
-        en: "Free entry, everyone is welcome.",
-        de: "Eintritt frei, alle sind willkommen.",
-        it: "Ingresso libero, tutti sono i benvenuti.",
-      },
-      regular: {
-        en: "",
-        de: "",
-        it: "",
-      },
-      usc: {
-        en: "To close: share a poem, a short text, or simply listen.",
-        de: "Zum Ausklang: Teile ein Gedicht, einen kurzen Text oder höre einfach zu.",
-        it: "Per concludere: condividi una poesia, un breve testo o semplicemente ascolta.",
-      },
-      spots: {
-        en: "Liebenwalder Str. 11, 13347 – Aufgang D. All are welcome.",
-        de: "Liebenwalder Str. 11, 13347 – Aufgang D. Alle sind herzlich willkommen.",
-        it: "Liebenwalder Str. 11, 13347 – Aufgang D. Tutti sono i benvenuti.",
-      },
-    },
-  },
-  {
     id: "equinox-108-sun-salutations",
     icon: Sun,
     gradient: "from-[#D4B95C] to-[#B69724]",
@@ -2176,15 +2117,8 @@ function JoinUsDialog({ isOpen, onClose }: { isOpen: boolean; onClose: () => voi
 function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
   const { t, language } = useLanguage()
   const [isExpanded, setIsExpanded] = useState(false)
+  const [hasAutoExpanded, setHasAutoExpanded] = useState(false)
   const [currentEventIndex, setCurrentEventIndex] = useState(0)
-  // True only when the popup was opened by the page-load timer, not by the user.
-  // The auto-minimize timer must not run when the user explicitly opens the popup.
-  const [autoOpened, setAutoOpened] = useState(false)
-  // Bumped on every navigation so the auto-minimize timer resets after each action.
-  const [lastInteractionAt, setLastInteractionAt] = useState(0)
-  // Held so the bubble's click handler can cancel the load timer before it fires,
-  // preventing the race where setAutoOpened(true) runs on a user-initiated open.
-  const autoOpenTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     const featuredEvents = events.filter(event => event.featured && !event.past)
@@ -2193,37 +2127,29 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
     }
 
     // Show popup after a short delay (1.5 seconds) on every page load
-    autoOpenTimerRef.current = setTimeout(() => {
-      autoOpenTimerRef.current = null
-      setAutoOpened(true)
+    const timer = setTimeout(() => {
       setIsExpanded(true)
+      setHasAutoExpanded(true)
     }, 1500)
 
-    return () => {
-      if (autoOpenTimerRef.current) {
-        clearTimeout(autoOpenTimerRef.current)
-        autoOpenTimerRef.current = null
-      }
-    }
+    return () => clearTimeout(timer)
   }, [])
 
-  // Auto-minimize only for the automatic open — never when the user deliberately
-  // clicked the bubble. Resetting on lastInteractionAt ensures navigation extends
-  // the window rather than letting the original timer close mid-browse.
+  // Auto-minimize after 3 seconds of inactivity so it doesn't block the screen
   useEffect(() => {
-    if (!isExpanded || !autoOpened) return
+    if (!isExpanded || !hasAutoExpanded) return
 
     const autoMinimizeTimer = setTimeout(() => {
       setIsExpanded(false)
-      setAutoOpened(false)
+      setHasAutoExpanded(false)
     }, 3000)
 
     return () => clearTimeout(autoMinimizeTimer)
-  }, [isExpanded, autoOpened, lastInteractionAt])
+  }, [isExpanded, hasAutoExpanded])
 
   const handleClose = () => {
     setIsExpanded(false)
-    setAutoOpened(false)
+    setHasAutoExpanded(false)
   }
 
   const featuredEvents = events.filter(event => event.featured && !event.past)
@@ -2237,18 +2163,11 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
   const eventTranslations = featuredEvent.translations
 
   const handleNext = () => {
-    setLastInteractionAt(Date.now())
     setCurrentEventIndex((prev) => (prev + 1) % featuredEvents.length)
   }
 
   const handlePrevious = () => {
-    setLastInteractionAt(Date.now())
     setCurrentEventIndex((prev) => (prev - 1 + featuredEvents.length) % featuredEvents.length)
-  }
-
-  const handleDotClick = (index: number) => {
-    setLastInteractionAt(Date.now())
-    setCurrentEventIndex(index)
   }
 
   return (
@@ -2296,7 +2215,7 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
                   {featuredEvents.map((_, index) => (
                     <button
                       key={index}
-                      onClick={() => handleDotClick(index)}
+                      onClick={() => setCurrentEventIndex(index)}
                       className={`w-1.5 h-1.5 rounded-full transition-all ${
                         index === currentEventIndex 
                           ? 'bg-[#B69724] w-4' 
@@ -2391,13 +2310,7 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
       ) : (
         <div className="flex justify-end">
           <button
-            onClick={() => {
-              if (autoOpenTimerRef.current) {
-                clearTimeout(autoOpenTimerRef.current)
-                autoOpenTimerRef.current = null
-              }
-              setIsExpanded(true)
-            }}
+            onClick={() => setIsExpanded(true)}
             className="w-14 h-14 rounded-full bg-gradient-to-r from-[#B69724] to-[#D4B95C] text-white shadow-2xl flex items-center justify-center cursor-pointer hover:scale-110 active:scale-95 transition-all duration-300 group relative border border-white/20 animate-in fade-in zoom-in-75 duration-300"
             style={{
               boxShadow: "0 10px 25px -5px rgba(182, 151, 36, 0.5)",
