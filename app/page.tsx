@@ -34,6 +34,7 @@ interface TeamMember {
   expertise: string[];
   email: string;
   website?: string;
+  instagram?: string;
   languages: string[];
   translations: TeamMemberTranslation;
 }
@@ -358,6 +359,38 @@ const teamMembers: TeamMember[] = [
     },
   },
   {
+    id: "ben",
+    image: "/images/ben.png",
+    gradient: "from-[#B69724] to-[#D4B95C]",
+    aura: "amber",
+    expertise: ["540h Hatha Yoga Teacher Training", "120h Yin Yoga"],
+    email: "ginkgoyogaberlin@gmail.com",
+    instagram: "https://www.instagram.com/innerlandscape_yoga",
+    languages: ["German", "English"],
+    translations: {
+      name: {
+        en: "Ben",
+        de: "Ben",
+        it: "Ben",
+      },
+      specialty: {
+        en: "Hatha & Yin Yoga",
+        de: "Hatha & Yin Yoga",
+        it: "Hatha & Yin Yoga",
+      },
+      bio: {
+        en: "What excites me most about yoga is cultivating a beginner's mind—approaching something as if for the very first time—while reconnecting with our inner nature. Through my own yoga journey, I have learned how important the balance between focus and relaxation is, and the essential role of the breath in connecting these two qualities. The breath guides us safely through our practice and helps us stay present. I invite you to explore your personal practice and inner landscape with me. In this process, deeply held tension and emotions may gently release, creating space for greater ease, awareness, and connection.\n\nTraining\n\n540-hour Hatha Yoga Teacher Training & 120-hour Yin Yoga. I have been teaching for 2 years.",
+        de: "In den Anfängergeist einzutauchen, etwas wie zum ersten Mal von neuem zu betrachten, und gleichzeitig die Verbindung mit unserer inneren Natur wiederherzustellen, ist was mich am Yoga am meisten begeistert. Auf meinem Yogaweg lernte ich, wie wichtig das Gleichgewicht zwischen Fokus und Entspannung ist, und welche Rolle der Atem spielt, der beide Aspekte verbindet und uns sicher durch die Praxis trägt. Ich lade euch ein, mit mir eure persönliche Praxis und euren inneren Raum zu erkunden, wobei sich tiefliegende Verspannungen und Emotionen lösen dürfen.\n\nAusbildung\n\n540h Hatha Yogalehrer Ausbildung & 120h Yin Yoga und unterrichte seit 2 Jahren.",
+        it: "Ciò che mi entusiasma di più dello yoga è coltivare una mente da principiante—avvicinarsi a qualcosa come se fosse la prima volta—riconnettendosi al contempo con la nostra natura interiore. Attraverso il mio percorso yogico, ho imparato quanto sia importante l'equilibrio tra concentrazione e rilassamento, e il ruolo essenziale del respiro nel collegare queste due qualità. Il respiro ci guida in sicurezza attraverso la pratica e ci aiuta a rimanere presenti. Vi invito a esplorare con me la vostra pratica personale e il vostro paesaggio interiore. In questo processo, tensioni ed emozioni profondamente radicate possono dolcemente sciogliersi, creando spazio per maggiore leggerezza, consapevolezza e connessione.\n\nFormazione\n\nFormazione da insegnante di Hatha Yoga di 540 ore & Yin Yoga di 120 ore. Insegno da 2 anni.",
+      },
+      philosophy: {
+        en: "I invite you to explore your personal practice and inner landscape with me. In this process, deeply held tension and emotions may gently release, creating space for greater ease, awareness, and connection.",
+        de: "Ich lade euch ein, mit mir eure persönliche Praxis und euren inneren Raum zu erkunden, wobei sich tiefliegende Verspannungen und Emotionen lösen dürfen und Raum für mehr Leichtigkeit, Bewusstsein und Verbindung entsteht.",
+        it: "Vi invito a esplorare con me la vostra pratica personale e il vostro paesaggio interiore. In questo processo, tensioni ed emozioni profondamente radicate possono dolcemente sciogliersi, creando spazio per maggiore leggerezza, consapevolezza e connessione.",
+      },
+    },
+  },
+  {
     id: "join-us-1",
     image: "/placeholder-user.jpg",
     gradient: "from-[#D4B95C] to-[#B69724]",
@@ -469,9 +502,9 @@ const events: Event[] = [
         it: "Open House",
       },
       subtitle: {
-        en: "Get to know our studio",
-        de: "Lerne unser Studio kennen",
-        it: "Conosci il nostro studio",
+        en: "Get to know our studio · Open Yoga Class: Yin",
+        de: "Lerne unser Studio kennen · Offene Yogastunde: Yin",
+        it: "Conosci il nostro studio · Lezione di Yoga Aperta: Yin",
       },
       description: {
         en: "We are opening our doors. Come by and get to know our yoga studio in a relaxed atmosphere. Enjoy tea & snacks, take a look at our rooms, and get into conversation with us and others from the neighborhood. Whether you practice yoga or are simply curious — we look forward to meeting you.",
@@ -509,9 +542,9 @@ const events: Event[] = [
         it: "Per concludere: condividi una poesia, un breve testo o semplicemente ascolta.",
       },
       spots: {
-        en: "Liebenwalder Str. 11, 13347 – Aufgang D. All are welcome.",
-        de: "Liebenwalder Str. 11, 13347 – Aufgang D. Alle sind herzlich willkommen.",
-        it: "Liebenwalder Str. 11, 13347 – Aufgang D. Tutti sono i benvenuti.",
+        en: "Liebenwalder Str. 11, 13347 – Aufgang D. All are welcome. Open Yoga Class: Yin + Words — Max. 20 spots, reserve via e-mail or directly on the day :)",
+        de: "Liebenwalder Str. 11, 13347 – Aufgang D. Alle sind herzlich willkommen. Offene Yogastunde: Yin + Worte — Max. 20 Plätze, reserviere per E-Mail oder direkt am Tag selbst :)",
+        it: "Liebenwalder Str. 11, 13347 – Aufgang D. Tutti sono i benvenuti. Lezione di Yoga Aperta: Yin + Parole — Max. 20 posti, prenota via e-mail o direttamente in giornata :)",
       },
     },
   },
@@ -2030,6 +2063,16 @@ function InstructorsSection() {
                         className="text-stone-600 hover:text-yellow-800 transition-colors font-light underline"
                       >
                         {selectedInstructor.website}
+                      </a>
+                    )}
+                    {selectedInstructor.instagram && (
+                      <a
+                        href={selectedInstructor.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-stone-600 hover:text-yellow-800 transition-colors font-light underline"
+                      >
+                        Instagram
                       </a>
                     )}
                   </div>
