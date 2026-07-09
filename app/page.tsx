@@ -366,7 +366,7 @@ const teamMembers: TeamMember[] = [
     expertise: ["540h Hatha Yoga Teacher Training", "120h Yin Yoga"],
     email: "ginkgoyogaberlin@gmail.com",
     instagram: "https://www.instagram.com/innerlandscape_yoga",
-    languages: ["German", "English"],
+    languages: ["German"],
     translations: {
       name: {
         en: "Ben",
