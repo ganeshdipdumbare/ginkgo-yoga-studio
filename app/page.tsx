@@ -390,6 +390,39 @@ const teamMembers: TeamMember[] = [
       },
     },
   },
+  // NOTE: German (de) and Italian (it) bio/philosophy translations for Lucija
+  // are pending; English text is used as a fallback until translations are provided.
+  {
+    id: "lucija",
+    image: "/images/lucija.png",
+    gradient: "from-[#B69724] to-[#D4B95C]",
+    aura: "amber",
+    expertise: ["Hatha Yoga", "Vinyasa Yoga", "Yin Yoga", "Trauma-Informed Yoga", "Sound Healing (Tibetan & Crystal Bowls)", "Somatic Movement"],
+    email: "ginkgoyogaberlin@gmail.com",
+    languages: ["English", "Croatian"],
+    translations: {
+      name: {
+        en: "Lucija",
+        de: "Lucija",
+        it: "Lucija",
+      },
+      specialty: {
+        en: "Hatha, Vinyasa & Yin Yoga",
+        de: "Hatha, Vinyasa & Yin Yoga",
+        it: "Hatha, Vinyasa & Yin Yoga",
+      },
+      bio: {
+        en: "For me, yoga is a holistic way of relating to ourselves and to life — a practice of presence, awareness, discipline, and compassion. In a quiet yet profound way, it has invited me into a deeper relationship with myself and continues to offer a space for curiosity, reflection, and growth.\n\nMy path into yoga began years ago in Zagreb, when a yoga studio opened near my contemporary dance studio. Curious to explore another way of moving and experiencing the body, I stepped into my first yoga class and never really left. I continue to explore different yoga traditions alongside somatic and mind-body approaches, allowing each to deepen my understanding of movement and embodiment.\n\nMy first Yoga Teacher Training was in Hatha and Vinyasa yoga, in 2019 in Rishikesh, India. The following year I did a Yin Yoga Teacher Training with Atmajyoti Yoga in Stockholm. I also trained in trauma-informed yoga through Warrior Yoga Network, where I volunteered in Sweden, supporting people through accessible and inclusive yoga. My teaching is shaped by these experiences, together with my background in contemporary dance and influences from Body-Mind Centering®, the Alexander Technique, Klein Technique, and Feldenkrais. More recently, I have deepened my practice through the study of sound, working with Tibetan and crystal singing bowls.\n\nIn my classes, I aim to create a welcoming space where people feel invited to listen inward, breathe with awareness, learn, explore, play. I believe every class is a shared exploration, where we discover what feels supportive and authentic for ourselves while honouring the wisdom and traditions that yoga comes from and carries. Ultimately, I see yoga as a practice of cultivating a curious and compassionate relationship with ourselves and, through that, with one another — one breath, one movement at a time.",
+        de: "For me, yoga is a holistic way of relating to ourselves and to life — a practice of presence, awareness, discipline, and compassion. In a quiet yet profound way, it has invited me into a deeper relationship with myself and continues to offer a space for curiosity, reflection, and growth.\n\nMy path into yoga began years ago in Zagreb, when a yoga studio opened near my contemporary dance studio. Curious to explore another way of moving and experiencing the body, I stepped into my first yoga class and never really left. I continue to explore different yoga traditions alongside somatic and mind-body approaches, allowing each to deepen my understanding of movement and embodiment.\n\nMy first Yoga Teacher Training was in Hatha and Vinyasa yoga, in 2019 in Rishikesh, India. The following year I did a Yin Yoga Teacher Training with Atmajyoti Yoga in Stockholm. I also trained in trauma-informed yoga through Warrior Yoga Network, where I volunteered in Sweden, supporting people through accessible and inclusive yoga. My teaching is shaped by these experiences, together with my background in contemporary dance and influences from Body-Mind Centering®, the Alexander Technique, Klein Technique, and Feldenkrais. More recently, I have deepened my practice through the study of sound, working with Tibetan and crystal singing bowls.\n\nIn my classes, I aim to create a welcoming space where people feel invited to listen inward, breathe with awareness, learn, explore, play. I believe every class is a shared exploration, where we discover what feels supportive and authentic for ourselves while honouring the wisdom and traditions that yoga comes from and carries. Ultimately, I see yoga as a practice of cultivating a curious and compassionate relationship with ourselves and, through that, with one another — one breath, one movement at a time.",
+        it: "For me, yoga is a holistic way of relating to ourselves and to life — a practice of presence, awareness, discipline, and compassion. In a quiet yet profound way, it has invited me into a deeper relationship with myself and continues to offer a space for curiosity, reflection, and growth.\n\nMy path into yoga began years ago in Zagreb, when a yoga studio opened near my contemporary dance studio. Curious to explore another way of moving and experiencing the body, I stepped into my first yoga class and never really left. I continue to explore different yoga traditions alongside somatic and mind-body approaches, allowing each to deepen my understanding of movement and embodiment.\n\nMy first Yoga Teacher Training was in Hatha and Vinyasa yoga, in 2019 in Rishikesh, India. The following year I did a Yin Yoga Teacher Training with Atmajyoti Yoga in Stockholm. I also trained in trauma-informed yoga through Warrior Yoga Network, where I volunteered in Sweden, supporting people through accessible and inclusive yoga. My teaching is shaped by these experiences, together with my background in contemporary dance and influences from Body-Mind Centering®, the Alexander Technique, Klein Technique, and Feldenkrais. More recently, I have deepened my practice through the study of sound, working with Tibetan and crystal singing bowls.\n\nIn my classes, I aim to create a welcoming space where people feel invited to listen inward, breathe with awareness, learn, explore, play. I believe every class is a shared exploration, where we discover what feels supportive and authentic for ourselves while honouring the wisdom and traditions that yoga comes from and carries. Ultimately, I see yoga as a practice of cultivating a curious and compassionate relationship with ourselves and, through that, with one another — one breath, one movement at a time.",
+      },
+      philosophy: {
+        en: "Ultimately, I see yoga as a practice of cultivating a curious and compassionate relationship with ourselves and, through that, with one another — one breath, one movement at a time.",
+        de: "Ultimately, I see yoga as a practice of cultivating a curious and compassionate relationship with ourselves and, through that, with one another — one breath, one movement at a time.",
+        it: "Ultimately, I see yoga as a practice of cultivating a curious and compassionate relationship with ourselves and, through that, with one another — one breath, one movement at a time.",
+      },
+    },
+  },
   {
     id: "join-us-1",
     image: "/placeholder-user.jpg",
