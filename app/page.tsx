@@ -2472,24 +2472,23 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
               }
               setIsExpanded(true)
             }}
-            className="w-14 h-14 rounded-full bg-gradient-to-r from-[#B69724] to-[#D4B95C] text-white shadow-2xl flex items-center justify-center cursor-pointer hover:scale-110 active:scale-95 transition-all duration-300 group relative border border-white/20 animate-in fade-in zoom-in-75 duration-300"
+            className="bg-gradient-to-r from-[#B69724] to-[#D4B95C] text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2 group relative cursor-pointer animate-in fade-in zoom-in-75 duration-300"
             style={{
               boxShadow: "0 10px 25px -5px rgba(182, 151, 36, 0.5)",
             }}
-            aria-label="View upcoming events"
+            aria-label={`View upcoming event: ${eventTranslations.title[language]}`}
           >
             {/* Pulsing ring */}
             <span className="absolute inset-0 rounded-full bg-gradient-to-r from-[#B69724] to-[#D4B95C] animate-ping opacity-25" />
-            
-            <Calendar className="h-6 w-6 group-hover:rotate-12 transition-transform duration-300" />
-            
-            {/* Pulsing notification dot */}
-            <span className="absolute top-0 right-0 w-3.5 h-3.5 bg-red-500 rounded-full border-2 border-white shadow-md animate-pulse" />
 
-            {/* Hover tooltip label */}
-            <span className="absolute right-full mr-3 px-3 py-1.5 bg-slate-900/90 backdrop-blur-md text-white text-xs font-light rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap border border-white/10 shadow-xl">
-              {t("events")} ({featuredEvents.length})
+            <Calendar className="w-5 h-5 flex-shrink-0 group-hover:rotate-12 transition-transform duration-300" />
+
+            <span className="font-light tracking-wide truncate max-w-[45vw] md:max-w-[220px]">
+              {eventTranslations.title[language]}
             </span>
+
+            {/* Pulsing notification dot */}
+            <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-red-500 rounded-full border-2 border-white shadow-md animate-pulse" />
           </button>
         </div>
       )}
