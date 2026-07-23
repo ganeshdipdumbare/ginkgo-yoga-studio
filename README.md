@@ -77,3 +77,5 @@ The project will be live at your Vercel URL.
 ## License
 
 © 2025 Ginkgo Yoga. All rights reserved.
+
+<!-- Note: placeholder edit from issue #54 ("Just for fun") to verify the Upsun Dispatch pipeline end-to-end. This documentation-only change has no behavioral impact and is safe to revert. -->
