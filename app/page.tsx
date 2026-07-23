@@ -2482,10 +2482,10 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
             {/* Pulsing ring */}
             <span className="absolute inset-0 rounded-full bg-gradient-to-r from-[#B69724] to-[#D4B95C] animate-ping opacity-25" />
 
-            <Calendar className="w-5 h-5 flex-shrink-0 group-hover:rotate-12 transition-transform duration-300" />
+            <Calendar className="w-4 h-4 flex-shrink-0 group-hover:rotate-12 transition-transform duration-300" />
 
             <span
-              className="font-light tracking-wide truncate max-w-[45vw] md:max-w-[220px]"
+              className="text-xs font-light tracking-wide whitespace-nowrap"
               title={eventTranslations.title[language] ?? ""}
             >
               {eventTranslations.title[language]}
