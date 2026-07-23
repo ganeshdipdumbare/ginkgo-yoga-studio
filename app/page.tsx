@@ -528,14 +528,14 @@ const events: Event[] = [
     email: "ginkgoyogaberlin@gmail.com",
     translations: {
       title: {
-        en: "Open House",
-        de: "Open House",
-        it: "Open House",
+        en: "Yin Yoga + Words (Max 20 spots)",
+        de: "Yin Yoga + Worte (Max. 20 Plätze)",
+        it: "Yin Yoga + Parole (Max. 20 posti)",
       },
       subtitle: {
-        en: "Get to know our studio · Open Yoga Class: Yin",
-        de: "Lerne unser Studio kennen · Offene Yogastunde: Yin",
-        it: "Conosci il nostro studio · Lezione di Yoga Aperta: Yin",
+        en: "Open House · Get to know our studio",
+        de: "Open House · Lerne unser Studio kennen",
+        it: "Open House · Conosci il nostro studio",
       },
       description: {
         en: "We are opening our doors. Come by and get to know our yoga studio in a relaxed atmosphere. Enjoy tea & snacks, take a look at our rooms, and get into conversation with us and others from the neighborhood. Whether you practice yoga or are simply curious — we look forward to meeting you.",
@@ -2476,14 +2476,18 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
             style={{
               boxShadow: "0 10px 25px -5px rgba(182, 151, 36, 0.5)",
             }}
-            aria-label={`View upcoming event: ${eventTranslations.title[language]}`}
+            aria-label={`View upcoming event: ${eventTranslations.title[language] ?? ""}`}
+            title={eventTranslations.title[language] ?? ""}
           >
             {/* Pulsing ring */}
             <span className="absolute inset-0 rounded-full bg-gradient-to-r from-[#B69724] to-[#D4B95C] animate-ping opacity-25" />
 
             <Calendar className="w-5 h-5 flex-shrink-0 group-hover:rotate-12 transition-transform duration-300" />
 
-            <span className="font-light tracking-wide truncate max-w-[45vw] md:max-w-[220px]">
+            <span
+              className="font-light tracking-wide truncate max-w-[45vw] md:max-w-[220px]"
+              title={eventTranslations.title[language] ?? ""}
+            >
               {eventTranslations.title[language]}
             </span>
 
