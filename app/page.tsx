@@ -553,9 +553,9 @@ const events: Event[] = [
         it: "Domenica 26 luglio 2026",
       },
       time: {
-        en: "Open House 14:00-17:00 · Open reading circle 17:00-17:45",
-        de: "Open House 14:00-17:00 · Offene Leserunde 17:00-17:45",
-        it: "Open House 14:00-17:00 · Circolo di lettura aperto 17:00-17:45",
+        en: "Open House 14:00-17:00",
+        de: "Open House 14:00-17:00",
+        it: "Open House 14:00-17:00",
       },
       earlyBird: {
         en: "Free entry, everyone is welcome.",
