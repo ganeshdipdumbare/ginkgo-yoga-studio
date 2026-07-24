@@ -2259,6 +2259,11 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
   // Held so the bubble's click handler can cancel the load timer before it fires,
   // preventing the race where setAutoOpened(true) runs on a user-initiated open.
   const autoOpenTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  // Refs + state used to detect when the minimized bubble's title overflows the
+  // fixed-width text area so we can enable the marquee only when needed.
+  const bubbleTextContainerRef = useRef<HTMLDivElement | null>(null)
+  const bubbleTextMeasureRef = useRef<HTMLSpanElement | null>(null)
+  const [isTitleOverflowing, setIsTitleOverflowing] = useState(false)
 
   useEffect(() => {
     const featuredEvents = events.filter(event => event.featured && !event.past)
@@ -2294,6 +2299,24 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
 
     return () => clearTimeout(autoMinimizeTimer)
   }, [isExpanded, autoOpened, lastInteractionAt])
+
+  // Measure whether the minimized bubble title overflows its fixed-width area.
+  // Re-runs when the title (language/event) changes, when the bubble is shown,
+  // and on window resize so the marquee toggles only when text actually overflows.
+  useEffect(() => {
+    if (isExpanded) return
+
+    const measure = () => {
+      const measureEl = bubbleTextMeasureRef.current
+      const containerEl = bubbleTextContainerRef.current
+      if (!measureEl || !containerEl) return
+      setIsTitleOverflowing(measureEl.scrollWidth > containerEl.clientWidth + 1)
+    }
+
+    measure()
+    window.addEventListener("resize", measure)
+    return () => window.removeEventListener("resize", measure)
+  }, [isExpanded, currentEventIndex, language])
 
   const handleClose = () => {
     setIsExpanded(false)
@@ -2484,12 +2507,39 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
 
             <Calendar className="w-4 h-4 flex-shrink-0 group-hover:rotate-12 transition-transform duration-300" />
 
-            <span
-              className="text-xs font-light tracking-wide whitespace-nowrap"
-              title={eventTranslations.title[language] ?? ""}
+            {/* Fixed-width text area matching the Venue Rental bubble. Long titles
+                scroll via a marquee instead of stretching the bubble. */}
+            <div
+              ref={bubbleTextContainerRef}
+              className="relative overflow-hidden w-24"
             >
-              {eventTranslations.title[language]}
-            </span>
+              {/* Hidden measurer used only to detect overflow of the full title. */}
+              <span
+                ref={bubbleTextMeasureRef}
+                aria-hidden="true"
+                className="invisible absolute left-0 top-0 whitespace-nowrap text-xs font-light tracking-wide"
+              >
+                {eventTranslations.title[language]}
+              </span>
+
+              {isTitleOverflowing ? (
+                <div className="flex w-max animate-marquee">
+                  <span className="whitespace-nowrap text-xs font-light tracking-wide pr-8">
+                    {eventTranslations.title[language]}
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="whitespace-nowrap text-xs font-light tracking-wide pr-8"
+                  >
+                    {eventTranslations.title[language]}
+                  </span>
+                </div>
+              ) : (
+                <span className="block whitespace-nowrap text-xs font-light tracking-wide">
+                  {eventTranslations.title[language]}
+                </span>
+              )}
+            </div>
 
             {/* Pulsing notification dot */}
             <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-red-500 rounded-full border-2 border-white shadow-md animate-pulse" />
