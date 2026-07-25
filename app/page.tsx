@@ -2495,7 +2495,7 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
               }
               setIsExpanded(true)
             }}
-            className="bg-gradient-to-r from-[#B69724] to-[#D4B95C] text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2 group relative cursor-pointer animate-in fade-in zoom-in-75 duration-300"
+            className="bg-gradient-to-r from-[#B69724] to-[#D4B95C] text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 group relative cursor-pointer animate-in fade-in zoom-in-75 duration-300"
             style={{
               boxShadow: "0 10px 25px -5px rgba(182, 151, 36, 0.5)",
             }}
@@ -2990,10 +2990,12 @@ function VenueRentalDialog() {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-8 right-8 z-40 bg-gradient-to-r from-[#B69724] to-[#D4B95C] text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center space-x-2 group"
+        className="fixed bottom-8 right-4 md:right-8 z-40 bg-gradient-to-r from-[#B69724] to-[#D4B95C] text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 group"
       >
-        <Theater className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
-        <span className="font-light tracking-wide">{t("venueRental")}</span>
+        <Theater className="w-4 h-4 flex-shrink-0 group-hover:rotate-12 transition-transform duration-300" />
+        {/* Fixed-width text area matching the upcoming-event bubble so both
+            bubbles keep identical dimensions across languages and devices. */}
+        <span className="block w-24 text-center truncate text-xs font-light tracking-wide">{t("venueRental")}</span>
       </button>
 
       {isOpen && (
