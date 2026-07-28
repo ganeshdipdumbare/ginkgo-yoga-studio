@@ -524,7 +524,8 @@ const events: Event[] = [
     id: "open-house-2026",
     icon: Coffee,
     gradient: "from-[#D4B95C] to-[#B69724]",
-    featured: true,
+    featured: false,
+    past: true,
     email: "ginkgoyogaberlin@gmail.com",
     translations: {
       title: {
