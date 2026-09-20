@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { createContext, useContext, useState, useEffect, useRef, useCallback } from "react"
+import { createContext, useContext, useState, useEffect, useRef, useCallback, useMemo } from "react"
 interface TeamMemberTranslation {
   name: {
     en: string;
@@ -47,7 +47,7 @@ const teamMembers: TeamMember[] = [
     image: "/images/giulia.png",
     gradient: "from-[#B69724] to-[#D4B95C]",
     aura: "amber",
-    expertise: ["Hatha Yoga Certified", "Health Insurance Recognized", "Prenatal Yoga"],
+    expertise: [],
     email: "ginkgoyogaberlin@gmail.com",
     languages: ["English", "Italian", "German"],
     translations: {
@@ -75,7 +75,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: "alica",
-    image: "/images/alica.png",
+    image: "/images/alica.jpg",
     gradient: "from-[#B69724] to-[#D4B95C]",
     aura: "amber",
     expertise: ["Physiotherapist", "Yin Yoga", "Sound Healing", "Prenatal and Postnatal"],
@@ -137,7 +137,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: "isa",
-    image: "/images/isa.png",
+    image: "/images/isa.jpg",
     gradient: "from-[#B69724] to-[#D4B95C]",
     aura: "amber",
     expertise: ["Jivamukti Yoga (300h)", "Talia Sutra Influenced", "Dylan Werner Influenced", "Isha Yoga Influenced", "Hand-on-Assistenz"],
@@ -169,7 +169,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: "silvia",
-    image: "/images/silvia.png",
+    image: "/images/silvia.jpg",
     gradient: "from-[#B69724] to-[#D4B95C]",
     aura: "amber",
     expertise: ["Hatha Yoga", "Iyengar Yoga", "Anusara Yoga", "Jivamukti Yoga", "Ashtanga Yoga", "Life Science Researcher"],
@@ -200,7 +200,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: "yulia",
-    image: "/images/yulia.png",
+    image: "/images/yulia.jpg",
     gradient: "from-[#B69724] to-[#D4B95C]",
     aura: "amber",
     expertise: ["Hatha Vinyasa Yoga", "Vinyasa Flow", "Yin Yoga", "Hands-on Assists", "Pranayama"],
@@ -231,7 +231,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: "kira",
-    image: "/images/kira.png",
+    image: "/images/kira.jpg",
     gradient: "from-[#B69724] to-[#D4B95C]",
     aura: "amber",
     expertise: ["Hatha", "Vinyasa", "Kundalini", "Kaula Tantra"],
@@ -262,7 +262,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: "katha",
-    image: "/images/katha.png",
+    image: "/images/katha.jpg",
     gradient: "from-[#B69724] to-[#D4B95C]",
     aura: "amber",
     expertise: ["Pranayama", "Meditation", "Yin Yoga", "Yoga Nidra", "Mobility & Healthy Back", "500hrs RYT", "Reiki"],
@@ -293,7 +293,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: "laura",
-    image: "/images/laura.png",
+    image: "/images/laura.jpg",
     gradient: "from-[#B69724] to-[#D4B95C]",
     aura: "amber",
     expertise: [
@@ -1292,7 +1292,7 @@ const useLanguage = () => {
 }
 
 // Intersection Observer hook for animations
-function useIntersectionObserver(options = {}) {
+function useIntersectionObserver(options: IntersectionObserverInit = {}) {
   const [isIntersecting, setIsIntersecting] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
 
@@ -1325,13 +1325,13 @@ function AuroraBackground() {
 }
 
 // Dynamically import FloatingOrbs with no SSR
-const FloatingOrbs = dynamic(() => Promise.resolve(() => {
-  const orbs = Array.from({ length: 12 }, (_, i) => ({
+const FloatingOrbs = dynamic(() => Promise.resolve(function FloatingOrbs() {
+  const orbs = useMemo(() => Array.from({ length: 12 }, () => ({
     left: Math.random() * 100,
     top: Math.random() * 100,
     delay: Math.random() * 20,
     duration: 20 + Math.random() * 15
-  }))
+  })), [])
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -2328,12 +2328,17 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
   const bubbleTextMeasureRef = useRef<HTMLSpanElement | null>(null)
   const [isTitleOverflowing, setIsTitleOverflowing] = useState(false)
 
-  useEffect(() => {
-    const featuredEvents = events.filter(event => event.featured && !event.past)
-    if (featuredEvents.length === 0) {
-      return
-    }
+  // Re-compute featured events only when the source data changes.
+  const featuredEvents = useMemo(
+    () => events.filter((event) => event.featured && !event.past),
+    []
+  )
 
+  if (featuredEvents.length === 0) {
+    return null
+  }
+
+  useEffect(() => {
     // Show popup after a short delay (1.5 seconds) on every page load
     autoOpenTimerRef.current = setTimeout(() => {
       autoOpenTimerRef.current = null
@@ -2347,7 +2352,7 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
         autoOpenTimerRef.current = null
       }
     }
-  }, [])
+  }, [featuredEvents])
 
   // Auto-minimize only for the automatic open — never when the user deliberately
   // clicked the bubble. Resetting on lastInteractionAt ensures navigation extends
@@ -2362,35 +2367,6 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
 
     return () => clearTimeout(autoMinimizeTimer)
   }, [isExpanded, autoOpened, lastInteractionAt])
-
-  // Measure whether the minimized bubble title overflows its fixed-width area.
-  // Re-runs when the title (language/event) changes, when the bubble is shown,
-  // and on window resize so the marquee toggles only when text actually overflows.
-  useEffect(() => {
-    if (isExpanded) return
-
-    const measure = () => {
-      const measureEl = bubbleTextMeasureRef.current
-      const containerEl = bubbleTextContainerRef.current
-      if (!measureEl || !containerEl) return
-      setIsTitleOverflowing(measureEl.scrollWidth > containerEl.clientWidth + 1)
-    }
-
-    measure()
-    window.addEventListener("resize", measure)
-    return () => window.removeEventListener("resize", measure)
-  }, [isExpanded, currentEventIndex, language])
-
-  const handleClose = () => {
-    setIsExpanded(false)
-    setAutoOpened(false)
-  }
-
-  const featuredEvents = events.filter(event => event.featured && !event.past)
-  
-  if (featuredEvents.length === 0) {
-    return null
-  }
 
   const featuredEvent = featuredEvents[currentEventIndex]
   const EventIcon = featuredEvent.icon
@@ -2410,6 +2386,29 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
     setLastInteractionAt(Date.now())
     setCurrentEventIndex(index)
   }
+
+  const handleClose = () => {
+    setIsExpanded(false)
+    setAutoOpened(false)
+  }
+
+  // Measure whether the minimized bubble title overflows its fixed-width area.
+  // Re-runs when the title (language/event) changes, when the bubble is shown,
+  // and on window resize so the marquee toggles only when text actually overflows.
+  useEffect(() => {
+    if (isExpanded) return
+
+    const measure = () => {
+      const measureEl = bubbleTextMeasureRef.current
+      const containerEl = bubbleTextContainerRef.current
+      if (!measureEl || !containerEl) return
+      setIsTitleOverflowing(measureEl.scrollWidth > containerEl.clientWidth + 1)
+    }
+
+    measure()
+    window.addEventListener("resize", measure)
+    return () => window.removeEventListener("resize", measure)
+  }, [isExpanded, currentEventIndex, language])
 
   return (
     <div 
@@ -2756,8 +2755,8 @@ function EventsModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void
     }
   }
 
-  const upcomingEvents = events.filter((event) => !event.past)
-  const pastEvents = events.filter((event) => event.past)
+  const upcomingEvents = useMemo(() => events.filter((event) => !event.past), [])
+  const pastEvents = useMemo(() => events.filter((event) => event.past), [])
 
   return (
     <div 
@@ -3190,7 +3189,6 @@ function YogaStudioPortfolio() {
     <LanguageProvider>
       <div className="min-h-screen scroll-smooth">
         <style jsx global>{`
-          @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600&family=Outfit:wght@200;300;400;500&display=swap');
 
           * {
             font-family: 'Plus Jakarta Sans', 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
