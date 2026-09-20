@@ -1295,20 +1295,18 @@ const useLanguage = () => {
 function useIntersectionObserver(options: IntersectionObserverInit = {}) {
   const [isIntersecting, setIsIntersecting] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
-  const optionsRef = useRef(options)
-  optionsRef.current = options
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       setIsIntersecting(entry.isIntersecting)
-    }, optionsRef.current)
+    }, options)
 
     if (ref.current) {
       observer.observe(ref.current)
     }
 
     return () => observer.disconnect()
-  }, [])
+  }, [options])
 
   return [ref, isIntersecting] as const
 }
@@ -2330,12 +2328,17 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
   const bubbleTextMeasureRef = useRef<HTMLSpanElement | null>(null)
   const [isTitleOverflowing, setIsTitleOverflowing] = useState(false)
 
-  useEffect(() => {
-    const featuredEvents = events.filter(event => event.featured && !event.past)
-    if (featuredEvents.length === 0) {
-      return
-    }
+  // Re-compute featured events only when the source data changes.
+  const featuredEvents = useMemo(
+    () => events.filter((event) => event.featured && !event.past),
+    []
+  )
 
+  if (featuredEvents.length === 0) {
+    return null
+  }
+
+  useEffect(() => {
     // Show popup after a short delay (1.5 seconds) on every page load
     autoOpenTimerRef.current = setTimeout(() => {
       autoOpenTimerRef.current = null
@@ -2349,7 +2352,7 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
         autoOpenTimerRef.current = null
       }
     }
-  }, [])
+  }, [featuredEvents])
 
   // Auto-minimize only for the automatic open — never when the user deliberately
   // clicked the bubble. Resetting on lastInteractionAt ensures navigation extends
@@ -2364,16 +2367,6 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
 
     return () => clearTimeout(autoMinimizeTimer)
   }, [isExpanded, autoOpened, lastInteractionAt])
-
-  // Re-compute featured events only when the source data changes.
-  const featuredEvents = useMemo(
-    () => events.filter((event) => event.featured && !event.past),
-    []
-  )
-
-  if (featuredEvents.length === 0) {
-    return null
-  }
 
   const featuredEvent = featuredEvents[currentEventIndex]
   const EventIcon = featuredEvent.icon
