@@ -3,6 +3,8 @@ import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/next"
 import './globals.css'
 
+const FONT_URL = "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600&family=Outfit:wght@200;300;400;500&display=swap"
+
 export const metadata: Metadata = {
   title: "Ginkgo Yoga",
   description:
@@ -27,7 +29,11 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  viewport: "width=device-width, initial-scale=1",
+}
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
 }
 
 export default function RootLayout({
@@ -40,6 +46,9 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/images/ginkgo-logo.jpg" />
         <link rel="apple-touch-icon" href="/images/ginkgo-logo.jpg" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href={FONT_URL} rel="stylesheet" />
       </head>
       <body>
         {children}
