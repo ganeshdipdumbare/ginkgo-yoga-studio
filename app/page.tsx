@@ -422,6 +422,68 @@ const teamMembers: TeamMember[] = [
     },
   },
   {
+    id: "miriam",
+    image: "/images/miriam.jpg",
+    gradient: "from-[#B69724] to-[#D4B95C]",
+    aura: "amber",
+    expertise: ["Hatha & Vinyasa Teacher Training", "Yoga Nidra and Breathwork Training"],
+    email: "ginkgoyogaberlin@gmail.com",
+    languages: ["English", "German"],
+    translations: {
+      name: {
+        en: "Miriam",
+        de: "Miriam",
+        it: "Miriam",
+      },
+      specialty: {
+        en: "Slow Flow Yoga",
+        de: "Slow Flow Yoga",
+        it: "Slow Flow Yoga",
+      },
+      bio: {
+        en: "My classes invite you to slow down and move with intention, creating space to navigate your practice in a way that feels right for your body and its needs in the moment. With a focus on strength — both physical and mental, you'll find steadiness and a gentle ease in longer holds and when things feel challenging. While staying present and connected, I'll encourage you to explore new transitions or playful Asana, staying calm and intuitive.\n\nAlways encouraging you to take your time — there's no rushing here. By slowing down, you open the door to deeper connection and self-exploration. Breathe, explore, and see what unfolds. Taking it at your own pace.",
+        de: "Meine Klassen laden dich ein, langsamer zu werden und mit Absicht zu bewegen — Raum zu schaffen, deine Praxis so zu gestalten, wie es sich für deinen Körper und seine Bedürfnisse im Moment richtig anfühlt. Mit einem Fokus auf Stärke — sowohl körperlich als auch mental — findest du Stabilität und eine sanfte Leichtigkeit in längeren Haltungen und wenn es herausfordernd wird. Während du präsent und verbunden bleibst, ermutige ich dich, neue Übergänge oder spielerische Asanas zu erkunden — ruhig und intuitiv.\n\nIch ermutige dich immer, dir Zeit zu nehmen — hier gibt es kein Hetzen. Indem du langsamer wirst, öffnest du die Tür zu tieferer Verbindung und Selbsterkundung. Atme, erkunde und sieh, was sich entfaltet. In deinem eigenen Tempo.",
+        it: "Le mie lezioni ti invitano a rallentare e muoverti con intenzione, creando spazio per navigare la tua pratica in un modo che si adatti al tuo corpo e alle sue esigenze del momento. Con un focus sulla forza — sia fisica che mentale — troverai stabilità e una dolce leggerezza nelle tenute più lunghe e quando le cose diventano impegnative. Mentre resti presente e connessa, ti incoraggerò a esplorare nuove transizioni o Asana giocosi, restando calma e intuitiva.\n\nTi incoraggio sempre a prenderti il tuo tempo — qui non c'è fretta. Rallentando, apri la porta a una connessione più profonda e all'esplorazione di te stessa. Respira, esplora e guarda cosa si rivela. Al tuo ritmo.",
+      },
+      philosophy: {
+        en: "The practice of Yoga for me has always been a creative space to heal, reconnect and restore both body and mind. It's a homecoming that feels different every time and reveals a deeper layer of the self. It's a practice of self exploration and the general understanding that this is an ever ongoing journey. The tool to listen patiently and with acceptance to whatever it is that the body needs to meet the mind is one that carries me through the highs and lows. One that I feel honored and excited to share in my classes.",
+        de: "Die Praxis des Yoga war für mich schon immer ein kreativer Raum zum Heilen, Wieder-Verbinden und Erholen von Körper und Geist. Ein Heimkommen, das sich jedes Mal anders anfühlt und eine tiefere Schicht des Selbst offenbart. Eine Praxis der Selbsterkundung und des Verständnisses, dass dies eine stets fortlaufende Reise ist. Das Werkzeug, geduldig und mit Akzeptanz zuzuhören, was auch immer der Körper braucht, um den Geist zu treffen, trägt mich durch Höhen und Tiefen. Eines, das ich mich geehrt und begeistert fühle, in meinen Klassen zu teilen.",
+        it: "La pratica dello Yoga per me è sempre stata uno spazio creativo per guarire, riconnettersi e ristabilire corpo e mente. Un ritorno a casa che si sente diverso ogni volta e rivela uno strato più profondo del sé. Una pratica di esplorazione di sé e la consapevolezza che questo è un viaggio in continuo divenire. Lo strumento di ascoltare con pazienza e accettazione ciò di cui il corpo ha bisogno per incontrare la mente è ciò che mi accompagna attraverso alti e bassi. Qualcosa che mi sento onorata ed entusiasta di condividere nelle mie lezioni.",
+      },
+    },
+  },
+  {
+    id: "shatha",
+    image: "/images/shatha.jpg",
+    gradient: "from-[#B69724] to-[#D4B95C]",
+    aura: "amber",
+    expertise: ["Ashtanga Open & Vinyasa", "Trauma-informed Yoga and Movement"],
+    email: "ginkgoyogaberlin@gmail.com",
+    languages: ["English", "Arabic"],
+    translations: {
+      name: {
+        en: "Shatha Sheikh Yousef",
+        de: "Shatha Sheikh Yousef",
+        it: "Shatha Sheikh Yousef",
+      },
+      specialty: {
+        en: "Vinyasa, Hatha & Pranayama",
+        de: "Vinyasa, Hatha & Pranayama",
+        it: "Vinyasa, Hatha & Pranayama",
+      },
+      bio: {
+        en: "Yoga has made me meet myself, truly. Coming from a reality of colonized space, body and mind, yoga was my anchor, a deep connection to the truth, strength and resilience within me.\n\nYoga was never an achievement or shape for me, it was an opportunity for focusing inwardly to listen, recognize, acknowledge, connect and release. And this is what I invite you for, to come as you are with your true and powerful self, to explore your journey of connection and creating space and resilience from the inside out, and move with intention.\n\nI never thought I'd become a yoga teacher, it was always personal for me. But seeing how great the impact is on my mind, breath and body and the connection between them, I've become passionate about sharing it with those who mostly need it, in particular people who come to unlearn what they've been taught about their minds and bodies and to learn how to truly connect with oneself and each other to create personal and collective transformation.",
+        de: "Yoga hat mich wirklich mir selbst begegnen lassen. Ausgehend von einer Realität kolonisierter Räume, Körper und Gedanken war Yoga mein Anker — eine tiefe Verbindung zu Wahrheit, Stärke und Resilienz in mir.\n\nYoga war für mich nie eine Leistung oder eine Form, sondern eine Gelegenheit, nach innen zu schauen, zuzuhören, anzuerkennen, zu verbinden und loszulassen. Und genau dazu lade ich dich ein: Komm, wie du bist, mit deinem wahren und kraftvollen Selbst, erkunde deine Reise der Verbindung und des Schaffens von Raum und Resilienz von innen nach außen, und bewege dich mit Absicht.\n\nIch hätte nie gedacht, dass ich Yogalehrerin werde — es war immer persönlich für mich. Doch als ich sah, wie groß die Wirkung auf meinen Geist, Atem und Körper und die Verbindung zwischen ihnen ist, wurde ich leidenschaftlich daran interessiert, sie mit denen zu teilen, die sie am meisten brauchen — insbesondere Menschen, die das, was ihnen über Geist und Körper beigebracht wurde, wieder verlernen und lernen wollen, wie man sich wirklich mit sich selbst und miteinander verbindet, um persönliche und kollektive Transformation zu schaffen.",
+        it: "Lo yoga mi ha fatto incontrare me stessa, davvero. Provenendo da una realtà di spazio, corpo e mente colonizzati, lo yoga è stato la mia ancora, una connessione profonda con la verità, la forza e la resilienza dentro di me.\n\nLo yoga non è mai stato per me un risultato o una forma, ma un'opportunità per volgersi verso l'interno, ascoltare, riconoscere, accogliere, connettersi e lasciare andare. Ed è a questo che ti invito: vieni come sei, con il tuo sé vero e potente, esplora il tuo percorso di connessione e di creazione di spazio e resilienza dall'interno verso l'esterno, e muoviti con intenzione.\n\nNon avrei mai pensato di diventare insegnante di yoga — è sempre stato personale per me. Ma vedendo quanto grande fosse l'impatto sulla mia mente, respirazione e corpo e sulla connessione tra loro, sono diventata appassionata nel condividerlo con chi ne ha più bisogno, in particolare persone che vengono per disimparare ciò che è stato loro insegnato su mente e corpo e imparare a connettersi davvero con se stesse e l'un l'altra per creare trasformazione personale e collettiva.",
+      },
+      philosophy: {
+        en: "I believe that yoga is for everyone, and this belief informs my teaching, making the practice accessible and welcoming. I lead my classes through informed and mindful movement, soft and reflective stillness, connective and releasing breath and most importantly sitting with ourselves and each other with compassion and kindness.",
+        de: "Ich glaube, dass Yoga für alle da ist, und dieser Glaube prägt meinen Unterricht und macht die Praxis zugänglich und einladend. Ich leite meine Klassen durch informierte und achtsame Bewegung, sanfte und reflektierende Stille, verbindenden und befreienden Atem und vor allem das Sitzen mit uns selbst und miteinander in Mitgefühl und Freundlichkeit.",
+        it: "Credo che lo yoga sia per tutti, e questa convinzione informa il mio insegnamento, rendendo la pratica accessibile e accogliente. Guido le mie lezioni attraverso movimento informato e consapevole, quiete morbida e riflessiva, respiro connettivo e liberatorio e, soprattutto, il sedersi con noi stessi e l'un l'altra con compassione e gentilezza.",
+      },
+    },
+  },
+  {
     id: "join-us-1",
     image: "/placeholder-user.jpg",
     gradient: "from-[#D4B95C] to-[#B69724]",
