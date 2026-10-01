@@ -484,6 +484,37 @@ const teamMembers: TeamMember[] = [
     },
   },
   {
+    id: "judy",
+    image: "/images/judy.jpg",
+    gradient: "from-[#B69724] to-[#D4B95C]",
+    aura: "amber",
+    expertise: ["Vinyasa Yoga", "Hatha Yoga"],
+    email: "ginkgoyogaberlin@gmail.com",
+    languages: ["English", "Arabic", "French"],
+    translations: {
+      name: {
+        en: "Judy",
+        de: "Judy",
+        it: "Judy",
+      },
+      specialty: {
+        en: "Vinyasa & Hatha",
+        de: "Vinyasa & Hatha",
+        it: "Vinyasa & Hatha",
+      },
+      bio: {
+        en: "Yoga has become a way of coming home to myself — a space to slow down, listen inwardly, and reconnect with what is already there. What began as a personal practice gradually became a journey I wanted to share with others.\n\nMy classes are rooted in Vinyasa, weaving mindful movement, breath and moments of stillness. I invite you to move with curiosity rather than judgement, to honor what your body needs, and to find a balance between strength and softness.\n\nFor me, yoga is less about reaching somewhere and more about remembering how to be here in this body, this breath, this moment.",
+        de: "Yoga ist für mich zu einem Weg geworden, zu mir selbst nach Hause zu kommen — ein Raum, um langsamer zu werden, nach innen zu lauschen und mich wieder mit dem zu verbinden, was bereits da ist. Was als persönliche Praxis begann, wurde nach und nach zu einer Reise, die ich mit anderen teilen wollte.\n\nMeine Stunden sind im Vinyasa verwurzelt und verweben achtsame Bewegung, Atem und Momente der Stille. Ich lade dich ein, dich mit Neugier statt mit Urteil zu bewegen, das zu ehren, was dein Körper braucht, und ein Gleichgewicht zwischen Stärke und Weichheit zu finden.\n\nFür mich geht es beim Yoga weniger darum, irgendwo anzukommen, sondern vielmehr darum, sich daran zu erinnern, wie man hier ist — in diesem Körper, diesem Atem, diesem Moment.",
+        it: "Lo yoga è diventato per me un modo di tornare a casa da me stessa — uno spazio per rallentare, ascoltarmi dentro e riconnettermi con ciò che è già lì. Quella che è nata come una pratica personale è diventata a poco a poco un viaggio che desideravo condividere con gli altri.\n\nLe mie lezioni sono radicate nel Vinyasa e intrecciano movimento consapevole, respiro e momenti di quiete. Ti invito a muoverti con curiosità anziché con giudizio, a onorare ciò di cui il tuo corpo ha bisogno e a trovare un equilibrio tra forza e morbidezza.\n\nPer me, lo yoga non riguarda tanto l'arrivare da qualche parte, quanto il ricordarsi come essere qui — in questo corpo, in questo respiro, in questo momento.",
+      },
+      philosophy: {
+        en: "I believe yoga gives us a space to pause, listen and meet ourselves as we are. Through movement and breath, we can create space within, to soften what feels tense, strengthen what feels steady, and cultivate a deeper sense of trust in ourselves. My intention is to create classes that feel grounding yet uplifting, leaving you with a little more space, clarity and ease to carry beyond the mat.",
+        de: "Ich glaube, dass Yoga uns einen Raum schenkt, um innezuhalten, zuzuhören und uns selbst so zu begegnen, wie wir sind. Durch Bewegung und Atem können wir Raum in uns schaffen, um zu lösen, was sich angespannt anfühlt, zu stärken, was sich stabil anfühlt, und ein tieferes Vertrauen in uns selbst zu entwickeln. Meine Absicht ist es, Stunden zu gestalten, die sich erdend und zugleich belebend anfühlen und dir ein wenig mehr Raum, Klarheit und Leichtigkeit schenken, die du über die Matte hinaus mitnehmen kannst.",
+        it: "Credo che lo yoga ci offra uno spazio per fermarci, ascoltare e incontrare noi stessi così come siamo. Attraverso il movimento e il respiro possiamo creare spazio dentro di noi, per ammorbidire ciò che è teso, rafforzare ciò che è stabile e coltivare un senso più profondo di fiducia in noi stessi. La mia intenzione è creare lezioni che siano radicanti e allo stesso tempo edificanti, lasciandoti un po' più di spazio, chiarezza e leggerezza da portare oltre il tappetino.",
+      },
+    },
+  },
+  {
     id: "join-us-1",
     image: "/placeholder-user.jpg",
     gradient: "from-[#D4B95C] to-[#B69724]",
