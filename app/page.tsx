@@ -105,37 +105,6 @@ const teamMembers: TeamMember[] = [
     },
   },
   {
-    id: "larissa",
-    image: "/images/larissa.png",
-    gradient: "from-[#B69724] to-[#D4B95C]",
-    aura: "amber",
-    expertise: ["Resource-Oriented Therapist", "Trauma-Sensitive Yoga"],
-    email: "ginkgoyogaberlin@gmail.com",
-    languages: ["German", "English"],
-    translations: {
-      name: {
-        en: "Larissa",
-        de: "Larissa",
-        it: "Larissa",
-      },
-      specialty: {
-        en: "Hatha Yoga",
-        de: "Hatha Yoga",
-        it: "Hatha Yoga",
-      },
-      bio: {
-        en: "Yoga to me is like an anchor. The practice and spiritual teaching of Yoga have played an important role in my life for more than 15 years. It simply helps me to navigate the waves of life and being.\n\nIn 2017, I decided to go to Kerala, India to do a Hatha Yoga teacher training to dive deeper into the practice that had already taught me so much. Since 2018, as part of Citizen2be, I have been able to experience new perspectives of teaching and practicing Yoga again and again by offering trauma-sensitive classes for women on a voluntary basis.\n\nAs a resource-oriented therapist, it is very close to my heart to accompany people in turning to themselves with openness, so that with this open attitude they can also meet life and others with benevolence.\n\nBy practicing yoga we do not only unite body, mind and soul, we also have the chance to connect with others and our community authentically and whole-heartedly. This way we learn to return to the anchor within ourselves — no matter how heavy the storms of our mind or life might be.",
-        de: "Yoga ist für mich wie ein Anker. Die Praxis und spirituelle Lehre des Yoga spielen seit mehr als 15 Jahren eine wichtige Rolle in meinem Leben. Es hilft mir einfach, die Wellen des Lebens und des Seins zu navigieren.\n\n2017 entschied ich mich, nach Kerala, Indien zu gehen, um eine Hatha Yoga Lehrerausbildung zu absolvieren und tiefer in die Praxis einzutauchen, die mich bereits so viel gelehrt hatte. Seit 2018 darf ich als Teil von Citizen2be immer wieder neue Perspektiven des Lehrens und Praktizierens von Yoga erleben, indem ich ehrenamtlich trauma-sensible Klassen für Frauen anbiete.\n\nAls ressourcenorientierte Therapeutin liegt es mir sehr am Herzen, Menschen darin zu begleiten, sich selbst mit Offenheit zuzuwenden, damit sie mit dieser offenen Haltung auch dem Leben und anderen mit Wohlwollen begegnen können.\n\nDurch die Praxis von Yoga vereinen wir nicht nur Körper, Geist und Seele, wir haben auch die Chance, uns authentisch und von ganzem Herzen mit anderen und unserer Gemeinschaft zu verbinden. Auf diese Weise lernen wir, zum Anker in uns selbst zurückzukehren — egal wie schwer die Stürme unseres Geistes oder Lebens auch sein mögen.",
-        it: "Lo yoga per me è come un'ancora. La pratica e l'insegnamento spirituale dello yoga hanno svolto un ruolo importante nella mia vita per più di 15 anni. Semplicemente mi aiuta a navigare le onde della vita e dell'essere.\n\nNel 2017, ho deciso di andare in Kerala, India, per fare una formazione per insegnanti di Hatha Yoga per immergermi più profondamente nella pratica che mi aveva già insegnato così tanto. Dal 2018, come parte di Citizen2be, ho potuto sperimentare continuamente nuove prospettive di insegnamento e pratica dello yoga offrendo classi sensibili al trauma per donne su base volontaria.\n\nCome terapeuta orientata alle risorse, mi sta molto a cuore accompagnare le persone nel rivolgersi a se stesse con apertura, così che con questo atteggiamento aperto possano anche incontrare la vita e gli altri con benevolenza.\n\nPraticando lo yoga non solo uniamo corpo, mente e anima, ma abbiamo anche la possibilità di connetterci con gli altri e la nostra comunità in modo autentico e di tutto cuore. In questo modo impariamo a tornare all'ancora dentro di noi — non importa quanto pesanti possano essere le tempeste della nostra mente o della nostra vita.",
-      },
-      philosophy: {
-        en: "Simply put, in practicing Yoga, we unite body, mind and soul. The moment we mindfully connect with ourselves, we come home. We learn to return to our strength and confidence, as well as to our softness and vulnerability. We meet ourselves where we are and return to our inner truth and light on the mat — and beyond.",
-        de: "Einfach gesagt, in der Praxis des Yoga vereinen wir Körper, Geist und Seele. In dem Moment, in dem wir uns achtsam mit uns selbst verbinden, kommen wir nach Hause. Wir lernen, zu unserer Kraft und Zuversicht zurückzukehren, sowie zu unserer Weichheit und Verletzlichkeit. Wir begegnen uns dort, wo wir sind, und kehren zu unserer inneren Wahrheit und unserem Licht auf der Matte zurück — und darüber hinaus.",
-        it: "In poche parole, praticando lo yoga, uniamo corpo, mente e anima. Nel momento in cui ci connettiamo con consapevolezza a noi stessi, torniamo a casa. Impariamo a tornare alla nostra forza e fiducia, così come alla nostra dolcezza e vulnerabilità. Ci incontriamo dove siamo e torniamo alla nostra verità interiore e luce sul tappetino — e oltre.",
-      },
-    },
-  },
-  {
     id: "isa",
     image: "/images/isa.png",
     gradient: "from-[#B69724] to-[#D4B95C]",
@@ -511,6 +480,37 @@ const teamMembers: TeamMember[] = [
         en: "I believe yoga gives us a space to pause, listen and meet ourselves as we are. Through movement and breath, we can create space within, to soften what feels tense, strengthen what feels steady, and cultivate a deeper sense of trust in ourselves. My intention is to create classes that feel grounding yet uplifting, leaving you with a little more space, clarity and ease to carry beyond the mat.",
         de: "Ich glaube, dass Yoga uns einen Raum schenkt, um innezuhalten, zuzuhören und uns selbst so zu begegnen, wie wir sind. Durch Bewegung und Atem können wir Raum in uns schaffen, um zu lösen, was sich angespannt anfühlt, zu stärken, was sich stabil anfühlt, und ein tieferes Vertrauen in uns selbst zu entwickeln. Meine Absicht ist es, Stunden zu gestalten, die sich erdend und zugleich belebend anfühlen und dir ein wenig mehr Raum, Klarheit und Leichtigkeit schenken, die du über die Matte hinaus mitnehmen kannst.",
         it: "Credo che lo yoga ci offra uno spazio per fermarci, ascoltare e incontrare noi stessi così come siamo. Attraverso il movimento e il respiro possiamo creare spazio dentro di noi, per ammorbidire ciò che è teso, rafforzare ciò che è stabile e coltivare un senso più profondo di fiducia in noi stessi. La mia intenzione è creare lezioni che siano radicanti e allo stesso tempo edificanti, lasciandoti un po' più di spazio, chiarezza e leggerezza da portare oltre il tappetino.",
+      },
+    },
+  },
+  {
+    id: "christina",
+    image: "/images/christina.jpg",
+    gradient: "from-[#B69724] to-[#D4B95C]",
+    aura: "amber",
+    expertise: ["200h Ashtanga (Tattvaa Yogashala)", "Vinyasa Flow", "Slow Flow", "Yin Yoga", "Pilates", "Sound Bath & Sound Healing"],
+    email: "ginkgoyogaberlin@gmail.com",
+    languages: ["German", "English"],
+    translations: {
+      name: {
+        en: "Christina",
+        de: "Christina",
+        it: "Christina",
+      },
+      specialty: {
+        en: "Vinyasa, Yin, Pilates & Sound",
+        de: "Vinyasa, Yin, Pilates & Sound",
+        it: "Vinyasa, Yin, Pilates & Sound",
+      },
+      bio: {
+        en: "In 2015 I stood on a yoga mat for the first time — and since that moment yoga has accompanied me with a deep passion and sense of connection. Yoga has helped me find my way to myself, accept what is, and appreciate life in all its facets.\n\nThe wish to get to know the origin of this special practice led me to Rishikesh. There I first spent some time in an ashram and then completed my 200-hour Ashtanga training at Tattvaa Yogashala. A further training in the beautiful “Yoga on the Move” shala showed me how much joy there is in letting a completely individual flow emerge from each class.\n\nSince then, my own practice and my teaching have kept evolving. Alongside dynamic Vinyasa flows, I now also teach Slow Flow, Yin Yoga, and Pilates. I especially love the combination of Yin, mindful movement, and sound — a combination that creates space to let go, slow down, and feel deeply.\n\nThe world of sound has also become an important part of my work. I completed my Sound Bath & Sound Healing training in 2023. Since then I accompany my classes with sound, or create pure sound-healing sessions and special full-moon singing-bowl ceremonies. I work with classical singing bowls, crystal singing bowls, and various other instruments.\n\nWith my classes I want to offer you a warm embrace and create a space where you can arrive, let go, and feel yourself again — whether in a powerful flow, a quiet Yin practice, a Pilates session, or a journey through sound.",
+        de: "2015 stand ich das erste Mal auf einer Yogamatte – und seit diesem Moment begleitet mich Yoga mit einer tiefen Leidenschaft und Verbundenheit. Yoga hat mir geholfen, meinen Weg zu mir selbst zu finden, anzunehmen, was ist, und das Leben in all seinen Facetten wertzuschätzen.\n\nDer Wunsch, den Ursprung dieser besonderen Praxis kennenzulernen, führte mich nach Rishikesh. Dort verbrachte ich zunächst einige Zeit in einem Ashram und absolvierte anschließend meine 200-Stunden-Ashtanga-Ausbildung in der Tattvaa Yogashala. Eine weitere Ausbildung in der wunderschönen „Yoga on the Move“-Shala hat mir gezeigt, wie viel Freude darin liegt, aus jeder Stunde einen ganz individuellen Flow entstehen zu lassen.\n\nSeitdem darf sich meine eigene Praxis und auch mein Unterricht immer weiter entwickeln. Neben dynamischen Vinyasa-Flows unterrichte ich mittlerweile auch Slow Flow, Yin Yoga und Pilates. Besonders liebe ich die Verbindung von Yin, achtsamer Bewegung und Sound – eine Kombination, die Raum zum Loslassen, Entschleunigen und tiefen Spüren schafft.\n\nAuch die Welt der Klänge ist zu einem wichtigen Teil meiner Arbeit geworden. Meine Sound Bath & Sound Healing Ausbildung habe ich 2023 absolviert. Seitdem begleite ich meine Klassen mit Klängen oder kreiere reine Sound-Healing-Sessions und besondere Vollmond-Klangschalen-Zeremonien. Dabei arbeite ich mit klassischen Klangschalen, Kristallklangschalen und verschiedenen anderen Instrumenten.\n\nMit meinen Klassen möchte ich dir eine warme Umarmung schenken und einen Raum schaffen, in dem du ankommen, loslassen und dich selbst wieder spüren kannst – ganz egal, ob in einem kraftvollen Flow, einer ruhigen Yin-Praxis, einer Pilates-Einheit oder einer Reise durch die Klänge.",
+        it: "Nel 2015 sono salita per la prima volta su un tappetino da yoga — e da quel momento lo yoga mi accompagna con una profonda passione e un senso di connessione. Lo yoga mi ha aiutato a trovare la via verso me stessa, ad accogliere ciò che è e ad apprezzare la vita in tutte le sue sfaccettature.\n\nIl desiderio di conoscere l'origine di questa pratica speciale mi ha portata a Rishikesh. Lì ho trascorso prima un po' di tempo in un ashram e poi ho completato la mia formazione Ashtanga di 200 ore presso la Tattvaa Yogashala. Un'ulteriore formazione nella meravigliosa shala “Yoga on the Move” mi ha mostrato quanta gioia ci sia nel lasciare che da ogni lezione nasca un flow del tutto individuale.\n\nDa allora la mia pratica e il mio insegnamento continuano a evolversi. Oltre ai flow Vinyasa dinamici, ora insegno anche Slow Flow, Yin Yoga e Pilates. Amo in particolare l'unione di Yin, movimento consapevole e sound — una combinazione che crea spazio per lasciare andare, rallentare e sentire in profondità.\n\nAnche il mondo dei suoni è diventato una parte importante del mio lavoro. Ho completato la formazione in Sound Bath & Sound Healing nel 2023. Da allora accompagno le mie lezioni con i suoni, oppure creo sessioni pure di sound healing e speciali cerimonie di campane tibetane di luna piena. Lavoro con campane classiche, campane di cristallo e vari altri strumenti.\n\nCon le mie lezioni desidero offrirti un caldo abbraccio e creare uno spazio in cui puoi arrivare, lasciare andare e sentire di nuovo te stessa — che sia in un flow potente, in una pratica Yin tranquilla, in una sessione di Pilates o in un viaggio attraverso i suoni.",
+      },
+      philosophy: {
+        en: "With my classes I want to offer you a warm embrace and create a space where you can arrive, let go, and feel yourself again — whether in a powerful flow, a quiet Yin practice, a Pilates session, or a journey through sound.",
+        de: "Mit meinen Klassen möchte ich dir eine warme Umarmung schenken und einen Raum schaffen, in dem du ankommen, loslassen und dich selbst wieder spüren kannst – ganz egal, ob in einem kraftvollen Flow, einer ruhigen Yin-Praxis, einer Pilates-Einheit oder einer Reise durch die Klänge.",
+        it: "Con le mie lezioni desidero offrirti un caldo abbraccio e creare uno spazio in cui puoi arrivare, lasciare andare e sentire di nuovo te stessa — che sia in un flow potente, in una pratica Yin tranquilla, in una sessione di Pilates o in un viaggio attraverso i suoni.",
       },
     },
   },
@@ -1486,11 +1486,11 @@ function Header({ onScheduleClick, onEventsClick }: { onScheduleClick: () => voi
             <button onClick={() => scrollToSection("schedule")} className="text-stone-600/90 hover:text-[#B69724] transition-all duration-300 font-light hover:opacity-85">
               {t("schedule")}
             </button>
-            <button onClick={() => scrollToSection("pricing")} className="text-stone-600/90 hover:text-[#B69724] transition-all duration-300 font-light hover:opacity-85">
-              {t("pricing")}
-            </button>
             <button onClick={() => scrollToSection("team")} className="text-stone-600/90 hover:text-[#B69724] transition-all duration-300 font-light hover:opacity-85">
               {t("team")}
+            </button>
+            <button onClick={() => scrollToSection("pricing")} className="text-stone-600/90 hover:text-[#B69724] transition-all duration-300 font-light hover:opacity-85">
+              {t("pricing")}
             </button>
             <button 
               onClick={() => scrollToSection("events")} 
@@ -1524,11 +1524,11 @@ function Header({ onScheduleClick, onEventsClick }: { onScheduleClick: () => voi
                   <DropdownMenuItem onClick={() => scrollToSection("schedule")}>
                     {t("schedule")}
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => scrollToSection("pricing")}>
-                    {t("pricing")}
-                  </DropdownMenuItem>
                   <DropdownMenuItem onClick={() => scrollToSection("team")}>
                     {t("team")}
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => scrollToSection("pricing")}>
+                    {t("pricing")}
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={() => scrollToSection("events")} className="relative">
                     {t("events")}
@@ -3361,8 +3361,8 @@ function YogaStudioPortfolio() {
         <main className="space-y-4">
           <HeroSection onScheduleClick={() => setIsScheduleModalOpen(true)} />
           <AboutSection />
-          <PricingSection />
           <InstructorsSection />
+          <PricingSection />
           <ContactSection />
         </main>
         <Footer />
