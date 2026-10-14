@@ -739,13 +739,8 @@ import {
   Globe,
   Mail,
   MapPin,
-  Heart,
-  Leaf,
-  Sparkles,
   Check,
   Gift,
-  Crown,
-  Gem,
   Theater,
   Coffee,
   GraduationCap,
@@ -756,8 +751,6 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Card, CardContent } from "@/components/ui/card"
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import dynamic from 'next/dynamic'
 
 type Language = "en" | "de" | "it"
@@ -954,6 +947,36 @@ const translations: Translations = {
     en: "Message",
     de: "Nachricht",
     it: "Messaggio",
+  },
+  newsletterLink: {
+    en: "Newsletter",
+    de: "Newsletter",
+    it: "Newsletter",
+  },
+  newsletterTitle: {
+    en: "Join our newsletter",
+    de: "Newsletter abonnieren",
+    it: "Iscriviti alla newsletter",
+  },
+  newsletterText: {
+    en: "A note now and then about classes, open days, and gatherings.",
+    de: "Ab und zu eine Nachricht zu Kursen, Tagen der offenen Tür und Treffen.",
+    it: "Ogni tanto una nota su lezioni, open day e incontri.",
+  },
+  newsletterSubscribe: {
+    en: "Subscribe",
+    de: "Abonnieren",
+    it: "Iscriviti",
+  },
+  newsletterLater: {
+    en: "Not now",
+    de: "Nicht jetzt",
+    it: "Non ora",
+  },
+  newsletterClose: {
+    en: "Close",
+    de: "Schließen",
+    it: "Chiudi",
   },
 
   // Stats
@@ -1762,263 +1785,44 @@ function ScheduleModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => vo
 function PricingSection() {
   const { t } = useLanguage()
   const [ref, isIntersecting] = useIntersectionObserver({ threshold: 0.1 })
-  const [activeTab, setActiveTab] = useState<"monthly" | "yearly" | "passes">("passes")
 
-  // Monthly subscription plans only
-  const monthlyPlans = [
-    {
-      name: t("goldenMembership"),
-      price: "€95.00",
-      duration: t("validOneMonth"),
-      icon: Crown,
-      gradient: "from-[#D4B95C] to-[#B69724]",
-      features: [t("premiumAccess"), t("allClassesIncluded"), t("bestValue")],
-      popular: false,
-      studentDiscount: true, // 20% student discount available
-    },
-    {
-      name: t("silverMembership"),
-      price: "€49.00",
-      duration: t("validOneMonth"),
-      icon: Gem,
-      gradient: "from-[#B69724] to-[#D4B95C]",
-      features: [t("basicAccess"), t("standardClasses"), t("communitySupport")],
-      popular: false,
-      studentDiscount: true, // 20% student discount available
-    },
-  ]
+  useEffect(() => {
+    const existingScript = document.querySelector('script[src="https://widget-static.eversports.io/loader.js"]')
+    if (existingScript) return
 
-  // Yearly subscription plans only
-  const yearlyPlans = [
-    {
-      name: t("yearUnlimited"),
-      price: "€88.00",
-      duration: t("validMonths"),
-      priceNote: t("everyMonth"),
-      icon: Sparkles,
-      gradient: "from-[#B69724] to-[#D4B95C]",
-      features: [t("unlimitedAccess"), t("monthsValidity")],
-      popular: true,
-      discount: 30, // 30% discount compared to Golden Membership (€95/month)
-      monthlyEquivalentTotal: "€1,140.00", // €95 × 12 months
-      yearlyTotal: "€798.00", // New yearly price
-      savings: "€342.00", // €1,140 - €798
-    },
-  ]
-
-  // One-time passes and special options
-  const passPlans = [
-    {
-      name: t("dropIn"),
-      price: "15€/18€",
-      duration: t("singleClass"),
-      icon: Coffee,
-      gradient: "from-[#D4B95C] to-[#B69724]",
-      features: [t("price60_75min"), t("price90min"), t("giftClass")],
-      popular: false,
-    },
-    {
-      name: t("tenClassPass"),
-      price: "€150.00",
-      duration: t("validSixMonths"),
-      icon: Heart,
-      gradient: "from-[#D4B95C] to-[#B69724]",
-      features: [t("tenClasses"), t("sixMonthsUse"), t("perfectRegular")],
-      popular: false,
-      discount: null, // No direct monthly equivalent
-      studentDiscount: true, // 20% student discount available
-    },
-    {
-      name: t("insurance"),
-      price: "",
-      duration: "",
-      icon: Leaf,
-      gradient: "from-[#B69724] to-[#D4B95C]",
-      features: [t("insuranceEligible"), t("twoMonthsValidity"), t("prenatalClasses"), t("insuranceSupport")],
-      popular: false,
-      discount: null, // Insurance plan, no discount calculation
-    },
-  ]
-
-  const currentPlans = activeTab === "monthly" ? monthlyPlans : activeTab === "yearly" ? yearlyPlans : passPlans
-  
-  // Calculate best discount for yearly plans
-  const bestYearlyDiscount = yearlyPlans
-    .map(plan => plan.discount)
-    .filter((discount): discount is number => discount !== null)
-    .reduce((max, discount) => Math.max(max, discount), 0)
+    const script = document.createElement("script")
+    script.type = "module"
+    script.src = "https://widget-static.eversports.io/loader.js"
+    script.async = true
+    script.defer = true
+    document.body.appendChild(script)
+  }, [])
 
   return (
-    <section id="pricing" className="min-h-[90vh] flex items-center justify-center relative overflow-hidden py-24 md:py-32">
+    <section id="pricing" className="relative overflow-hidden py-24 md:py-32">
       <div className="absolute inset-0 bg-gradient-to-b from-amber-50/30 via-stone-50 to-orange-50/30" />
       <GinkgoLeafPattern />
       <MorphingShapes />
 
       <div ref={ref} className="relative z-10 w-full px-4 sm:px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2
-            className={`text-4xl md:text-5xl lg:text-6xl font-extralight mb-8 leading-tight tracking-tight transition-all duration-1500`}
+            className="text-4xl md:text-5xl lg:text-6xl font-extralight mb-8 leading-tight tracking-tight transition-all duration-1500"
             style={{ color: "#B69724" }}
           >
             {t("pricingTitle")}
           </h2>
-          <p
-            className={`text-lg md:text-xl mb-12 max-w-3xl mx-auto leading-relaxed font-light transition-all duration-1500 delay-300`}
-            style={{ color: "#8B7355" }}
-          >
-            {t("pricingSubtitle")}
-          </p>
         </div>
 
-        <div className="flex justify-center mb-16">
-          <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as "monthly" | "yearly" | "passes")} className="w-full max-w-xl">
-            <TabsList className="grid w-full grid-cols-3 bg-stone-100/50 backdrop-blur-md p-1 rounded-full border border-stone-200/20">
-              <TabsTrigger
-                value="passes"
-                className="data-[state=active]:bg-white data-[state=active]:text-[#B69724] data-[state=active]:shadow-sm font-light rounded-full py-2.5 transition-all duration-300"
-                style={{
-                  color: activeTab === "passes" ? "#B69724" : "#8B7355",
-                }}
-              >
-                {t("passes")}
-              </TabsTrigger>
-              <TabsTrigger
-                value="monthly"
-                className="data-[state=active]:bg-white data-[state=active]:text-[#B69724] data-[state=active]:shadow-sm font-light rounded-full py-2.5 transition-all duration-300"
-                style={{
-                  color: activeTab === "monthly" ? "#B69724" : "#8B7355",
-                }}
-              >
-                {t("monthly")}
-              </TabsTrigger>
-              <TabsTrigger
-                value="yearly"
-                className="data-[state=active]:bg-white data-[state=active]:text-[#B69724] data-[state=active]:shadow-sm font-light rounded-full py-2.5 transition-all duration-300 relative flex items-center gap-2 justify-center"
-                style={{
-                  color: activeTab === "yearly" ? "#B69724" : "#8B7355",
-                }}
-              >
-                <span>{t("yearly")}</span>
-                {bestYearlyDiscount > 0 && (
-                  <span className="px-2 py-0.5 text-[10px] font-semibold rounded-full bg-gradient-to-r from-[#B69724] to-[#D4B95C] text-white shadow-sm whitespace-nowrap">
-                    -{bestYearlyDiscount}%
-                  </span>
-                )}
-              </TabsTrigger>
-            </TabsList>
-          </Tabs>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-2">
-          {currentPlans.map((plan, index) => (
-            <Card
-              key={index}
-              className={`group relative overflow-hidden border border-stone-200/30 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_20px_50px_rgba(182,151,36,0.12)] transition-all duration-500 bg-white/70 backdrop-blur-xl rounded-3xl h-full hover:-translate-y-1 hover:scale-[1.01] ${
-                isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-24"
-              }`}
-              style={{
-                transitionDelay: `${index * 100}ms`,
-              }}
-            >
-              <CardContent className="p-8 h-full flex flex-col">
-                <div className="text-center flex-1 flex flex-col">
-                  <div className="relative mb-6">
-                    <div className="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center mx-auto group-hover:scale-105 transition-all duration-500 shadow-md border border-stone-100/50">
-                      <img
-                        src="/images/ginkgo-logo.jpg"
-                        alt="Ginkgo Yoga Logo"
-                        className="w-full h-full object-cover object-center"
-                        style={{ clipPath: "circle(50% at 50% 50%)" }}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="relative mb-4">
-                    <h3
-                      className="text-xl font-light text-stone-700 mb-2 transition-colors duration-300 tracking-wide"
-                      style={{ color: "#444444" }}
-                    >
-                      {plan.name}
-                    </h3>
-                    {activeTab === "yearly" && "discount" in plan && (plan as any).discount !== null && (plan as any).discount > 0 && (
-                      <div className="inline-flex items-center justify-center px-3 py-1 rounded-full bg-gradient-to-r from-[#B69724] to-[#D4B95C] text-white text-xs font-light shadow-sm mt-2">
-                        <span>{t("save")}</span>
-                        <span className="ml-1 font-medium">{(plan as any).discount}%</span>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="mb-6">
-                    {activeTab === "yearly" && "monthlyEquivalentTotal" in plan && (plan as any).monthlyEquivalentTotal && (
-                      <div className="mb-3">
-                        <div className="text-stone-400 font-light text-xs mb-1">{t("monthlyTotal")}</div>
-                        <div
-                          className="text-xl font-light line-through text-stone-350 mb-2"
-                        >
-                          {(plan as any).monthlyEquivalentTotal}
-                        </div>
-                        <div className="text-stone-400 font-light text-xs mb-1">{t("yearlyTotal")}</div>
-                        <div
-                          className="text-3xl font-extralight bg-gradient-to-r bg-clip-text text-transparent mb-1"
-                          style={{
-                            backgroundImage: "linear-gradient(to right, #B69724, #D4B95C)",
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent",
-                          }}
-                        >
-                          {(plan as any).yearlyTotal}
-                        </div>
-                        {"savings" in plan && (plan as any).savings && (
-                          <div className="mt-2 text-sm font-medium" style={{ color: "#B69724" }}>
-                            {t("youSave")} {(plan as any).savings}
-                          </div>
-                        )}
-                      </div>
-                    )}
-                    {!(activeTab === "yearly" && "monthlyEquivalentTotal" in plan && (plan as any).monthlyEquivalentTotal) && (
-                      <>
-                        <div
-                          className="text-3xl font-extralight bg-gradient-to-r bg-clip-text text-transparent mb-1"
-                          style={{
-                            backgroundImage: "linear-gradient(to right, #B69724, #D4B95C)",
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent",
-                          }}
-                        >
-                          {plan.price}
-                        </div>
-                        {"priceNote" in plan && plan.priceNote && <div className="text-stone-500 font-light text-sm">{plan.priceNote}</div>}
-                      </>
-                    )}
-                    <div className="text-stone-400 font-light text-xs mt-1">{plan.duration}</div>
-                  </div>
-
-                  <div className="space-y-3 mb-8 flex-1">
-                    {plan.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-start space-x-2 text-left">
-                        <div
-                          className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                          style={{ background: "linear-gradient(to bottom right, #B69724, #D4B95C)" }}
-                        >
-                          <Check className="h-2.5 w-2.5 text-white" />
-                        </div>
-                        <span className="text-stone-600 font-light text-sm leading-relaxed">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Student Discount Note - Individual Card */}
-                  {"studentDiscount" in plan && (plan as any).studentDiscount && (
-                    <div className="mt-auto pt-6 border-t border-stone-200/50">
-                      <p className="text-stone-400 font-light text-xs text-center">
-                        {t("studentDiscountNote")}
-                      </p>
-                    </div>
-                  )}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+        <div
+          className={`mx-auto w-full max-w-3xl min-h-[640px] rounded-3xl bg-white/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-stone-200/40 overflow-hidden transition-all duration-1000 ${
+            isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+          }`}
+        >
+          <div
+            data-eversports-widget-id="505f29c1-34ec-4a7a-a636-8cbd6f7c72a6"
+            className="w-full min-h-[640px]"
+          />
         </div>
       </div>
     </section>
@@ -2362,6 +2166,16 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
   useEffect(() => {
     const featuredEvents = events.filter(event => event.featured && !event.past)
     if (featuredEvents.length === 0) {
+      return
+    }
+
+    // Skip the automatic expand when the newsletter prompt is still unanswered,
+    // so the first thing a new visitor sees is the newsletter, not two popups.
+    try {
+      if (localStorage.getItem("ginkgo-newsletter-dismissed") !== "1") {
+        return
+      }
+    } catch {
       return
     }
 
@@ -3011,7 +2825,98 @@ function ContactSection() {
   )
 }
 
+const NEWSLETTER_URL = "https://www.eversports.de/org/widget/4746916c-db29-4da4-a607-d3a2e2078690?venueId=93c2da36-a8bb-4999-bfdc-b83eafe8dd94"
+const NEWSLETTER_DISMISS_KEY = "ginkgo-newsletter-dismissed"
+
+function NewsletterSignup({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  const { t } = useLanguage()
+  const closeButtonRef = useRef<HTMLButtonElement>(null)
+
+  useEffect(() => {
+    if (!isOpen) return
+    closeButtonRef.current?.focus()
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose()
+    }
+    window.addEventListener("keydown", onKeyDown)
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener("keydown", onKeyDown)
+    }
+  }, [isOpen, onClose])
+
+  return (
+    <div
+      className={`fixed inset-0 z-[60] flex items-center justify-center p-4 transition-opacity ${
+        isOpen ? "bg-black/50 backdrop-blur-sm opacity-100" : "invisible pointer-events-none opacity-0"
+      }`}
+      onClick={(event) => {
+        if (event.target === event.currentTarget) onClose()
+      }}
+      aria-hidden={!isOpen}
+    >
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="newsletter-title"
+        className="bg-stone-50/95 backdrop-blur-xl rounded-3xl w-full max-w-lg max-h-[90vh] overflow-y-auto border border-yellow-800/20 shadow-2xl"
+        onClick={(event) => event.stopPropagation()}
+      >
+        <div className="p-6 sm:p-8">
+          <div className="flex justify-between items-start gap-4 mb-6">
+            <div>
+              <h2 id="newsletter-title" className="text-3xl font-light tracking-wide" style={{ color: "#B69724" }}>
+                {t("newsletterTitle")}
+              </h2>
+              <p className="mt-3 text-stone-600 leading-relaxed font-light">
+                {t("newsletterText")}
+              </p>
+            </div>
+            <button
+              ref={closeButtonRef}
+              type="button"
+              onClick={onClose}
+              className="text-stone-500 hover:text-stone-700 transition-colors p-2 rounded-full hover:bg-stone-200/50 flex-shrink-0"
+              aria-label={t("newsletterClose")}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          <a
+            href={NEWSLETTER_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={onClose}
+            className="block w-full text-center text-white py-3 rounded-xl font-light text-lg tracking-wide transition-all duration-300 hover:opacity-90"
+            style={{
+              background: "linear-gradient(to right, #B69724, #D4B95C)",
+              boxShadow: "0 12px 30px -12px rgba(182, 151, 36, 0.45)",
+            }}
+          >
+            {t("newsletterSubscribe")}
+          </a>
+          <button
+            type="button"
+            onClick={onClose}
+            className="mt-3 w-full px-4 py-2.5 text-stone-600 hover:text-stone-800 font-light text-sm transition-all duration-300 border border-stone-200 rounded-xl hover:border-stone-300 hover:bg-stone-50"
+          >
+            {t("newsletterLater")}
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function Footer() {
+  const { t } = useLanguage()
+
   return (
     <footer className="bg-slate-900 text-white py-16 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-[#B69724]/20 via-[#D4B95C]/20 to-[#B69724]/20" />
@@ -3030,6 +2935,15 @@ function Footer() {
             Ginkgo Yoga
           </span>
         </div>
+        <a
+          href={NEWSLETTER_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mb-6 inline-flex items-center gap-2 text-sm font-light tracking-wide text-[#D4B95C] hover:text-white transition-colors duration-300"
+        >
+          <Mail className="h-4 w-4" />
+          {t("newsletterLink")}
+        </a>
         <p className="text-slate-400 text-sm font-light mb-4">
           © 2025 Ginkgo Yoga. All rights reserved.
         </p>
@@ -3212,6 +3126,29 @@ function YogaStudioPortfolio() {
   const isClient = useIsClient()
   const [isScheduleModalOpen, setIsScheduleModalOpen] = useState(false)
   const [isEventsModalOpen, setIsEventsModalOpen] = useState(false)
+  const [isNewsletterOpen, setIsNewsletterOpen] = useState(false)
+
+  const closeNewsletter = useCallback(() => {
+    try {
+      localStorage.setItem(NEWSLETTER_DISMISS_KEY, "1")
+    } catch {
+      // Ignore storage failures; the popup can still be closed for this visit.
+    }
+    setIsNewsletterOpen(false)
+  }, [])
+
+  useEffect(() => {
+    let dismissed = false
+    try {
+      dismissed = localStorage.getItem(NEWSLETTER_DISMISS_KEY) === "1"
+    } catch {
+      dismissed = true
+    }
+    if (dismissed) return
+
+    const timer = setTimeout(() => setIsNewsletterOpen(true), 800)
+    return () => clearTimeout(timer)
+  }, [])
 
   if (!isClient) {
     return null
@@ -3367,6 +3304,7 @@ function YogaStudioPortfolio() {
         </main>
         <Footer />
         <VenueRentalDialog />
+        <NewsletterSignup isOpen={isNewsletterOpen} onClose={closeNewsletter} />
         <ScheduleModal 
           isOpen={isScheduleModalOpen} 
           onClose={() => setIsScheduleModalOpen(false)} 
