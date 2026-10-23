@@ -598,6 +598,11 @@ interface EventTranslation {
     de: string;
     it: string;
   };
+  location?: {
+    en: string;
+    de: string;
+    it: string;
+  };
 }
 
 interface Event {
@@ -608,11 +613,78 @@ interface Event {
   /** When true, listed under past events and excluded from featured popup */
   past?: boolean;
   email: string;
+  /** When set, reservation buttons open this page instead of a mailto link. */
+  bookingUrl?: string;
   translations: EventTranslation;
 }
 
 // Events data - easy to add/remove events here
 const events: Event[] = [
+  {
+    id: "the-space-between-2027",
+    icon: Flower2,
+    gradient: "from-[#D4B95C] to-[#B69724]",
+    featured: true,
+    email: "ginkgoyogaberlin@gmail.com",
+    bookingUrl: "https://www.eversports.de/org/activity/ff9e72e7-e89f-4c68-b971-0cc2a262561e",
+    translations: {
+      title: {
+        en: "The Space Between",
+        de: "The Space Between",
+        it: "The Space Between",
+      },
+      subtitle: {
+        en: "A Hatha Yoga Workshop",
+        de: "Ein Hatha-Yoga-Workshop",
+        it: "Un workshop di Hatha Yoga",
+      },
+      description: {
+        en: "Three hours to slow down, breathe, move, and turn inward.\n\nSometimes, a regular yoga class simply isn’t long enough to explore everything at your own pace. This workshop offers more space to experience traditional Hatha Yoga, with time to stay with the breath, explore classical postures, and find a balance between movement, effort and stillness.\n\nWe’ll begin with breathing exercises and sun salutations before moving through a sequence of traditional Hatha Yoga postures. The practice will gradually lead into deep relaxation, accompanied by singing bowls, and meditation.\n\nRather than rushing from one thing to the next, we’ll allow the afternoon to unfold at an unhurried pace, creating space to reconnect with the body and breath and to experience the quieter side of yoga.\n\nA spacious afternoon of practice, relaxation and stillness — a chance to step away from everyday life and leave feeling grounded and refreshed.",
+        de: "Drei Stunden, um zu entschleunigen, zu atmen, sich zu bewegen und nach innen zu wenden.\n\nManchmal reicht eine gewöhnliche Yogastunde einfach nicht aus, um alles im eigenen Tempo zu erkunden. Dieser Workshop bietet mehr Raum, traditionelles Hatha Yoga zu erfahren: Zeit, beim Atem zu bleiben, klassische Haltungen zu erkunden und ein Gleichgewicht zwischen Bewegung, Anstrengung und Stille zu finden.\n\nWir beginnen mit Atemübungen und Sonnengrüßen und gehen dann eine Abfolge traditioneller Hatha-Yoga-Haltungen durch. Die Praxis führt allmählich in eine tiefe Entspannung — begleitet von Klangschalen — und in die Meditation.\n\nStatt von einem zum nächsten zu eilen, lassen wir den Nachmittag in ruhigem Tempo entstehen. So entsteht Raum, um sich wieder mit Körper und Atem zu verbinden und die stillere Seite des Yoga zu erleben.\n\nEin weiter Nachmittag aus Praxis, Entspannung und Stille — die Chance, dem Alltag kurz zu entkommen und geerdet und erfrischt zu gehen.",
+        it: "Tre ore per rallentare, respirare, muoversi e rivolgersi verso l’interno.\n\nA volte una lezione di yoga abituale non basta per esplorare tutto al proprio ritmo. Questo workshop offre più spazio per vivere l’Hatha Yoga tradizionale, con il tempo di restare con il respiro, esplorare le posture classiche e trovare un equilibrio tra movimento, impegno e quiete.\n\nInizieremo con esercizi di respirazione e saluti al sole, per poi attraversare una sequenza di posture tradizionali di Hatha Yoga. La pratica condurrà gradualmente a un rilassamento profondo, accompagnato dalle campane tibetane, e alla meditazione.\n\nInvece di passare in fretta da una cosa all’altra, lasceremo che il pomeriggio si svolga senza fretta, creando lo spazio per riconnettersi con il corpo e il respiro e per vivere il lato più quieto dello yoga.\n\nUn pomeriggio ampio di pratica, rilassamento e quiete — l’occasione di allontanarsi dalla vita di tutti i giorni e di uscire sentendosi radicati e rinnovati.",
+      },
+      level: {
+        en: "Suitable for practitioners with some yoga experience. This workshop is not intended as a first introduction to yoga.",
+        de: "Geeignet für Praktizierende mit etwas Yoga-Erfahrung. Dieser Workshop ist nicht als erste Einführung ins Yoga gedacht.",
+        it: "Adatto a chi ha già un po’ di esperienza di yoga. Questo workshop non è pensato come prima introduzione allo yoga.",
+      },
+      date: {
+        en: "Saturday, 23 January 2027",
+        de: "Samstag, 23. Januar 2027",
+        it: "Sabato 23 gennaio 2027",
+      },
+      time: {
+        en: "14:30–17:30",
+        de: "14:30–17:30",
+        it: "14:30–17:30",
+      },
+      earlyBird: {
+        en: "€35 Early Bird until 3 January 2027",
+        de: "35 € Early Bird bis 3. Januar 2027",
+        it: "35 € Early Bird fino al 3 gennaio 2027",
+      },
+      regular: {
+        en: "€45 regular price from 4 January 2027",
+        de: "45 € regulärer Preis ab 4. Januar 2027",
+        it: "45 € prezzo intero dal 4 gennaio 2027",
+      },
+      usc: {
+        en: "Urban Sports Club / Wellpass: check-in + €25",
+        de: "Urban Sports Club / Wellpass: Check-in + 25 €",
+        it: "Urban Sports Club / Wellpass: check-in + 25 €",
+      },
+      spots: {
+        en: "Advance booking required.",
+        de: "Voranmeldung erforderlich.",
+        it: "Prenotazione anticipata obbligatoria.",
+      },
+      location: {
+        en: "Ginkgo Yoga, Liebenwalder Straße 11, Berlin-Wedding",
+        de: "Ginkgo Yoga, Liebenwalder Straße 11, Berlin-Wedding",
+        it: "Ginkgo Yoga, Liebenwalder Straße 11, Berlin-Wedding",
+      },
+    },
+  },
   {
     id: "open-house-2026",
     icon: Coffee,
@@ -748,6 +820,7 @@ import {
   Sun,
   Clock,
   Users,
+  Flower2,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
@@ -899,6 +972,11 @@ const translations: Translations = {
     en: "Reserve your spot",
     de: "Reserviere deinen Platz",
     it: "Prenota il tuo posto",
+  },
+  eventBook: {
+    en: "Book on Eversports",
+    de: "Auf Eversports buchen",
+    it: "Prenota su Eversports",
   },
   eventsPastTitle: {
     en: "Past events",
@@ -2363,13 +2441,19 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
             <div className="space-y-2">
               <div className="flex gap-2">
                 <a
-                  href={`mailto:${featuredEvent.email}?subject=Reservation: ${eventTranslations.title[language]} - ${eventTranslations.subtitle[language]}&body=Hello,%0D%0A%0D%0AI would like to reserve a spot for the ${eventTranslations.title[language]} - ${eventTranslations.subtitle[language]} on ${eventTranslations.date[language]} at ${eventTranslations.time[language]}.%0D%0A%0D%0AThank you!`}
+                  href={
+                    featuredEvent.bookingUrl ??
+                    `mailto:${featuredEvent.email}?subject=Reservation: ${eventTranslations.title[language]} - ${eventTranslations.subtitle[language]}&body=Hello,%0D%0A%0D%0AI would like to reserve a spot for the ${eventTranslations.title[language]} - ${eventTranslations.subtitle[language]} on ${eventTranslations.date[language]} at ${eventTranslations.time[language]}.%0D%0A%0D%0AThank you!`
+                  }
+                  {...(featuredEvent.bookingUrl
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
                   className={`flex-1 px-4 py-2.5 bg-gradient-to-r ${featuredEvent.gradient} text-white rounded-xl font-light text-sm hover:shadow-lg transition-all duration-300 hover:scale-105 text-center`}
                   style={{
                     boxShadow: "0 4px 15px -3px rgba(182, 151, 36, 0.4)",
                   }}
                 >
-                  {t("eventReserve")}
+                  {featuredEvent.bookingUrl ? t("eventBook") : t("eventReserve")}
                 </a>
                 <button
                   onClick={handleClose}
@@ -2513,7 +2597,7 @@ function EventModalCard({
       </div>
 
       <div className="mb-6 relative z-10">
-        <p className="text-base text-stone-700 leading-relaxed font-light mb-3">{eventTranslations.description[language]}</p>
+        <p className="text-base text-stone-700 leading-relaxed font-light mb-3 whitespace-pre-line">{eventTranslations.description[language]}</p>
         <p className="text-sm text-stone-600 font-light italic">{eventTranslations.level[language]}</p>
       </div>
 
@@ -2537,6 +2621,18 @@ function EventModalCard({
             <p className="text-base text-stone-700 font-light">{eventTranslations.time[language]}</p>
           </div>
         </div>
+
+        {eventTranslations.location?.[language] && (
+          <div className="flex items-start gap-3 md:col-span-2">
+            <div className="w-9 h-9 bg-yellow-100/50 rounded-xl flex items-center justify-center flex-shrink-0">
+              <MapPin className="h-4 w-4" style={{ color: "#B69724" }} />
+            </div>
+            <div>
+              <p className="text-xs text-stone-500 font-light mb-1">Location</p>
+              <p className="text-base text-stone-700 font-light">{eventTranslations.location[language]}</p>
+            </div>
+          </div>
+        )}
 
         <div className="flex items-start gap-3 md:col-span-2">
           <div className="w-9 h-9 bg-yellow-100/50 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -2573,16 +2669,30 @@ function EventModalCard({
         <div className="pt-6 border-t border-stone-200 relative z-10">
           <div className="text-center">
             <p className="text-base text-stone-700 font-light mb-3">{t("eventReserve")}</p>
-            <a
-              href={`mailto:${event.email}?subject=Reservation: ${eventTranslations.title[language]} - ${eventTranslations.subtitle[language]}&body=Hello,%0D%0A%0D%0AI would like to reserve a spot for the ${eventTranslations.title[language]} - ${eventTranslations.subtitle[language]} on ${eventTranslations.date[language]} at ${eventTranslations.time[language]}.%0D%0A%0D%0AThank you!`}
-              className={`inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r ${event.gradient} text-white rounded-2xl font-light text-base hover:shadow-xl transition-all duration-300 hover:scale-105`}
-              style={{
-                boxShadow: "0 10px 30px -8px rgba(182, 151, 36, 0.4)",
-              }}
-            >
-              <Mail className="h-4 w-4" />
-              {event.email}
-            </a>
+            {event.bookingUrl ? (
+              <a
+                href={event.bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r ${event.gradient} text-white rounded-2xl font-light text-base hover:shadow-xl transition-all duration-300 hover:scale-105`}
+                style={{
+                  boxShadow: "0 10px 30px -8px rgba(182, 151, 36, 0.4)",
+                }}
+              >
+                {t("eventBook")}
+              </a>
+            ) : (
+              <a
+                href={`mailto:${event.email}?subject=Reservation: ${eventTranslations.title[language]} - ${eventTranslations.subtitle[language]}&body=Hello,%0D%0A%0D%0AI would like to reserve a spot for the ${eventTranslations.title[language]} - ${eventTranslations.subtitle[language]} on ${eventTranslations.date[language]} at ${eventTranslations.time[language]}.%0D%0A%0D%0AThank you!`}
+                className={`inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r ${event.gradient} text-white rounded-2xl font-light text-base hover:shadow-xl transition-all duration-300 hover:scale-105`}
+                style={{
+                  boxShadow: "0 10px 30px -8px rgba(182, 151, 36, 0.4)",
+                }}
+              >
+                <Mail className="h-4 w-4" />
+                {event.email}
+              </a>
+            )}
           </div>
         </div>
       )}
@@ -2606,7 +2716,7 @@ function EventsModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void
 
   return (
     <div 
-      className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-1 sm:p-2"
+      className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[60] flex items-center justify-center p-1 sm:p-2"
       onClick={handleBackdropClick}
     >
       <div 
