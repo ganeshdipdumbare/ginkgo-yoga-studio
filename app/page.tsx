@@ -431,9 +431,9 @@ const teamMembers: TeamMember[] = [
     languages: ["English", "Arabic"],
     translations: {
       name: {
-        en: "Shatha Sheikh Yousef",
-        de: "Shatha Sheikh Yousef",
-        it: "Shatha Sheikh Yousef",
+        en: "Shatha",
+        de: "Shatha",
+        it: "Shatha",
       },
       specialty: {
         en: "Vinyasa, Hatha & Pranayama",
@@ -620,6 +620,70 @@ interface Event {
 
 // Events data - easy to add/remove events here
 const events: Event[] = [
+  {
+    id: "kaula-tantra-yoga-2026",
+    icon: Flower2,
+    gradient: "from-[#D4B95C] to-[#B69724]",
+    featured: true,
+    email: "ginkgoyogaberlin@gmail.com",
+    translations: {
+      title: {
+        en: "Kaula Tantra Yoga – a moving meditation (full practice)",
+        de: "Kaula Tantra Yoga – eine bewegte Meditation (volle Praxis)",
+        it: "Kaula Tantra Yoga – una meditazione in movimento (pratica completa)",
+      },
+      subtitle: {
+        en: "With Kira",
+        de: "Mit Kira",
+        it: "Con Kira",
+      },
+      description: {
+        en: "Kaula Tantra Yoga (KTY) is an ancient embodied practice of presence. Uniting body, mind and soul, we practice meditation in movement. Through active postures, mindful transitions and intentional relaxation, we cultivate a softer body, a regulated nervous system and a deeper trust in sensation — allowing serenity and intuitive awareness to become easier in everyday life.\n\nThroughout the practice, we alternate between phases of activation and relaxation, allowing us to let go more and more. Rather than achieving an „ideal“ posture, we discover our own authentic expression of each asana. From a place of softness and presence, the body can naturally find its form.\n\nIn this 3-hour workshop, we will experience the whole KTY practice, including the full set of postures and extended phases of relaxation, allowing you to go deeper. You’re invited to listen, feel and discover what your body wants to express, play with your personal limits and let the practice unfold organically. The workshop is open to everyone, with variations to suit different bodies and needs.\n\nJoin to explore:\n• Meditation through movement\n• Breath and body awareness\n• Vitality\n• The interplay of stillness and movement\n• Softness, presence and authentic expression\n• The connection with yourself\n\nTantra invites us to interweave all aspects of our life to feel completely authentic and connected to ourselves — and to others. In this workshop, Tantra is not about sexual practices, but about conscious perception, inner clarity and life energy.",
+        de: "Kaula Tantra Yoga (KTY) ist eine alte verkörperte Praxis der Präsenz. Körper, Geist und Seele verbindend, üben wir Meditation in Bewegung. Durch aktive Haltungen, achtsame Übergänge und bewusste Entspannung kultivieren wir einen weicheren Körper, ein reguliertes Nervensystem und ein tieferes Vertrauen in die Empfindung — sodass Gelassenheit und intuitive Wahrnehmung im Alltag leichter werden.\n\nWährend der Praxis wechseln wir zwischen Phasen der Aktivierung und der Entspannung und lassen so immer mehr los. Statt eine „ideale“ Haltung zu erreichen, entdecken wir unseren eigenen authentischen Ausdruck jeder Asana. Aus Weichheit und Präsenz heraus kann der Körper natürlich seine Form finden.\n\nIn diesem 3-Stunden-Workshop erleben wir die gesamte KTY-Praxis — inklusive der vollen Haltungsreihe und ausgedehnter Entspannungsphasen, die dich tiefer gehen lassen. Du bist eingeladen zuzuhören, zu fühlen und zu entdecken, was dein Körper ausdrücken möchte, mit deinen persönlichen Grenzen zu spielen und die Praxis organisch entfalten zu lassen. Der Workshop ist für alle offen, mit Variationen für unterschiedliche Körper und Bedürfnisse.\n\nKomm und erkunde:\n• Meditation durch Bewegung\n• Atem- und Körperbewusstsein\n• Vitalität\n• Das Zusammenspiel von Stille und Bewegung\n• Weichheit, Präsenz und authentischen Ausdruck\n• Die Verbindung mit dir selbst\n\nTantra lädt uns ein, alle Aspekte unseres Lebens zu verweben, um uns ganz authentisch und mit uns selbst — und mit anderen — verbunden zu fühlen. In diesem Workshop geht es beim Tantra nicht um sexuelle Praktiken, sondern um bewusste Wahrnehmung, innere Klarheit und Lebensenergie.",
+        it: "Il Kaula Tantra Yoga (KTY) è un’antica pratica incarnata di presenza. Unendo corpo, mente e anima, pratichiamo la meditazione nel movimento. Attraverso posture attive, transizioni consapevoli e rilassamento intenzionale, coltiviamo un corpo più morbido, un sistema nervoso regolato e una fiducia più profonda nelle sensazioni — così che serenità e consapevolezza intuitiva diventino più facili nella vita quotidiana.\n\nDurante la pratica alterniamo fasi di attivazione e di rilassamento, permettendoci di lasciar andare sempre di più. Piuttosto che raggiungere una postura „ideale“, scopriamo la nostra espressione autentica di ogni asana. Da un luogo di morbidezza e presenza, il corpo può trovare naturalmente la sua forma.\n\nIn questo workshop di 3 ore vivremo l’intera pratica KTY, compreso l’insieme completo delle posture e fasi estese di rilassamento, per andare più in profondità. Sei invitata/o ad ascoltare, sentire e scoprire ciò che il tuo corpo vuole esprimere, a giocare con i tuoi limiti personali e a lasciare che la pratica si dispieghi in modo organico. Il workshop è aperto a tuttə, con variazioni adatte a corpi ed esigenze diverse.\n\nUnisciti per esplorare:\n• Meditazione attraverso il movimento\n• Consapevolezza del respiro e del corpo\n• Vitalità\n• L’interazione tra quiete e movimento\n• Morbidezza, presenza ed espressione autentica\n• La connessione con te stessa/o\n\nIl Tantra ci invita a intrecciare tutti gli aspetti della nostra vita per sentirci completamente autentici e connessi a noi stessi — e agli altri. In questo workshop, il Tantra non riguarda pratiche sessuali, ma percezione consapevole, chiarezza interiore ed energia vitale.",
+      },
+      level: {
+        en: "Open to everyone, with variations to suit different bodies and needs.",
+        de: "Offen für alle, mit Variationen für unterschiedliche Körper und Bedürfnisse.",
+        it: "Aperto a tuttə, con variazioni adatte a corpi ed esigenze diverse.",
+      },
+      date: {
+        en: "Saturday, 5 December 2026",
+        de: "Samstag, 5. Dezember 2026",
+        it: "Sabato 5 dicembre 2026",
+      },
+      time: {
+        en: "15:00–18:00",
+        de: "15:00–18:00",
+        it: "15:00–18:00",
+      },
+      earlyBird: {
+        en: "Drop-In €20–35 sliding scale",
+        de: "Drop-In 20–35 € Sliding Scale",
+        it: "Drop-In 20–35 € a scala mobile",
+      },
+      regular: {
+        en: "If you cannot afford it, talk to us and we will find a solution together!",
+        de: "Falls du es dir nicht leisten kannst, sprich mit uns — wir finden gemeinsam eine Lösung!",
+        it: "Se non puoi permettertelo, parlaci e troveremo insieme una soluzione!",
+      },
+      usc: {
+        en: "Urban Sports Club / Wellpass: Check-in + €15–25 sliding scale",
+        de: "Urban Sports Club / Wellpass: Check-in + 15–25 € Sliding Scale",
+        it: "Urban Sports Club / Wellpass: Check-in + 15–25 € a scala mobile",
+      },
+      spots: {
+        en: "Minimum: 5 participants",
+        de: "Minimum: 5 Teilnehmende",
+        it: "Minimo: 5 partecipanti",
+      },
+      location: {
+        en: "Ginkgo Yoga, Liebenwalder Straße 11, Berlin-Wedding",
+        de: "Ginkgo Yoga, Liebenwalder Straße 11, Berlin-Wedding",
+        it: "Ginkgo Yoga, Liebenwalder Straße 11, Berlin-Wedding",
+      },
+    },
+  },
   {
     id: "the-space-between-2027",
     icon: Flower2,
