@@ -1170,9 +1170,9 @@ const translations: Translations = {
     it: "In inglese | Su donazione",
   },
   kidsEventCarrier: {
-    en: "Due to space, a baby carrier is recommended",
-    de: "Wegen des Platzes empfehlen wir eine Babytrage",
-    it: "Per lo spazio, consigliamo un marsupio",
+    en: "No space for strollers — please bring a baby carrier",
+    de: "Kein Platz für Kinderwagen — bitte eine Babytrage mitbringen",
+    it: "Niente spazio per il passeggino — porta un marsupio",
   },
   kidsEventDropIn: {
     en: "No sign up needed, just show up!",
