@@ -1124,11 +1124,6 @@ const translations: Translations = {
   },
 
   // Ginkgo Kids / Little Humans
-  kidsNav: {
-    en: "Little Humans",
-    de: "Little Humans",
-    it: "Little Humans",
-  },
   kidsHeroTitle: {
     en: "Ginkgo Kids",
     de: "Ginkgo Kids",
@@ -1753,15 +1748,8 @@ function Header({ onScheduleClick, onEventsClick }: { onScheduleClick: () => voi
           </div>
           )}
 
-          {isKids && (
-          <div className="hidden md:flex items-center space-x-8">
-            <button onClick={() => scrollToSection("little-humans")} className={`text-stone-600/90 ${navHover} transition-all duration-300 font-light hover:opacity-85`}>
-              {t("kidsNav")}
-            </button>
-          </div>
-          )}
-
           <div className="flex items-center space-x-4">
+            {!isKids && (
             <div className="md:hidden">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -1770,12 +1758,6 @@ function Header({ onScheduleClick, onEventsClick }: { onScheduleClick: () => voi
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-48">
-                  {isKids ? (
-                    <DropdownMenuItem onClick={() => scrollToSection("little-humans")}>
-                      {t("kidsNav")}
-                    </DropdownMenuItem>
-                  ) : (
-                    <>
                   <DropdownMenuItem onClick={() => scrollToSection("home")}>
                     {t("home")}
                   </DropdownMenuItem>
@@ -1800,11 +1782,10 @@ function Header({ onScheduleClick, onEventsClick }: { onScheduleClick: () => voi
                   <DropdownMenuItem onClick={() => scrollToSection("contact")}>
                     {t("contact")}
                   </DropdownMenuItem>
-                    </>
-                  )}
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
+            )}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="icon">
