@@ -4,7 +4,6 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
   useState,
   type ReactNode,
 } from "react"
@@ -61,14 +60,18 @@ function prefersReducedMotion() {
   return typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
 }
 
+function scrollToTopInstant() {
+  const root = document.documentElement
+  const prev = root.style.scrollBehavior
+  root.style.scrollBehavior = "auto"
+  window.scrollTo(0, 0)
+  root.style.scrollBehavior = prev
+}
+
 export function SiteModeProvider({ children }: { children: ReactNode }) {
-  const [mode, setMode] = useState<SiteMode>("yoga")
+  const [mode, setMode] = useState<SiteMode>(() => readModeFromUrl())
   const [flipping, setFlipping] = useState(false)
   const [transitionTo, setTransitionTo] = useState<SiteMode | null>(null)
-
-  useEffect(() => {
-    setMode(readModeFromUrl())
-  }, [])
 
   const switchMode = useCallback(
     (next?: SiteMode) => {
@@ -79,7 +82,7 @@ export function SiteModeProvider({ children }: { children: ReactNode }) {
       if (prefersReducedMotion()) {
         setMode(target)
         writeModeToUrl(target)
-        window.scrollTo(0, 0)
+        scrollToTopInstant()
         return
       }
 
@@ -89,7 +92,7 @@ export function SiteModeProvider({ children }: { children: ReactNode }) {
       window.setTimeout(() => {
         setMode(target)
         writeModeToUrl(target)
-        window.scrollTo(0, 0)
+        scrollToTopInstant()
       }, SWAP_MS)
 
       window.setTimeout(() => {
@@ -161,7 +164,11 @@ export function BrandCoinSwitcher() {
 
   return (
     <div className="brand-switcher">
-      <div className="brand-switcher-mark">
+      <a
+        href={isKids ? "#little-humans" : "#home"}
+        className="brand-switcher-mark"
+        aria-label={isKids ? "Ginkgo Kids home" : "Ginkgo Yoga home"}
+      >
         <img
           src={isKids ? "/images/ginkgo-logo-kids.png" : "/images/ginkgo-logo.jpg"}
           alt=""
@@ -170,7 +177,7 @@ export function BrandCoinSwitcher() {
         <span className="brand-switcher-name" style={{ color: accent }}>
           {isKids ? "Ginkgo Kids" : "Ginkgo"}
         </span>
-      </div>
+      </a>
 
       <div className="audience-toggle" role="group" aria-label="Choose site version">
         <button

@@ -1,6 +1,9 @@
 "use client"
 
-import { MapPin, Phone } from "lucide-react"
+import { Mail, MapPin, Phone } from "lucide-react"
+
+const STUDIO_MAPS_URL = "https://maps.app.goo.gl/bnawkqrGpbJAu78Y8"
+const STUDIO_EMAIL = "ginkgoyogaberlin@gmail.com"
 
 /** Poster palette — cream, mint, peach, magenta, deep green */
 const KIDS = {
@@ -143,28 +146,40 @@ export function KidsSite({ t }: KidsSiteProps) {
             {t("kidsEventDropIn")}
           </p>
 
-          <div className="flex items-start gap-2.5 text-left w-full max-w-sm px-1">
+          <a
+            href={STUDIO_MAPS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-start gap-2.5 text-left w-full max-w-sm px-1 transition-opacity hover:opacity-85"
+          >
             <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: "#E24B4B" }} />
             <div className="font-medium text-sm sm:text-base leading-relaxed min-w-0" style={{ color: KIDS.leaf }}>
               <div className="font-semibold">{t("kidsAddressStudio")}</div>
               <div className="break-words">{t("kidsAddressLine")}</div>
             </div>
-          </div>
-
-          <a
-            href="tel:+4915129693732"
-            className="w-full max-w-md flex flex-col items-center justify-center gap-1 rounded-2xl px-5 py-3.5 text-sm font-medium transition-transform hover:scale-[1.01] text-center"
-            style={{
-              background: KIDS.mint,
-              color: KIDS.leaf,
-            }}
-          >
-            <span className="inline-flex items-center gap-2">
-              <Phone className="w-4 h-4 flex-shrink-0" />
-              {t("kidsContactCta")}
-            </span>
-            <span className="tabular-nums tracking-wide">{t("kidsContactPhone")}</span>
           </a>
+
+          <div className="w-full max-w-md flex flex-col gap-2">
+            <a
+              href={`mailto:${STUDIO_EMAIL}?subject=${encodeURIComponent("Little Humans Singing")}`}
+              className="w-full flex items-center justify-center gap-2 rounded-2xl px-5 py-3.5 text-sm font-medium transition-transform hover:scale-[1.01] text-center"
+              style={{ background: KIDS.mint, color: KIDS.leaf }}
+            >
+              <Mail className="w-4 h-4 flex-shrink-0" />
+              {t("kidsContactWrite")}
+            </a>
+            <a
+              href="tel:+4915129693732"
+              className="w-full flex flex-col items-center justify-center gap-1 rounded-2xl px-5 py-3.5 text-sm font-medium transition-transform hover:scale-[1.01] text-center"
+              style={{ background: KIDS.mintSoft, color: KIDS.leaf }}
+            >
+              <span className="inline-flex items-center gap-2">
+                <Phone className="w-4 h-4 flex-shrink-0" />
+                {t("kidsContactCall")}
+              </span>
+              <span className="tabular-nums tracking-wide">{t("kidsContactPhone")}</span>
+            </a>
+          </div>
         </div>
       </section>
 
