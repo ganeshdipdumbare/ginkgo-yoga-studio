@@ -31,6 +31,254 @@
   }
 }
 
+/* Brand row + Yoga|Kids toggle — one shared height, even padding */
+.brand-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2rem;
+  min-width: 0;
+}
+@media (min-width: 640px) {
+  .brand-switcher {
+    gap: 0.75rem;
+    min-height: 2.25rem;
+  }
+}
+.brand-switcher-mark {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
+}
+.brand-switcher-logo {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 999px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid rgba(120, 113, 108, 0.15);
+  clip-path: circle(50% at 50% 50%);
+}
+@media (min-width: 640px) {
+  .brand-switcher-logo {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+.brand-switcher-name {
+  display: none;
+  font-size: 1.05rem;
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  white-space: nowrap;
+}
+@media (min-width: 480px) {
+  .brand-switcher-name {
+    display: inline;
+  }
+}
+.audience-toggle {
+  display: inline-flex;
+  align-items: center;
+  height: 1.75rem;
+  padding: 2px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(120, 113, 108, 0.16);
+  flex-shrink: 0;
+}
+@media (min-width: 640px) {
+  .audience-toggle {
+    height: 2rem;
+  }
+}
+.audience-toggle-btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: #78716c;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  height: calc(1.75rem - 4px);
+  padding: 0 0.55rem;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+}
+@media (min-width: 640px) {
+  .audience-toggle-btn {
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+    height: calc(2rem - 4px);
+    padding: 0 0.7rem;
+  }
+}
+.audience-toggle-btn:disabled {
+  cursor: wait;
+}
+.audience-toggle-btn.is-active.is-yoga {
+  color: #8B6914;
+  background: linear-gradient(135deg, #F6E7A8, #E6D7A7);
+}
+.audience-toggle-btn.is-active.is-kids {
+  color: #B92E5C;
+  background: linear-gradient(135deg, #F7B6C8, #F2C4A0);
+}
+.audience-toggle-btn:not(.is-active):hover {
+  color: #44403c;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* Fast paint cover, then wipe-reveal of the new site */
+.site-paint {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  pointer-events: none;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.site-paint-veil {
+  position: absolute;
+  inset: 0;
+  animation: site-paint-reveal 1s cubic-bezier(0.45, 0.05, 0.2, 1) forwards;
+}
+.site-paint-base {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  animation: site-paint-base 1s ease forwards;
+}
+.site-paint.to-kids .site-paint-base {
+  background: linear-gradient(145deg, #FFF8F4 0%, #F2C4A0 40%, #E85A8B 100%);
+}
+.site-paint.to-yoga .site-paint-base {
+  background: linear-gradient(145deg, #fdf8ef 0%, #F6E7A8 45%, #B69724 100%);
+}
+.site-paint-strokes {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.site-paint-stroke {
+  stroke-dasharray: 180;
+  stroke-dashoffset: 180;
+  animation: site-paint-stroke 0.38s cubic-bezier(0.4, 0.05, 0.2, 1) forwards;
+}
+.site-paint-label {
+  position: relative;
+  z-index: 2;
+  font-size: 1rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  opacity: 0;
+  animation: site-paint-label 1s ease forwards;
+}
+.site-paint.to-kids .site-paint-label { color: #fff; text-shadow: 0 1px 8px rgba(185, 46, 92, 0.35); }
+.site-paint.to-yoga .site-paint-label { color: #8B6914; }
+
+/* Cover stays opaque until swap, then peels left→right so the site reveals */
+@keyframes site-paint-reveal {
+  0%, 38% { clip-path: inset(0 0 0 0); }
+  100% { clip-path: inset(0 0 0 100%); }
+}
+@keyframes site-paint-base {
+  0% { opacity: 0; }
+  18% { opacity: 0.35; }
+  32% { opacity: 1; }
+  100% { opacity: 1; }
+}
+@keyframes site-paint-stroke {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes site-paint-label {
+  0%, 20% { opacity: 0; }
+  32%, 48% { opacity: 1; }
+  62% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.site-is-flipping main,
+.site-is-flipping .kids-site {
+  animation: site-content-reveal 0.55s ease 0.38s both;
+}
+@keyframes site-content-reveal {
+  from { opacity: 0.35; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Kids site motion */
+@keyframes kids-blob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-12px, 18px) scale(1.04); }
+}
+@keyframes kids-blob-slow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(16px, -10px) scale(1.06); }
+}
+@keyframes kids-note {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.9; }
+  50% { transform: translateY(-10px) rotate(6deg); opacity: 1; }
+}
+@keyframes kids-fade-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.kids-blob { animation: kids-blob 9s ease-in-out infinite; }
+.kids-blob-slow { animation: kids-blob-slow 12s ease-in-out infinite; }
+.kids-note-1 { animation: kids-note 5s ease-in-out infinite; transform-origin: center; }
+.kids-note-2 { animation: kids-note 6.5s ease-in-out infinite 0.4s; transform-origin: center; }
+.kids-note-3 { animation: kids-note 7s ease-in-out infinite 0.8s; transform-origin: center; }
+.kids-note-4 { animation: kids-note 5.5s ease-in-out infinite 1.2s; transform-origin: center; }
+.kids-fade-up {
+  opacity: 0;
+  animation: kids-fade-up 0.9s ease-out forwards;
+}
+.kids-delay-1 { animation-delay: 0.12s; }
+.kids-delay-2 { animation-delay: 0.24s; }
+.kids-delay-3 { animation-delay: 0.36s; }
+.kids-title-blob {
+  border-radius: 40% 60% 55% 45% / 55% 40% 60% 45%;
+  animation: kids-blob 8s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .kids-blob,
+  .kids-blob-slow,
+  .kids-note-1,
+  .kids-note-2,
+  .kids-note-3,
+  .kids-note-4,
+  .kids-title-blob,
+  .site-paint,
+  .site-paint-veil,
+  .site-paint-base,
+  .site-paint-stroke,
+  .site-paint-label,
+  .site-is-flipping main,
+  .site-is-flipping .kids-site {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+  .site-paint { display: none; }
+  .kids-fade-up {
+    opacity: 1;
+    animation: none;
+  }
+}
+
 @layer base {
   :root {
     --font-sans: var(--font-geist-sans);
