@@ -888,6 +888,8 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { BrandCoinSwitcher, SiteModeProvider, useSiteMode } from "@/components/site-mode"
+import { KidsSite } from "@/components/kids-site"
 import dynamic from 'next/dynamic'
 
 type Language = "en" | "de" | "it"
@@ -1119,6 +1121,93 @@ const translations: Translations = {
     en: "Close",
     de: "Schließen",
     it: "Chiudi",
+  },
+
+  // Ginkgo Kids / Little Humans
+  kidsNav: {
+    en: "Little Humans",
+    de: "Little Humans",
+    it: "Little Humans",
+  },
+  kidsHeroTitle: {
+    en: "Ginkgo Kids",
+    de: "Ginkgo Kids",
+    it: "Ginkgo Kids",
+  },
+  kidsHeroTagline: {
+    en: "Gentle time together.",
+    de: "Sanfte Zeit miteinander.",
+    it: "Tempo dolce insieme.",
+  },
+  kidsHeroSub: {
+    en: "Music time at Ginkgo Yoga for babies and the adults who come with them.",
+    de: "Musikzeit bei Ginkgo Yoga für Babys und die Erwachsenen, die sie begleiten.",
+    it: "Un momento di musica da Ginkgo Yoga per bebè e gli adulti che li accompagnano.",
+  },
+  kidsEventTitle: {
+    en: "Little Humans Singing",
+    de: "Little Humans Singing",
+    it: "Little Humans Singing",
+  },
+  kidsEventBlurb: {
+    en: "A playful music circle with songs in different languages for babies and their grown ups.",
+    de: "Ein spielerischer Musikkreis mit Liedern in verschiedenen Sprachen für Babys und ihre Erwachsenen.",
+    it: "Un cerchio musicale giocoso con canzoni in lingue diverse per bebè e i loro adulti.",
+  },
+  kidsEventWhen: {
+    en: "Every Thursday",
+    de: "Jeden Donnerstag",
+    it: "Ogni giovedì",
+  },
+  kidsEventTime: {
+    en: "10:45 AM",
+    de: "10:45 Uhr",
+    it: "10:45",
+  },
+  kidsEventAge: {
+    en: "Recommended for babies 0 to 18 months",
+    de: "Empfohlen für Babys von 0 bis 18 Monaten",
+    it: "Consigliato per bebè da 0 a 18 mesi",
+  },
+  kidsEventLang: {
+    en: "Session in English | Donation based",
+    de: "Auf Englisch | Auf Spendenbasis",
+    it: "In inglese | Su donazione",
+  },
+  kidsEventCarrier: {
+    en: "Due to space, a baby carrier is recommended",
+    de: "Wegen des Platzes empfehlen wir eine Babytrage",
+    it: "Per lo spazio, consigliamo un marsupio",
+  },
+  kidsEventDropIn: {
+    en: "No sign up needed, just show up!",
+    de: "Keine Anmeldung nötig — einfach vorbeikommen!",
+    it: "Niente iscrizione — venite e basta!",
+  },
+  kidsAddressStudio: {
+    en: "Ginkgo Yoga",
+    de: "Ginkgo Yoga",
+    it: "Ginkgo Yoga",
+  },
+  kidsAddressLine: {
+    en: "Liebenwalder Str. 11, Aufgang D, 13347 Berlin",
+    de: "Liebenwalder Str. 11, Aufgang D, 13347 Berlin",
+    it: "Liebenwalder Str. 11, Aufgang D, 13347 Berlin",
+  },
+  kidsContactCta: {
+    en: "Questions? Write or call",
+    de: "Fragen? Schreib oder ruf an",
+    it: "Domande? Scrivi o chiama",
+  },
+  kidsContactPhone: {
+    en: "+49 151 2969 3732",
+    de: "+49 151 2969 3732",
+    it: "+49 151 2969 3732",
+  },
+  kidsFooterNote: {
+    en: "Part of Ginkgo Yoga · Berlin",
+    de: "Teil von Ginkgo Yoga · Berlin",
+    it: "Parte di Ginkgo Yoga · Berlino",
   },
 
   // Stats
@@ -1590,7 +1679,10 @@ function GinkgoLeafPattern() {
 
 function Header({ onScheduleClick, onEventsClick }: { onScheduleClick: () => void; onEventsClick: () => void }) {
   const { language, setLanguage, t } = useLanguage()
+  const { mode } = useSiteMode()
+  const isKids = mode === "kids"
   const [isScrolled, setIsScrolled] = useState(false)
+  const navHover = isKids ? "hover:text-[#E85A8B]" : "hover:text-[#B69724]"
 
   useEffect(() => {
     const handleScroll = () => {
@@ -1625,51 +1717,49 @@ function Header({ onScheduleClick, onEventsClick }: { onScheduleClick: () => voi
     >
       <nav className="container mx-auto px-4 sm:px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <a href="#home" className="flex items-center space-x-2 group">
-              <div className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center transition-all duration-500 group-hover:scale-105 shadow-sm border border-stone-200/20">
-                <img
-                  src="/images/ginkgo-logo.jpg"
-                  alt="Ginkgo Yoga Logo"
-                  className="w-full h-full object-cover"
-                  style={{ clipPath: "circle(50% at 50% 50%)" }}
-                />
-              </div>
-              <span className="text-xl font-light tracking-wide transition-colors duration-300 group-hover:opacity-80" style={{ color: "#B69724" }}>
-                Ginkgo
-              </span>
-            </a>
+          <div className="flex items-center">
+            <BrandCoinSwitcher />
           </div>
 
+          {!isKids && (
           <div className="hidden md:flex items-center space-x-8">
-            <button onClick={() => scrollToSection("home")} className="text-stone-600/90 hover:text-[#B69724] transition-all duration-300 font-light hover:opacity-85">
+            <button onClick={() => scrollToSection("home")} className={`text-stone-600/90 ${navHover} transition-all duration-300 font-light hover:opacity-85`}>
               {t("home")}
             </button>
-            <button onClick={() => scrollToSection("about")} className="text-stone-600/90 hover:text-[#B69724] transition-all duration-300 font-light hover:opacity-85">
+            <button onClick={() => scrollToSection("about")} className={`text-stone-600/90 ${navHover} transition-all duration-300 font-light hover:opacity-85`}>
               {t("about")}
             </button>
-            <button onClick={() => scrollToSection("schedule")} className="text-stone-600/90 hover:text-[#B69724] transition-all duration-300 font-light hover:opacity-85">
+            <button onClick={() => scrollToSection("schedule")} className={`text-stone-600/90 ${navHover} transition-all duration-300 font-light hover:opacity-85`}>
               {t("schedule")}
             </button>
-            <button onClick={() => scrollToSection("team")} className="text-stone-600/90 hover:text-[#B69724] transition-all duration-300 font-light hover:opacity-85">
+            <button onClick={() => scrollToSection("team")} className={`text-stone-600/90 ${navHover} transition-all duration-300 font-light hover:opacity-85`}>
               {t("team")}
             </button>
-            <button onClick={() => scrollToSection("pricing")} className="text-stone-600/90 hover:text-[#B69724] transition-all duration-300 font-light hover:opacity-85">
+            <button onClick={() => scrollToSection("pricing")} className={`text-stone-600/90 ${navHover} transition-all duration-300 font-light hover:opacity-85`}>
               {t("pricing")}
             </button>
             <button 
               onClick={() => scrollToSection("events")} 
-              className="relative text-stone-600/90 hover:text-[#B69724] transition-all duration-300 font-light hover:opacity-85"
+              className={`relative text-stone-600/90 ${navHover} transition-all duration-300 font-light hover:opacity-85`}
             >
               {t("events")}
               {hasFeaturedEvents && (
                 <span className="absolute -top-1 -right-1 w-2 h-2 bg-gradient-to-r from-[#D4B95C] to-[#B69724] rounded-full animate-pulse"></span>
               )}
             </button>
-            <button onClick={() => scrollToSection("contact")} className="text-stone-600/90 hover:text-[#B69724] transition-all duration-300 font-light hover:opacity-85">
+            <button onClick={() => scrollToSection("contact")} className={`text-stone-600/90 ${navHover} transition-all duration-300 font-light hover:opacity-85`}>
               {t("contact")}
             </button>
           </div>
+          )}
+
+          {isKids && (
+          <div className="hidden md:flex items-center space-x-8">
+            <button onClick={() => scrollToSection("little-humans")} className={`text-stone-600/90 ${navHover} transition-all duration-300 font-light hover:opacity-85`}>
+              {t("kidsNav")}
+            </button>
+          </div>
+          )}
 
           <div className="flex items-center space-x-4">
             <div className="md:hidden">
@@ -1680,6 +1770,12 @@ function Header({ onScheduleClick, onEventsClick }: { onScheduleClick: () => voi
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-48">
+                  {isKids ? (
+                    <DropdownMenuItem onClick={() => scrollToSection("little-humans")}>
+                      {t("kidsNav")}
+                    </DropdownMenuItem>
+                  ) : (
+                    <>
                   <DropdownMenuItem onClick={() => scrollToSection("home")}>
                     {t("home")}
                   </DropdownMenuItem>
@@ -1704,6 +1800,8 @@ function Header({ onScheduleClick, onEventsClick }: { onScheduleClick: () => voi
                   <DropdownMenuItem onClick={() => scrollToSection("contact")}>
                     {t("contact")}
                   </DropdownMenuItem>
+                    </>
+                  )}
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
@@ -3296,8 +3394,10 @@ function VenueRentalDialog() {
   )
 }
 
-function YogaStudioPortfolio() {
-  const isClient = useIsClient()
+function StudioShell() {
+  const { mode, flipping } = useSiteMode()
+  const { t } = useLanguage()
+  const isKids = mode === "kids"
   const [isScheduleModalOpen, setIsScheduleModalOpen] = useState(false)
   const [isEventsModalOpen, setIsEventsModalOpen] = useState(false)
   const [isNewsletterOpen, setIsNewsletterOpen] = useState(false)
@@ -3312,6 +3412,7 @@ function YogaStudioPortfolio() {
   }, [])
 
   useEffect(() => {
+    if (isKids) return
     let dismissed = false
     try {
       dismissed = localStorage.getItem(NEWSLETTER_DISMISS_KEY) === "1"
@@ -3322,16 +3423,13 @@ function YogaStudioPortfolio() {
 
     const timer = setTimeout(() => setIsNewsletterOpen(true), 800)
     return () => clearTimeout(timer)
-  }, [])
-
-  if (!isClient) {
-    return null
-  }
+  }, [isKids])
 
   return (
-    <LanguageProvider>
-      <div className="min-h-screen scroll-smooth">
-        <style jsx global>{`
+    <div
+      className={`min-h-screen scroll-smooth ${flipping ? "site-is-flipping" : ""}`}
+    >
+      <style jsx global>{`
           @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600&family=Outfit:wght@200;300;400;500&display=swap');
 
           * {
@@ -3464,31 +3562,52 @@ function YogaStudioPortfolio() {
           }
         `}</style>
 
-        {/* --- site sections --- */}
-        <Header 
-          onScheduleClick={() => setIsScheduleModalOpen(true)} 
-          onEventsClick={() => setIsEventsModalOpen(true)} 
-        />
-        <main className="space-y-4">
-          <HeroSection onScheduleClick={() => setIsScheduleModalOpen(true)} />
-          <AboutSection />
-          <InstructorsSection />
-          <PricingSection />
-          <ContactSection />
-        </main>
-        <Footer />
-        <VenueRentalDialog />
-        <NewsletterSignup isOpen={isNewsletterOpen} onClose={closeNewsletter} />
-        <ScheduleModal 
-          isOpen={isScheduleModalOpen} 
-          onClose={() => setIsScheduleModalOpen(false)} 
-        />
-        <EventsModal 
-          isOpen={isEventsModalOpen} 
-          onClose={() => setIsEventsModalOpen(false)} 
-        />
-        <EventsPopup onOpenModal={() => setIsEventsModalOpen(true)} />
-      </div>
+      <Header
+        onScheduleClick={() => setIsScheduleModalOpen(true)}
+        onEventsClick={() => setIsEventsModalOpen(true)}
+      />
+
+      {isKids ? (
+        <KidsSite t={t} />
+      ) : (
+        <>
+          <main className="space-y-4">
+            <HeroSection onScheduleClick={() => setIsScheduleModalOpen(true)} />
+            <AboutSection />
+            <InstructorsSection />
+            <PricingSection />
+            <ContactSection />
+          </main>
+          <Footer />
+          <VenueRentalDialog />
+          <NewsletterSignup isOpen={isNewsletterOpen} onClose={closeNewsletter} />
+          <ScheduleModal
+            isOpen={isScheduleModalOpen}
+            onClose={() => setIsScheduleModalOpen(false)}
+          />
+          <EventsModal
+            isOpen={isEventsModalOpen}
+            onClose={() => setIsEventsModalOpen(false)}
+          />
+          <EventsPopup onOpenModal={() => setIsEventsModalOpen(true)} />
+        </>
+      )}
+    </div>
+  )
+}
+
+function YogaStudioPortfolio() {
+  const isClient = useIsClient()
+
+  if (!isClient) {
+    return null
+  }
+
+  return (
+    <LanguageProvider>
+      <SiteModeProvider>
+        <StudioShell />
+      </SiteModeProvider>
     </LanguageProvider>
   )
 }
