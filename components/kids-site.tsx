@@ -92,7 +92,7 @@ export function KidsSite({ t }: KidsSiteProps) {
 
           <h2 className="sr-only">{t("kidsEventTitle")}</h2>
           <img
-            src="/images/little-humans-title.png"
+            src="/images/little-humans-title.png?v=2"
             alt=""
             className="w-full max-w-[20rem] sm:max-w-md select-none"
             draggable={false}
