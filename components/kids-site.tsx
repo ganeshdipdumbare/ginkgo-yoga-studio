@@ -188,7 +188,7 @@ export function KidsSite({ t }: KidsSiteProps) {
           <div className="flex items-center gap-2.5">
             <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden border border-[#E8A0B8]/70 shadow-sm">
               <img
-                src="/images/ginkgo-logo-kids.png"
+                src="/images/ginkgo-logo-kids.jpg"
                 alt=""
                 className="w-full h-full object-cover"
                 style={{ clipPath: "circle(50% at 50% 50%)" }}
