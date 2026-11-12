@@ -73,6 +73,13 @@ export function KidsSite({ t }: KidsSiteProps) {
 
         <div className="relative z-10 w-full max-w-lg mx-auto px-5 sm:px-6 flex flex-col items-center text-center gap-4 sm:gap-5">
           <div className="flex flex-col items-center gap-2 sm:gap-2.5 pt-2 sm:pt-4">
+            <div className="w-24 h-24 rounded-full overflow-hidden shadow-md border border-[#E8A0B8]/70">
+              <img
+                src="/images/ginkgo-logo-kids.jpg"
+                alt="Ginkgo Kids Logo"
+                className="w-full h-full object-cover p-[8%] bg-[#FBD4E7]"
+              />
+            </div>
             <h1
               className="kids-fade-up text-[2.5rem] leading-[1.1] sm:text-5xl md:text-6xl font-light tracking-tight"
               style={{ color: KIDS.magenta }}
@@ -186,11 +193,11 @@ export function KidsSite({ t }: KidsSiteProps) {
       <footer className="pt-2 pb-8 sm:pb-10 text-center px-5" style={{ background: KIDS.cream }}>
         <div className="flex flex-col items-center gap-2">
           <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-md overflow-hidden border border-[#E8A0B8]/70 shadow-sm">
+            <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden border border-[#E8A0B8]/70 shadow-sm">
               <img
                 src="/images/ginkgo-logo-kids.jpg"
                 alt=""
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover p-[8%] bg-[#FBD4E7]"
               />
             </div>
             <span className="text-base sm:text-lg font-light tracking-wide" style={{ color: KIDS.magenta }}>
