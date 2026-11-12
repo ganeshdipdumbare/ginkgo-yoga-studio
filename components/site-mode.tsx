@@ -170,7 +170,7 @@ export function BrandCoinSwitcher() {
         aria-label={isKids ? "Ginkgo Kids home" : "Ginkgo Yoga home"}
       >
         <img
-          src={isKids ? "/images/ginkgo-logo-kids.png" : "/images/ginkgo-logo.jpg"}
+          src={isKids ? "/images/ginkgo-logo-kids.jpg" : "/images/ginkgo-logo.jpg"}
           alt=""
           className="brand-switcher-logo"
         />
