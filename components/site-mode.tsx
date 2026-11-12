@@ -172,7 +172,7 @@ export function BrandCoinSwitcher() {
         <img
           src={isKids ? "/images/ginkgo-logo-kids.jpg" : "/images/ginkgo-logo.jpg"}
           alt=""
-          className="brand-switcher-logo"
+          className={`brand-switcher-logo${isKids ? " brand-switcher-logo--kids" : ""}`}
         />
         <span className="brand-switcher-name" style={{ color: accent }}>
           {isKids ? "Ginkgo Kids" : "Ginkgo"}

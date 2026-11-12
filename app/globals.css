@@ -68,6 +68,11 @@
     height: 2rem;
   }
 }
+/* Kids logo includes the wordmark, so a circle would crop it */
+.brand-switcher-logo--kids {
+  border-radius: 0.375rem;
+  clip-path: none;
+}
 .brand-switcher-name {
   display: none;
   font-size: 1.05rem;
