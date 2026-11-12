@@ -186,12 +186,11 @@ export function KidsSite({ t }: KidsSiteProps) {
       <footer className="pt-2 pb-8 sm:pb-10 text-center px-5" style={{ background: KIDS.cream }}>
         <div className="flex flex-col items-center gap-2">
           <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden border border-[#E8A0B8]/70 shadow-sm">
+            <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-md overflow-hidden border border-[#E8A0B8]/70 shadow-sm">
               <img
                 src="/images/ginkgo-logo-kids.jpg"
                 alt=""
                 className="w-full h-full object-cover"
-                style={{ clipPath: "circle(50% at 50% 50%)" }}
               />
             </div>
             <span className="text-base sm:text-lg font-light tracking-wide" style={{ color: KIDS.magenta }}>
