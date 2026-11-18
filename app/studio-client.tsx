@@ -558,6 +558,12 @@ interface EventTranslation {
     de: string;
     it: string;
   };
+  /** Optional teaser shown before “More…” expands the full description */
+  shortDescription?: {
+    en: string;
+    de: string;
+    it: string;
+  };
   description: {
     en: string;
     de: string;
@@ -671,6 +677,75 @@ const events: Event[] = [
         en: "Urban Sports Club / Wellpass: Check-in + €15–25 sliding scale",
         de: "Urban Sports Club / Wellpass: Check-in + 15–25 € Sliding Scale",
         it: "Urban Sports Club / Wellpass: Check-in + 15–25 € a scala mobile",
+      },
+      spots: {
+        en: "Minimum: 5 participants",
+        de: "Minimum: 5 Teilnehmende",
+        it: "Minimo: 5 partecipanti",
+      },
+      location: {
+        en: "Ginkgo Yoga, Liebenwalder Straße 11, Berlin-Wedding",
+        de: "Ginkgo Yoga, Liebenwalder Straße 11, Berlin-Wedding",
+        it: "Ginkgo Yoga, Liebenwalder Straße 11, Berlin-Wedding",
+      },
+    },
+  },
+  {
+    id: "unfolding-the-year-2026",
+    icon: Moon,
+    gradient: "from-[#D4B95C] to-[#B69724]",
+    featured: true,
+    email: "ginkgoyogaberlin@gmail.com",
+    translations: {
+      title: {
+        en: "Unfolding the Year",
+        de: "Unfolding the Year",
+        it: "Unfolding the Year",
+      },
+      subtitle: {
+        en: "~ words through yin ~ · Yin Yoga · Reflective Writing · Sound · with Lucija",
+        de: "~ words through yin ~ · Yin Yoga · reflektives Schreiben · Klang · mit Lucija",
+        it: "~ words through yin ~ · Yin Yoga · scrittura riflessiva · suono · con Lucija",
+      },
+      shortDescription: {
+        en: "A slow afternoon to pause, reflect on the year behind you and gently turn towards what's next.\n\nThrough Yin Yoga, crystal bowl sounds and reflective writing, we'll make space to listen, release and discover what wants to unfold.",
+        de: "Ein langsamer Nachmittag, um innezuhalten, auf das Jahr hinter dir zu schauen und dich sanft dem zuzuwenden, was als Nächstes kommt.\n\nMit Yin Yoga, Kristallklangschalen und reflektierendem Schreiben schaffen wir Raum zum Hören, Loslassen und Entdecken, was sich entfalten möchte.",
+        it: "Un pomeriggio lento per fermarsi, riflettere sull’anno alle spalle e voltarsi con delicatezza verso ciò che viene dopo.\n\nAttraverso Yin Yoga, i suoni delle campane di cristallo e la scrittura riflessiva, creiamo spazio per ascoltare, lasciare andare e scoprire ciò che vuole dispiegarsi.",
+      },
+      description: {
+        en: "Before this year ends, you're invited to a slow afternoon: to stop, to look back, and to gently turn toward what's next.\n\nThis is a time to reflect on the year so far, and to release through rest, breath, sound, and the materiality of words.\n\nOver the afternoon, we move through yin poses that gently work along the kidney and bladder meridians, associated in Chinese medicine with winter, rest and what we store for the season ahead. Each pose carries one question, offered as you settle in and held in the body while you breathe. The sounds of crystal bowls open and close each pose, and then we write: a few minutes of reflective journaling, resisting the urge to edit, letting the question answer in its own way. Slowly, pose by pose, the year begins to speak.\n\nWe close with a ritual of three gestures. One thing stays. One accompanies you into the new year. And one finds its way to someone you may not know yet.\n\nThe rest you'll discover in the space.\n\nGood to know\n• No yoga or writing experience needed\n• Nothing needs to be shared aloud unless you want to\n• Paper and pens are provided; bring your own notebook if you like\n• Tea, cookies, coffee — waiting\n• Wear comfortable clothes\n• Held in English; feel free to write in whatever language comes to you\n\nFacilitated by Lucija, from the Ginkgo Yoga team: a yoga teacher, artist, workshop facilitator and coach.",
+        de: "Bevor dieses Jahr endet, bist du zu einem langsamen Nachmittag eingeladen: innehalten, zurückschauen und dich sanft dem zuzuwenden, was als Nächstes kommt.\n\nZeit, das Jahr bisher zu reflektieren — und durch Ruhe, Atem, Klang und die Materialität der Worte loszulassen.\n\nÜber den Nachmittag bewegen wir uns durch Yin-Haltungen, die sanft entlang der Nieren- und Blasenmeridiane arbeiten — in der chinesischen Medizin verbunden mit Winter, Ruhe und dem, was wir für die kommende Jahreszeit speichern. Jede Haltung trägt eine Frage, die dich beim Ankommen begleitet und im Körper gehalten wird, während du atmest. Der Klang der Kristallschalen öffnet und schließt jede Haltung; danach schreiben wir: ein paar Minuten reflektierendes Journaling, ohne den Impuls zu korrigieren, und lassen die Frage auf ihre eigene Weise antworten. Pose für Pose beginnt das Jahr zu sprechen.\n\nWir schließen mit einem Ritual aus drei Gesten. Etwas bleibt. Etwas begleitet dich ins neue Jahr. Und etwas findet den Weg zu jemandem, den du vielleicht noch nicht kennst.\n\nDen Rest entdeckst du im Raum.\n\nGut zu wissen\n• Keine Yoga- oder Schreiberfahrung nötig\n• Nichts muss laut geteilt werden, es sei denn, du möchtest\n• Papier und Stifte sind da; bring gerne dein eigenes Notizbuch mit\n• Tee, Kekse, Kaffee — warten schon\n• Bequeme Kleidung tragen\n• Auf Englisch gehalten; schreib gerne in der Sprache, die sich meldet\n\nBegleitet von Lucija aus dem Ginkgo-Yoga-Team: Yogalehrerin, Künstlerin, Workshop-Facilitatorin und Coach.",
+        it: "Prima che quest’anno finisca, sei invitata/o a un pomeriggio lento: fermarti, guardare indietro e voltarti con delicatezza verso ciò che viene dopo.\n\nÈ un tempo per riflettere sull’anno finora, e per lasciare andare attraverso riposo, respiro, suono e la materialità delle parole.\n\nNel corso del pomeriggio attraversiamo pose yin che lavorano dolcemente lungo i meridiani di rene e vescica — nella medicina cinese legati all’inverno, al riposo e a ciò che conserviamo per la stagione a venire. Ogni posa porta una domanda, offerta mentre ti sistemerai e tenuta nel corpo mentre respiri. I suoni delle campane di cristallo aprono e chiudono ogni posa; poi scriviamo: pochi minuti di journaling riflessivo, resistendo all’impulso di correggere, lasciando che la domanda risponda a modo suo. Piano piano, posa dopo posa, l’anno inizia a parlare.\n\nChiudiamo con un rituale di tre gesti. Una cosa resta. Una ti accompagna nel nuovo anno. E una trova la strada verso qualcuno che forse non conosci ancora.\n\nIl resto lo scoprirai nello spazio.\n\nBuono a sapersi\n• Non serve esperienza di yoga o di scrittura\n• Niente va condiviso ad alta voce, a meno che tu non lo voglia\n• Carta e penne sono fornite; porta il tuo taccuino se preferisci\n• Tè, biscotti, caffè — ti aspettano\n• Indossa abiti comodi\n• Tenuto in inglese; sentiti liberə di scrivere nella lingua che arriva\n\nFacilitato da Lucija, del team Ginkgo Yoga: insegnante di yoga, artista, facilitatrice di workshop e coach.",
+      },
+      level: {
+        en: "No experience needed · Held in English · Writing in any language welcome.",
+        de: "Keine Erfahrung nötig · Auf Englisch gehalten · Schreiben in jeder Sprache willkommen.",
+        it: "Nessuna esperienza richiesta · Tenuto in inglese · Scrivere in qualsiasi lingua è benvenuto.",
+      },
+      date: {
+        en: "Saturday, 12 December 2026",
+        de: "Samstag, 12. Dezember 2026",
+        it: "Sabato 12 dicembre 2026",
+      },
+      time: {
+        en: "15:00–17:30",
+        de: "15:00–17:30",
+        it: "15:00–17:30",
+      },
+      earlyBird: {
+        en: "Regular: €28–45 (sliding scale)",
+        de: "Regular: 28–45 € (Sliding Scale)",
+        it: "Regular: 28–45 € (scala mobile)",
+      },
+      regular: {
+        en: "Pay what reflects your year. €38 covers the space and the work; choose above or below as your present allows.",
+        de: "Zahle, was dein Jahr widerspiegelt. 38 € decken Raum und Arbeit; wähle darüber oder darunter, wie es dir jetzt möglich ist.",
+        it: "Paga ciò che riflette il tuo anno. 38 € coprono lo spazio e il lavoro; scegli sopra o sotto come ti permette il presente.",
+      },
+      usc: {
+        en: "Urban Sports Club / Wellpass: check-in + €20–24 (sliding scale)",
+        de: "Urban Sports Club / Wellpass: Check-in + 20–24 € (Sliding Scale)",
+        it: "Urban Sports Club / Wellpass: check-in + 20–24 € (scala mobile)",
       },
       spots: {
         en: "Minimum: 5 participants",
@@ -885,6 +960,7 @@ import {
   Clock,
   Users,
   Flower2,
+  Moon,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
@@ -1053,6 +1129,16 @@ const translations: Translations = {
     en: "Past event",
     de: "Vergangene Veranstaltung",
     it: "Evento passato",
+  },
+  eventMore: {
+    en: "More…",
+    de: "Mehr…",
+    it: "Altro…",
+  },
+  eventLess: {
+    en: "Show less",
+    de: "Weniger anzeigen",
+    it: "Mostra meno",
   },
 
   // Contact Section
@@ -2587,7 +2673,7 @@ function EventsPopup({ onOpenModal }: { onOpenModal: () => void }) {
                 <span className="font-light">{eventTranslations.date[language]} · {eventTranslations.time[language]}</span>
               </div>
               <p className="text-xs text-stone-600 font-light line-clamp-2">
-                {eventTranslations.description[language]}
+                {eventTranslations.shortDescription?.[language] ?? eventTranslations.description[language]}
               </p>
             </div>
 
@@ -2709,6 +2795,8 @@ function EventModalCard({
 }) {
   const EventIcon = event.icon
   const eventTranslations = event.translations
+  const hasShortDescription = Boolean(eventTranslations.shortDescription?.[language])
+  const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(!hasShortDescription)
 
   return (
     <div
@@ -2751,7 +2839,21 @@ function EventModalCard({
       </div>
 
       <div className="mb-6 relative z-10">
-        <p className="text-base text-stone-700 leading-relaxed font-light mb-3 whitespace-pre-line">{eventTranslations.description[language]}</p>
+        <p className="text-base text-stone-700 leading-relaxed font-light mb-3 whitespace-pre-line">
+          {hasShortDescription && !isDescriptionExpanded
+            ? eventTranslations.shortDescription![language]
+            : eventTranslations.description[language]}
+        </p>
+        {hasShortDescription && (
+          <button
+            type="button"
+            onClick={() => setIsDescriptionExpanded((prev) => !prev)}
+            className="mb-3 text-sm font-light transition-colors hover:opacity-80"
+            style={{ color: "#B69724" }}
+          >
+            {isDescriptionExpanded ? t("eventLess") : t("eventMore")}
+          </button>
+        )}
         <p className="text-sm text-stone-600 font-light italic">{eventTranslations.level[language]}</p>
       </div>
 
