@@ -1209,7 +1209,7 @@ const translations: Translations = {
     it: "Chiudi",
   },
 
-  // Ginkgo Kids / Little Humans
+  // Ginkgo Kids
   kidsHeroTitle: {
     en: "Ginkgo Kids",
     de: "Ginkgo Kids",
@@ -1221,10 +1221,27 @@ const translations: Translations = {
     it: "Tempo dolce insieme.",
   },
   kidsHeroSub: {
-    en: "Music time at Ginkgo Yoga for babies and the adults who come with them.",
-    de: "Musikzeit bei Ginkgo Yoga für Babys und die Erwachsenen, die sie begleiten.",
-    it: "Un momento di musica da Ginkgo Yoga per bebè e gli adulti che li accompagnano.",
+    en: "Music and yoga for little ones at Ginkgo Yoga.",
+    de: "Musik und Yoga für die Kleinen bei Ginkgo Yoga.",
+    it: "Musica e yoga per i più piccoli da Ginkgo Yoga.",
   },
+  kidsTabLittleHumans: {
+    en: "Little Humans",
+    de: "Little Humans",
+    it: "Little Humans",
+  },
+  kidsTabKidsYoga: {
+    en: "Kids Yoga",
+    de: "Kids Yoga",
+    it: "Kids Yoga",
+  },
+  kidsTabAria: {
+    en: "Choose a kids offering",
+    de: "Kinderangebot wählen",
+    it: "Scegli un’offerta per bambini",
+  },
+
+  // Little Humans Singing
   kidsEventTitle: {
     en: "Little Humans Singing",
     de: "Little Humans Singing",
@@ -1265,6 +1282,54 @@ const translations: Translations = {
     de: "Keine Anmeldung nötig — einfach vorbeikommen!",
     it: "Niente iscrizione — venite e basta!",
   },
+
+  // Kids Yoga
+  kidsYogaTitle: {
+    en: "Kids Yoga",
+    de: "Kids Yoga",
+    it: "Kids Yoga",
+  },
+  kidsYogaBlurb: {
+    en: "Ready to meet other children, play and do yoga together? This is your space to move, explore and discover: we’ll turn into animals and shapes, sing, dance, laugh, breathe and get creative together.",
+    de: "Bereit, andere Kinder kennenzulernen, zu spielen und gemeinsam Yoga zu machen? Hier ist euer Raum zum Bewegen, Entdecken und Ausprobieren: Wir werden zu Tieren und Formen, singen, tanzen, lachen, atmen und zusammen kreativ sein.",
+    it: "Pronti a conoscere altri bambini, giocare e fare yoga insieme? Questo è il vostro spazio per muovervi, esplorare e scoprire: diventeremo animali e forme, canteremo, balleremo, rideremo, respireremo e creeremo insieme.",
+  },
+  kidsYogaAgeLine: {
+    en: "A playful yoga, movement & mindfulness practice for children aged 4–7.",
+    de: "Eine spielerische Yoga-, Bewegungs- und Achtsamkeitspraxis für Kinder von 4–7 Jahren.",
+    it: "Una pratica giocosa di yoga, movimento e mindfulness per bambini dai 4 ai 7 anni.",
+  },
+  kidsYogaWhen: {
+    en: "Tuesdays 16:15–17:15",
+    de: "Dienstags 16:15–17:15",
+    it: "Martedì 16:15–17:15",
+  },
+  kidsYogaLang: {
+    en: "Session in German / English",
+    de: "Stunde auf Deutsch / Englisch",
+    it: "Sessione in tedesco / inglese",
+  },
+  kidsYogaParents: {
+    en: "Without parents (usually after the first class)",
+    de: "Ohne Eltern (meist ab der zweiten Stunde)",
+    it: "Senza genitori (di solito dalla seconda lezione)",
+  },
+  kidsYogaDonation: {
+    en: "Donation-based",
+    de: "Auf Spendenbasis",
+    it: "Su donazione",
+  },
+  kidsYogaStroller: {
+    en: "Please note: We don’t have space for strollers (Kinderwagen).",
+    de: "Bitte beachten: Wir haben keinen Platz für Kinderwagen.",
+    it: "Nota: non abbiamo spazio per i passeggini (Kinderwagen).",
+  },
+  kidsYogaMailSubject: {
+    en: "Kids Yoga",
+    de: "Kids Yoga",
+    it: "Kids Yoga",
+  },
+
   kidsAddressStudio: {
     en: "Ginkgo Yoga",
     de: "Ginkgo Yoga",
