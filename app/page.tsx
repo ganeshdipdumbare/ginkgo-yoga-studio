@@ -9,7 +9,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   const { kids } = await searchParams
   if (kids === "1") {
     const description =
-      "Gentle music time for babies and grown-ups at Ginkgo Yoga in Berlin."
+      "Little Humans Singing and Kids Yoga at Ginkgo Yoga in Berlin."
     return {
       title: "Ginkgo Kids",
       description,
