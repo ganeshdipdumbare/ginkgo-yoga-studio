@@ -245,7 +245,7 @@ export function KidsSite({ t }: KidsSiteProps) {
               {t("kidsContactWrite")}
             </a>
             <a
-              href="tel:+4915129693732"
+              href={isYoga ? "tel:+4915773625280" : "tel:+4915129693732"}
               className="w-full flex flex-col items-center justify-center gap-1 rounded-2xl px-5 py-3.5 text-sm font-medium transition-transform hover:scale-[1.01] text-center"
               style={{
                 background: isYoga ? `${KIDS.yellow}99` : KIDS.mintSoft,
@@ -256,7 +256,9 @@ export function KidsSite({ t }: KidsSiteProps) {
                 <Phone className="w-4 h-4 flex-shrink-0" />
                 {t("kidsContactCall")}
               </span>
-              <span className="tabular-nums tracking-wide">{t("kidsContactPhone")}</span>
+              <span className="tabular-nums tracking-wide">
+                {isYoga ? t("kidsYogaContactPhone") : t("kidsContactPhone")}
+              </span>
             </a>
           </div>
         </div>

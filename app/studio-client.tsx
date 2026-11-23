@@ -1300,9 +1300,9 @@ const translations: Translations = {
     it: "Una pratica giocosa di yoga, movimento e mindfulness per bambini dai 4 ai 7 anni.",
   },
   kidsYogaWhen: {
-    en: "Tuesdays 16:15–17:15",
-    de: "Dienstags 16:15–17:15",
-    it: "Martedì 16:15–17:15",
+    en: "Starting 2 February · Tuesdays 16:15–17:15",
+    de: "Ab 2. Februar · Dienstags 16:15–17:15",
+    it: "Dal 2 febbraio · Martedì 16:15–17:15",
   },
   kidsYogaLang: {
     en: "Session in German / English",
@@ -1354,6 +1354,11 @@ const translations: Translations = {
     en: "+49 151 2969 3732",
     de: "+49 151 2969 3732",
     it: "+49 151 2969 3732",
+  },
+  kidsYogaContactPhone: {
+    en: "01577 3625280",
+    de: "01577 3625280",
+    it: "01577 3625280",
   },
   kidsFooterNote: {
     en: "Part of Ginkgo Yoga · Berlin",
