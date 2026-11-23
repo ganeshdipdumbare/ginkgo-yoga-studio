@@ -1300,9 +1300,9 @@ const translations: Translations = {
     it: "Una pratica giocosa di yoga, movimento e mindfulness per bambini dai 4 ai 7 anni.",
   },
   kidsYogaWhen: {
-    en: "Starting 2 February · Tuesdays 16:15–17:15",
-    de: "Ab 2. Februar · Dienstags 16:15–17:15",
-    it: "Dal 2 febbraio · Martedì 16:15–17:15",
+    en: "Starting 2 February · every Tuesday 16:15–17:15",
+    de: "Ab 2. Februar · jeden Dienstag 16:15–17:15",
+    it: "Dal 2 febbraio · ogni martedì 16:15–17:15",
   },
   kidsYogaLang: {
     en: "Session in German / English",
