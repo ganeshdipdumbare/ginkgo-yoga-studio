@@ -68,11 +68,6 @@
     height: 2rem;
   }
 }
-/* Kids logo includes the wordmark, so scale it down to fit the circle */
-.brand-switcher-logo--kids {
-  padding: 8%;
-  background: #fbd4e7;
-}
 .brand-switcher-name {
   display: none;
   font-size: 1.05rem;
@@ -212,22 +207,17 @@
 .kids-offering-tab:not(.is-active):hover {
   opacity: 1;
 }
-.kids-offering-tab-logo {
-  width: 1.35rem;
-  height: 1.35rem;
+.kids-offering-tab-dot {
+  width: 0.5rem;
+  height: 0.5rem;
   border-radius: 999px;
-  object-fit: cover;
-  padding: 6%;
-  background: #fbd4e7;
-  border: 1px solid rgba(232, 160, 184, 0.55);
   flex-shrink: 0;
 }
-.kids-offering-tab-dot {
-  width: 0.55rem;
-  height: 0.55rem;
-  border-radius: 999px;
+.kids-offering-tab-dot.is-humans {
+  background: #c23a6b;
+}
+.kids-offering-tab-dot.is-yoga {
   background: #e9a06a;
-  flex-shrink: 0;
 }
 @media (min-width: 640px) {
   .kids-offering-tab {
@@ -235,9 +225,9 @@
     padding: 0.65rem 0.85rem;
     gap: 0.5rem;
   }
-  .kids-offering-tab-logo {
-    width: 1.5rem;
-    height: 1.5rem;
+  .kids-offering-tab-dot {
+    width: 0.55rem;
+    height: 0.55rem;
   }
 }
 .kids-offering-panel {
@@ -376,11 +366,17 @@
   .site-paint-stroke,
   .site-paint-label,
   .site-is-flipping main,
-  .site-is-flipping .kids-site,
-  .kids-offering-tab-indicator {
+  .site-is-flipping .kids-site {
     animation: none !important;
     transition: none !important;
     transform: none !important;
+  }
+  .kids-offering-tab-indicator {
+    animation: none !important;
+    transition: none !important;
+  }
+  .kids-offering-tab-indicator.is-yoga {
+    transform: translateX(100%) !important;
   }
   .site-paint { display: none; }
   .kids-fade-up {

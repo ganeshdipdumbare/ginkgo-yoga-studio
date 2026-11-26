@@ -151,9 +151,9 @@ export function KidsSite({ t }: KidsSiteProps) {
           <div className="flex flex-col items-center gap-2 sm:gap-2.5 pt-2 sm:pt-4">
             <div className="w-24 h-24 rounded-full overflow-hidden shadow-md border border-[#E8A0B8]/70">
               <img
-                src="/images/ginkgo-logo-kids.jpg"
+                src="/images/ginkgo-kids-logo.png"
                 alt="Ginkgo Kids Logo"
-                className="w-full h-full object-cover p-[8%] bg-[#FBD4E7]"
+                className="w-full h-full object-cover"
               />
             </div>
             <h1
@@ -194,11 +194,7 @@ export function KidsSite({ t }: KidsSiteProps) {
               onClick={() => switchOffering("little-humans")}
               className={`kids-offering-tab ${!isYoga ? "is-active is-humans" : ""}`}
             >
-              <img
-                src="/images/ginkgo-logo-kids.jpg"
-                alt=""
-                className="kids-offering-tab-logo"
-              />
+              <span className="kids-offering-tab-dot is-humans" aria-hidden />
               <span>{t("kidsTabLittleHumans")}</span>
             </button>
             <button
@@ -210,7 +206,7 @@ export function KidsSite({ t }: KidsSiteProps) {
               onClick={() => switchOffering("kids-yoga")}
               className={`kids-offering-tab ${isYoga ? "is-active is-yoga" : ""}`}
             >
-              <span className="kids-offering-tab-dot" aria-hidden />
+              <span className="kids-offering-tab-dot is-yoga" aria-hidden />
               <span>{t("kidsTabKidsYoga")}</span>
             </button>
           </div>
@@ -269,9 +265,9 @@ export function KidsSite({ t }: KidsSiteProps) {
           <div className="flex items-center gap-2.5">
             <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full overflow-hidden border border-[#E8A0B8]/70 shadow-sm">
               <img
-                src="/images/ginkgo-logo-kids.jpg"
+                src="/images/ginkgo-kids-logo.png"
                 alt=""
-                className="w-full h-full object-cover p-[8%] bg-[#FBD4E7]"
+                className="w-full h-full object-cover"
               />
             </div>
             <span className="text-base sm:text-lg font-light tracking-wide" style={{ color: accent }}>
