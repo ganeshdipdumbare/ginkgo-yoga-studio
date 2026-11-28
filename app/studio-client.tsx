@@ -515,6 +515,37 @@ const teamMembers: TeamMember[] = [
     },
   },
   {
+    id: "iria",
+    image: "/images/iria.jpg",
+    gradient: "from-[#B69724] to-[#D4B95C]",
+    aura: "amber",
+    expertise: ["Hatha & Vinyasa Yoga", "Yin Yoga", "Sound Meditation & Sound Baths", "Breathwork", "Bhakti Yoga"],
+    email: "ginkgoyogaberlin@gmail.com",
+    languages: ["English", "Spanish"],
+    translations: {
+      name: {
+        en: "Iria",
+        de: "Iria",
+        it: "Iria",
+      },
+      specialty: {
+        en: "Yin Yoga & Sound Bath",
+        de: "Yin Yoga & Sound Bath",
+        it: "Yin Yoga & Bagno Sonoro",
+      },
+      bio: {
+        en: "Hi, I’m Iria!\n\nI’m originally from Galicia, Spain, and my yoga journey began many years ago. In 2021, I completed my first teacher training in Hatha and Vinyasa Yoga, and since then, I’ve continued exploring and deepening my practice through yoga philosophy, breathwork, Yin Yoga, Bhakti Yoga and sound meditation.\n\nI’ve always been drawn to dynamic, energising practices that awaken both body and mind. But when I discovered Yin Yoga, something shifted. It helped me understand what balance really means: that it’s not always about moving forward or doing more, but also about knowing when to slow down and be still. There is no Yang without Yin, no expansion without softness.\n\nFor me, Yin Yoga and sound are two beautiful practices that naturally complement each other. Yin invites us to turn inward through stillness, softness and surrender, while sound takes us on a journey through vibration and resonance. Together, they create space for the body to release tension and the mind to find stillness.\n\nAt Ginkgo, I guide Yin Yoga classes and immersive sound bath journeys, inviting you to slow down, reconnect with yourself and experience deep rest.\n\nCome as you are, slow down, breathe deeply and let the sound carry you back home.",
+        de: "Hi, ich bin Iria!\n\nIch komme ursprünglich aus Galicien in Spanien, und meine Yoga-Reise begann vor vielen Jahren. 2021 absolvierte ich meine erste Yogalehrerausbildung in Hatha und Vinyasa Yoga und habe meine Praxis seitdem durch Yoga-Philosophie, Atemarbeit, Yin Yoga, Bhakti Yoga und Klangmeditation kontinuierlich weiter erforscht und vertieft.\n\nIch fühlte mich schon immer zu dynamischen, energetisierenden Praktiken hingezogen, die sowohl Körper als auch Geist wecken. Doch als ich Yin Yoga entdeckte, veränderte sich etwas. Es half mir zu verstehen, was Balance wirklich bedeutet: dass es nicht immer darum geht, vorwärtszugehen oder mehr zu tun, sondern auch zu wissen, wann man langsamer werden und still sein darf. Es gibt kein Yang ohne Yin, keine Ausdehnung ohne Weichheit.\n\nFür mich sind Yin Yoga und Klang zwei wunderschöne Praktiken, die einander auf natürliche Weise ergänzen. Yin lädt uns durch Stille, Weichheit und Hingabe dazu ein, nach innen zu schauen, während Klang uns auf eine Reise durch Schwingung und Resonanz mitnimmt. Gemeinsam schaffen sie Raum, damit der Körper Spannungen loslassen und der Geist zur Ruhe kommen kann.\n\nBei Ginkgo leite ich Yin-Yoga-Klassen und immersive Sound-Bath-Reisen und lade dich ein, langsamer zu werden, dich wieder mit dir selbst zu verbinden und tiefe Ruhe zu erfahren.\n\nKomm, wie du bist, werde langsamer, atme tief durch und lass dich vom Klang wieder nach Hause tragen.",
+        it: "Ciao, sono Iria!\n\nVengo dalla Galizia, in Spagna, e il mio percorso nello yoga è iniziato molti anni fa. Nel 2021 ho completato la mia prima formazione per insegnanti in Hatha e Vinyasa Yoga e da allora ho continuato a esplorare e approfondire la mia pratica attraverso la filosofia dello yoga, il lavoro sul respiro, lo Yin Yoga, il Bhakti Yoga e la meditazione sonora.\n\nSono sempre stata attratta da pratiche dinamiche ed energizzanti che risvegliano sia il corpo sia la mente. Ma quando ho scoperto lo Yin Yoga, qualcosa è cambiato. Mi ha aiutata a comprendere cosa significhi davvero l’equilibrio: che non si tratta sempre di andare avanti o fare di più, ma anche di sapere quando rallentare e restare nella quiete. Non c’è Yang senza Yin, né espansione senza morbidezza.\n\nPer me, lo Yin Yoga e il suono sono due pratiche meravigliose che si completano naturalmente a vicenda. Lo Yin ci invita a volgerci verso l’interno attraverso la quiete, la morbidezza e l’abbandono, mentre il suono ci accompagna in un viaggio attraverso la vibrazione e la risonanza. Insieme creano spazio affinché il corpo rilasci le tensioni e la mente trovi quiete.\n\nDa Ginkgo guido lezioni di Yin Yoga e viaggi immersivi di bagno sonoro, invitandoti a rallentare, riconnetterti con te stessa e sperimentare un riposo profondo.\n\nVieni così come sei, rallenta, respira profondamente e lascia che il suono ti riporti a casa.",
+      },
+      philosophy: {
+        en: "Come as you are, slow down, breathe deeply and let the sound carry you back home.",
+        de: "Komm, wie du bist, werde langsamer, atme tief durch und lass dich vom Klang wieder nach Hause tragen.",
+        it: "Vieni così come sei, rallenta, respira profondamente e lascia che il suono ti riporti a casa.",
+      },
+    },
+  },
+  {
     id: "join-us-1",
     image: "/placeholder-user.jpg",
     gradient: "from-[#D4B95C] to-[#B69724]",
